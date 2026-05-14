@@ -46,6 +46,14 @@
 
             static void StartGame()
             {
+                string[] responses =
+                {
+                "\nThe world does not respond.",
+                "\nThe wind carries your words away.",
+                "\nNothing stirs.",
+                "\nYou cannot do that here."
+                };
+                Random rand = new Random();
                 string userInput;
                 Console.Clear();
                 Console.WriteLine("Proceeding.");
@@ -69,9 +77,58 @@
                 Console.WriteLine("watching the distant castle loom over the horizon — vast, broken, and waiting.");
                 Thread.Sleep(2000);
 
-                Console.WriteLine("\n\nWhat would you like to do?");
-                Console.WriteLine("Type the following to help: Help\nThis will be available all throughout the game.");
-                userInput = Console.ReadLine();
+                bool atBonfire = true;
+                while (atBonfire)
+                {
+                    Console.WriteLine("\n\nWhat would you like to do?");
+                    Console.WriteLine("Type the following to help: Help\nThis will be available all throughout the game.");
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo continue to rest at the bonfire type: Rest");
+                        Console.WriteLine("To leave the bonfire type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("\n\nThe traveler remains seated as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Beyond the treeline, the broken silhouette of the castle watches in silence, unmoving, patient.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The bonfire does not judge. It only burns.");
+                        Thread.Sleep(2000);
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Ahead, the untamed field stretches toward darkening woods swallowed by time.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Would you like to explore the area? Y/N");
+                        userInput = Console.ReadLine();
+                        if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                        {
+                            atBonfire = false;
+                        }
+                        else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                        {
+                            Console.WriteLine("The traveler remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
+                        }
+                        else
+                        {
+                            Console.WriteLine(responses[rand.Next(responses.Length)]);
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
+                Console.WriteLine("..");
             }
         }
     }
