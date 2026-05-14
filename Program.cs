@@ -12,10 +12,12 @@
             if (userInput == "quit")
             {
                 Console.WriteLine("You quit the game");
+                Thread.Sleep(1000);
             }
             else if (userInput == "help")
             {
                 Console.WriteLine("type the following to exit the game: quit");
+                Thread.Sleep(1000);
             }
             else
             {
