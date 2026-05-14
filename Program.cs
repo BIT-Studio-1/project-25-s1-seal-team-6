@@ -8,7 +8,7 @@
             string result;
             Console.WriteLine("You are in a dark and forbidding place.");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("Type the following to help: Help");
+            Console.WriteLine("Type the following for help: Help");
             userInput = Console.ReadLine();
             if (userInput.ToLower() == "quit")
             {
