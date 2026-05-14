@@ -7,7 +7,7 @@
             string userInput;
             string result;
             Console.WriteLine("You are in a dark and forbidding place");
-            Console.WriteLine("what do you want to do?");       
+            Console.WriteLine("What do you want to do?");       
             userInput = Console.ReadLine();
             if (userInput == "quit")
             {
