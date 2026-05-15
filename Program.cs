@@ -15,8 +15,7 @@ namespace NewGame
             userInput = Console.ReadLine();
 
             //Aflie's Work
-
-                if (userInput.ToLower() == "quit")
+            if (userInput.ToLower() == "quit")
                 {
                 Console.WriteLine("You quit the game");
                 Thread.Sleep(1000);
@@ -36,7 +35,7 @@ namespace NewGame
                 {
                     Console.WriteLine("Go away");
                     Thread.Sleep(1000);
-                    //Environment.Exit(0);
+                    Environment.Exit(0);
                 }
             }
             else if (userInput.ToLower() == "proceed")
@@ -47,11 +46,12 @@ namespace NewGame
             {
                 Console.WriteLine("Go away");
                 Thread.Sleep(1000);
-                //Environment.Exit(0);
+                Environment.Exit(0);
             }
 
             static void StartGame()
             {
+                string[] inventory = new string[5];
                 string[] responses =
                 {
                 "\nThe world does not respond.",
@@ -219,8 +219,48 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("..");
-                Console.ReadLine();
+                bool hasSword = false;
+                Console.WriteLine("\nThe traveler presses onward, leaving the bonfire’s fading warmth behind.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Something glints faintly beneath the pale light of the evening sky.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Half-buried in the mud beside the path lies the corpse of a fallen knight.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Its armor is split open with age and ruin, but one hand still clutches the hilt of a weathered blade.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Would you like to collected the sword?");
+                userInput = Console.ReadLine();
+                if (userInput == "y" || userInput == "yes")
+                {
+                    inventory[0] = "Rusty Sword";
+                    hasSword = true;
+                    Console.WriteLine("You obtained: Rusty Sword");
+                }
+                else
+                {
+                    Console.WriteLine("You leave the sword behind.");
+                }
+                Console.WriteLine("You continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
+                Thread.Sleep(2000);
+
+
+                //if (hasSword)
+                //{
+                //    Console.WriteLine("\nYou draw the Rusty Sword.");
+                //    Thread.Sleep(2000);
+                //    Console.WriteLine("The creature hesitates.");
+                //    Thread.Sleep(2000);
+                //    Console.WriteLine("With a desperate swing, you cut the hollow down.");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("\nYou have nothing to defend yourself with.");
+                //    Thread.Sleep(2000);
+                //    Console.WriteLine("The creature rushes forward.");
+                //    Thread.Sleep(2000);
+                //    Console.WriteLine("You barely escape with your life.");
+                //}
+
             }
 
                 //Klae's Work Section
