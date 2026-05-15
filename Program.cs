@@ -156,19 +156,51 @@ namespace NewGame
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                 {
-                    Console.WriteLine();
+                    Console.WriteLine("\nThe iron gate groans as it yields, its ancient hinges screaming into silence...");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Beyond it lies the forgotten kingdom proper. The air grows heavy.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("A bonfire waits in the distance. Would you like to rest?");
+                    Thread.Sleep(2000);
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
+                        Thread.Sleep(2000);
+                    }
+                    else if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("At the bonfire: Rest / Proceed");
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("You continue past the bonfire.");
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
                 }
                 else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                 {
-                    Console.WriteLine();
+                    Console.WriteLine("\nYou stare at the entrance of the kingdom.");
+                    Console.WriteLine("The gate does not blame you.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("It is very intimidating.");
+                }
+                else if (userInput.ToLower() == "help")
+                {
+                    Console.WriteLine("At the gate: Y/N");
+                    Console.WriteLine("At the bonfire: Rest / Proceed");
                 }
                 else
                 {
                     Console.WriteLine(responses[rand.Next(responses.Length)]);
                 }
-
-
-
+                Console.WriteLine("..");
+                Console.ReadLine();
             }
 
                 //Klae's Work Section
