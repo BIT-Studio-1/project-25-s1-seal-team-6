@@ -84,8 +84,8 @@ namespace NewGame
                 Thread.Sleep(2000);
 
 
-                bool atBonfire = true;
-                while (atBonfire)
+                bool atIntoBonfire = true;
+                while (atIntoBonfire)
                 {
                     Console.WriteLine("\n\nWhat would you like to do?");
                     Console.WriteLine("Type the following for help: Help\nThis will be available all throughout the game.");
@@ -122,7 +122,7 @@ namespace NewGame
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                             {
-                                atBonfire = false;
+                                atIntoBonfire = false;
                                 deciding = false;
                             }
                             else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
@@ -152,52 +152,72 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("The gate does not welcome. It only remains. Waiting.");
                 Thread.Sleep(2000);
-                Console.WriteLine("Would you like to proceed? Y/N");
-                userInput = Console.ReadLine();
-                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+
+                bool atGateBonfire = true;
+                bool atGate = true;
+                while (atGate)
                 {
-                    Console.WriteLine("\nThe iron gate groans as it yields, its ancient hinges screaming into silence...");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("Beyond it lies the forgotten kingdom proper. The air grows heavy.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("A bonfire waits in the distance. Would you like to rest?");
-                    Thread.Sleep(2000);
+                    Console.WriteLine("Would you like to proceed? Y/N");
                     userInput = Console.ReadLine();
-                    if (userInput.ToLower() == "rest")
+
+                    if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                     {
-                        Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
+                        Console.WriteLine("\nThe iron gate groans as it yields, its ancient hinges screaming into silence...");
                         Thread.Sleep(2000);
-                        Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
+                        Console.WriteLine("Beyond it lies the forgotten kingdom. The air grows heavy.");
                         Thread.Sleep(2000);
+                        Console.WriteLine("A bonfire waits in the distance. Would you like to rest?");
+                        Thread.Sleep(2000);
+
+                        while (atGateBonfire)
+                        {
+                            Console.WriteLine("\nRest or Proceed?");
+                            userInput = Console.ReadLine();
+                            if (userInput.ToLower() == "rest")
+                            {
+                                Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("You continue to enjoy the warmth of the bonfire.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("But a part of you feels like you are wasting time...");
+                                Thread.Sleep(2000);
+                            }
+                            else if (userInput.ToLower() == "help")
+                            {
+                                Console.WriteLine("At the bonfire: Rest / Proceed");
+                            }
+                            else if (userInput.ToLower() == "proceed")
+                            {
+                                Console.WriteLine("The traveler leaves the warmth of the fire behind and steps deeper into the ruined kingdom.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("Somewhere ahead, unseen things stir in the dark.");
+                                Thread.Sleep(2000);
+                                atGateBonfire = false;
+                                atGate = false;
+                            }
+                            else
+                            {
+                                Console.WriteLine(responses[rand.Next(responses.Length)]);
+                            }
+                        }
+                    }
+                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                    {
+                        Console.WriteLine("\nYou stare at the entrance of the kingdom.");
+                        Console.WriteLine("The gate does not blame you.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("It is very intimidating.");
                     }
                     else if (userInput.ToLower() == "help")
                     {
-                        Console.WriteLine("At the bonfire: Rest / Proceed");
-                    }
-                    else if (userInput.ToLower() == "proceed")
-                    {
-                        Console.WriteLine("You continue past the bonfire.");
+                        Console.WriteLine("At the gate: Y/N");                        
                     }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
-                }
-                else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
-                {
-                    Console.WriteLine("\nYou stare at the entrance of the kingdom.");
-                    Console.WriteLine("The gate does not blame you.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("It is very intimidating.");
-                }
-                else if (userInput.ToLower() == "help")
-                {
-                    Console.WriteLine("At the gate: Y/N");
-                    Console.WriteLine("At the bonfire: Rest / Proceed");
-                }
-                else
-                {
-                    Console.WriteLine(responses[rand.Next(responses.Length)]);
                 }
                 Console.WriteLine("..");
                 Console.ReadLine();
