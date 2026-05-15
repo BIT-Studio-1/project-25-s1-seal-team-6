@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace NewGame
@@ -51,6 +52,8 @@ namespace NewGame
 
             static void StartGame()
             {
+                int player, BKknight;
+                int playerHealth = 100;
                 string[] inventory = new string[5];
                 string[] responses =
                 {
@@ -209,6 +212,7 @@ namespace NewGame
                         Console.WriteLine("The gate does not blame you.");
                         Thread.Sleep(2000);
                         Console.WriteLine("It is very intimidating.");
+                        Thread.Sleep(2000);
                     }
                     else if (userInput.ToLower() == "help")
                     {
@@ -224,7 +228,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Something glints faintly beneath the pale light of the evening sky.");
                 Thread.Sleep(2000);
-                Console.WriteLine("Half-buried in the mud beside the path lies the corpse of a fallen knight.");
+                Console.WriteLine("Half-buried in stone beside the path lies the corpse of a fallen knight.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Its armor is split open with age and ruin, but one hand still clutches the hilt of a weathered blade.");
                 Thread.Sleep(2000);
@@ -242,30 +246,122 @@ namespace NewGame
                 }
                 Console.WriteLine("You continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
-
-
-                //if (hasSword)
-                //{
-                //    Console.WriteLine("\nYou draw the Rusty Sword.");
-                //    Thread.Sleep(2000);
-                //    Console.WriteLine("The creature hesitates.");
-                //    Thread.Sleep(2000);
-                //    Console.WriteLine("With a desperate swing, you cut the hollow down.");
-                //}
-                //else
-                //{
-                //    Console.WriteLine("\nYou have nothing to defend yourself with.");
-                //    Thread.Sleep(2000);
-                //    Console.WriteLine("The creature rushes forward.");
-                //    Thread.Sleep(2000);
-                //    Console.WriteLine("You barely escape with your life.");
-                //}
-
+                Console.WriteLine("The traveler slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
+                Thread.Sleep(2000);
+                Console.WriteLine("At its center stands a lone figure clad in blackened armor, motionless beneath the pale light filtering through the clouds above.");
+                Thread.Sleep(2000);
+                Console.WriteLine("For a moment, it seems no more alive than the statues scattered throughout the kingdom.\nThen the knight moves.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Beneath the shattered visor, two faint embers flicker within the darkness where eyes should have been.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
+                Thread.Sleep(2000);
+                int BKhealth = 100;
+                while ((playerHealth > 0) && (BKhealth > 0))
+                {
+                    if (hasSword)
+                    {
+                        player = rand.Next(0, 3);
+                        if (player == 0)
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("You slash the Black Knight with the Rusty Sword!");
+                            BKhealth -= 25;
+                            Console.WriteLine($"Black Knight Health: {BKhealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        else if (player == 1)
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("You lunge at the Black knight, piercing him!");
+                            BKhealth -= 50;
+                            Console.WriteLine($"Black Knight Health: {BKhealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("Your sword swing misses.");
+                            Console.WriteLine($"Black Knight Health: {BKhealth}");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("------------------------------------------------");
+                        }
+                        BKknight = rand.Next(0, 3);
+                        if (BKknight == 0)
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("The black knight swings his sword, slashing you!");
+                            playerHealth -= 25;
+                            Console.WriteLine($"Your Health: {playerHealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        else if (BKknight == 1)
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("The black knight lunges with his sword, striking you with it");
+                            playerHealth -= 25;
+                            Console.WriteLine($"Your Health: {playerHealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("The Black Knight's strike misses.");
+                            Console.WriteLine($"Your Health: {playerHealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                    }
+                    else
+                    {
+                        player = rand.Next(0, 2);
+                        if (player == 0)
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("You swing you fist and deal -1 damage!");
+                            BKhealth -= 1;
+                            Console.WriteLine($"Black Knight Health: {BKhealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("You swing your fist.. and miss");
+                            Console.WriteLine($"Black Knight Health: {BKhealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        BKknight = rand.Next(0, 2);
+                        if (BKknight == 0)
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("The black knight swings his sword, slashing you!");
+                            playerHealth -= 50;
+                            Console.WriteLine($"Your Health: {playerHealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.WriteLine("------------------------------------------------");
+                            Console.WriteLine("The black knight lunges with his sword, striking you with it");
+                            playerHealth -= 50;
+                            Console.WriteLine($"Your Health: {playerHealth}");
+                            Console.WriteLine("------------------------------------------------");
+                            Thread.Sleep(2000);
+                        }
+                    } 
+                }
             }
 
-                //Klae's Work Section
+            //Klae's Work Section
 
-                if ((userInput.ToLower() == "bonfire") || (userInput.ToLower() == "campfire"))
+            if ((userInput.ToLower() == "bonfire") || (userInput.ToLower() == "campfire"))
                 {
                     Console.WriteLine("You arrive at a small encampment\n\n It looks like it has been left on it own, the fire only just about to go out!");
                     Thread.Sleep(1000);
