@@ -84,8 +84,8 @@ namespace NewGame
                 Thread.Sleep(2000);
 
 
-                bool atIntoBonfire = true;
-                while (atIntoBonfire)
+                bool atIntroBonfire = true;
+                while (atIntroBonfire)
                 {
                     Console.WriteLine("\n\nWhat would you like to do?");
                     Console.WriteLine("Type the following for help: Help\nThis will be available all throughout the game.");
@@ -122,7 +122,7 @@ namespace NewGame
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                             {
-                                atIntoBonfire = false;
+                                atIntroBonfire = false;
                                 deciding = false;
                             }
                             else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
