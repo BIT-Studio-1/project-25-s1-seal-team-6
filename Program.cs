@@ -288,32 +288,36 @@ namespace NewGame
                             Thread.Sleep(2000);
                             Console.WriteLine("------------------------------------------------");
                         }
-                        BKknight = rand.Next(0, 3);
-                        if (BKknight == 0)
+
+                        if (BKhealth > 0)
                         {
-                            Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("The black knight swings his sword, slashing you!");
-                            playerHealth -= 25;
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine("------------------------------------------------");
-                            Thread.Sleep(2000);
-                        }
-                        else if (BKknight == 1)
-                        {
-                            Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("The black knight lunges with his sword, striking you with it");
-                            playerHealth -= 25;
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine("------------------------------------------------");
-                            Thread.Sleep(2000);
-                        }
-                        else
-                        {
-                            Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("The Black Knight's strike misses.");
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine("------------------------------------------------");
-                            Thread.Sleep(2000);
+                            BKknight = rand.Next(0, 3);
+                            if (BKknight == 0)
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The black knight swings his sword, slashing you!");
+                                playerHealth -= 25;
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                            else if (BKknight == 1)
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The black knight lunges with his sword, striking you with it");
+                                playerHealth -= 25;
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                            else
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Black Knight's strike misses.");
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
                         }
                     }
                     else
@@ -354,8 +358,16 @@ namespace NewGame
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine("------------------------------------------------");
                             Thread.Sleep(2000);
-                        }
+                        }                        
                     } 
+                }
+                if (playerHealth <= 0)
+                {
+                    Console.WriteLine("You Died...");
+                }
+                else if (BKhealth <= 0)
+                {
+                    Console.WriteLine("Victory Achieved");
                 }
             }
 
