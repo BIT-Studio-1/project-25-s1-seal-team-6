@@ -88,7 +88,7 @@ namespace NewGame
                 while (atBonfire)
                 {
                     Console.WriteLine("\n\nWhat would you like to do?");
-                    Console.WriteLine("Type the following to help: Help\nThis will be available all throughout the game.");
+                    Console.WriteLine("Type the following for help: Help\nThis will be available all throughout the game.");
                     userInput = Console.ReadLine();
                     if (userInput.ToLower() == "help")
                     {
@@ -122,7 +122,7 @@ namespace NewGame
                         }
                         else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                         {
-                            Console.WriteLine("The traveler remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
+                            Console.WriteLine("\nThe traveler remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
                         }
                         else
                         {
@@ -136,10 +136,6 @@ namespace NewGame
                     }
                 }
                 Console.WriteLine("..");
-
-                Console.WriteLine("\n\nWhat would you like to do?");
-                Console.WriteLine("Type the following to help: Help\nThis will be available all throughout the game.");
-                userInput = Console.ReadLine();
 
                 
 
