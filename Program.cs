@@ -142,9 +142,18 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("..");
+                Console.WriteLine("The traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
+                Thread.Sleep(2000);
+                Console.WriteLine("The land soon begins to change—wild fields giving way to broken stone paths half-swallowed by earth.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Something vast begins to take shape.A wall.Not the castle itself, but the forgotten edge of a kingdom long sealed away from time.");
+                Thread.Sleep(2000);
+                Console.WriteLine("And there, set within its ruin, stands a massive iron gate. Rusted. Heavy. Unmoving.");
+                Thread.Sleep(2000);
+                Console.WriteLine("The gate does not welcome. It only remains. Waiting.");
+                Thread.Sleep(2000);
 
-                
+
 
             }
 
