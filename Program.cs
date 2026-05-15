@@ -152,6 +152,20 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("The gate does not welcome. It only remains. Waiting.");
                 Thread.Sleep(2000);
+                Console.WriteLine("Would you like to proceed? Y/N");
+                userInput = Console.ReadLine();
+                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                {
+                    Console.WriteLine();
+                }
+                else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine(responses[rand.Next(responses.Length)]);
+                }
 
 
 
