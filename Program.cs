@@ -116,7 +116,7 @@ namespace NewGame
                 Console.WriteLine("watching the distant castle loom over the horizon — vast, broken, and waiting.");
                 Thread.Sleep(2000);
 
-<<<<<<< HEAD
+
                 bool atBonfire = true;
                 while (atBonfire)
                 {
@@ -169,7 +169,7 @@ namespace NewGame
                     }
                 }
                 Console.WriteLine("..");
-=======
+
                 Console.WriteLine("\n\nWhat would you like to do?");
                 Console.WriteLine("Type the following to help: Help\nThis will be available all throughout the game.");
                 userInput = Console.ReadLine();
@@ -181,7 +181,7 @@ namespace NewGame
 
 
 
->>>>>>> 90b1bff583afb73a5ad0ca645176cdadff91c12a
+
             }
         }
     }
