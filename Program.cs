@@ -326,8 +326,8 @@ namespace NewGame
                         if (player == 0)
                         {
                             Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("You swing you fist and deal -1 damage!");
-                            BKhealth -= 1;
+                            Console.WriteLine("You swing you fist and deal -5 damage!");
+                            BKhealth -= 5;
                             Console.WriteLine($"Black Knight Health: {BKhealth}");
                             Console.WriteLine("------------------------------------------------");
                             Thread.Sleep(2000);
@@ -345,7 +345,7 @@ namespace NewGame
                         {
                             Console.WriteLine("------------------------------------------------");
                             Console.WriteLine("The black knight swings his sword, slashing you!");
-                            playerHealth -= 50;
+                            playerHealth -= 25;
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine("------------------------------------------------");
                             Thread.Sleep(2000);
@@ -354,7 +354,7 @@ namespace NewGame
                         {
                             Console.WriteLine("------------------------------------------------");
                             Console.WriteLine("The black knight lunges with his sword, striking you with it");
-                            playerHealth -= 50;
+                            playerHealth -= 25;
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine("------------------------------------------------");
                             Thread.Sleep(2000);
