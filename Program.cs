@@ -1,11 +1,24 @@
 ﻿using System.ComponentModel.Design;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace NewGame
 {
     internal class Program
     {
+        public static void RespawnOne()
+        {
+            Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
+            Thread.Sleep(2000);
+            Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
+            Thread.Sleep(2000);
+            Console.WriteLine("You continue to enjoy the warmth of the bonfire.");
+            Thread.Sleep(2000);
+            Console.WriteLine("But a part of you feels like you are wasting time...");
+            Thread.Sleep(2000);
+        }
+
         static void Main()
         {
             string userInput;
@@ -156,6 +169,8 @@ namespace NewGame
                 Console.WriteLine("The gate does not welcome. It only remains. Waiting.");
                 Thread.Sleep(2000);
 
+
+
                 bool atGateBonfire = true;
                 bool atGate = true;
                 while (atGate)
@@ -178,14 +193,7 @@ namespace NewGame
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "rest")
                             {
-                                Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
-                                Thread.Sleep(2000);
-                                Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
-                                Thread.Sleep(2000);
-                                Console.WriteLine("You continue to enjoy the warmth of the bonfire.");
-                                Thread.Sleep(2000);
-                                Console.WriteLine("But a part of you feels like you are wasting time...");
-                                Thread.Sleep(2000);
+                                RespawnOne();
                             }
                             else if (userInput.ToLower() == "help")
                             {
@@ -223,6 +231,9 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
+
+        
+
                 bool hasSword = false;
                 Console.WriteLine("\nThe traveler presses onward, leaving the bonfire’s fading warmth behind.");
                 Thread.Sleep(2000);
@@ -364,7 +375,7 @@ namespace NewGame
                 if (playerHealth <= 0)
                 {
                     Console.WriteLine("You Died...");
-                    //ADD RESPAWN HERE
+                    RespawnOne();
                 }
                 else if (BKhealth <= 0)
                 {
@@ -377,7 +388,8 @@ namespace NewGame
                 Console.WriteLine("You have absorbed the back knights soul and gained +25 health");
                 Console.WriteLine("Max health total: 125HP");
                 Thread.Sleep(2000);
-                Console.WriteLine("");
+                Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once laid.");
+                Thread.Sleep(2000);
                 Console.ReadLine();
             }
 
