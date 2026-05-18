@@ -232,7 +232,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Its armor is split open with age and ruin, but one hand still clutches the hilt of a weathered blade.");
                 Thread.Sleep(2000);
-                Console.WriteLine("Would you like to collected the sword?");
+                Console.WriteLine("Would you like to collected the sword? Y/N");
                 userInput = Console.ReadLine();
                 if (userInput == "y" || userInput == "yes")
                 {
@@ -370,13 +370,15 @@ namespace NewGame
                 {
                     Console.WriteLine("Victory Achieved");
                 }
-                Console.WriteLine("The black knight groans as he falls to his knees");
+                Console.WriteLine("\n\nThe black knight groans as he falls to his knees");
                 Thread.Sleep(2000);
                 Console.WriteLine("His body turns to dust, floating in the air.");
                 Thread.Sleep(2000);
                 Console.WriteLine("You have absorbed the back knights soul and gained +25 health");
                 Console.WriteLine("Max health total: 125HP");
                 Thread.Sleep(2000);
+                Console.WriteLine("");
+                Console.ReadLine();
             }
 
             //Klae's Work Section
