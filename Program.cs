@@ -7,6 +7,7 @@ namespace NewGame
 {
     internal class Program
     {
+        static string[] Inventory = new string[5];
         public static void RespawnOne()
         {
             Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
@@ -30,20 +31,29 @@ namespace NewGame
 
             //Aflie's Work
             if (userInput.ToLower() == "quit")
-                {
+            {
                 Console.WriteLine("You quit the game");
                 Thread.Sleep(1000);
                 Environment.Exit(0);
-                }
+            }
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
+                Console.WriteLine("Type I to view your inventory");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
                 {
                     StartGame();
+                }
+                else if (userInput.ToLower() == "proceed")
+                {
+                    StartGame();
+                }
+                else if (userInput.ToLower() == "i")
+                {
+                    InventoryMenu();
                 }
                 else
                 {
@@ -52,15 +62,39 @@ namespace NewGame
                     Environment.Exit(0);
                 }
             }
-            else if (userInput.ToLower() == "proceed")
+
+            //AJ's Work-Inventory
+            static void InventoryMenu()
             {
-                StartGame();
-            }
-            else
-            {
-                Console.WriteLine("Go away");
-                Thread.Sleep(1000);
-                Environment.Exit(0);
+                bool isEmpty = true;
+                foreach (string item in Inventory)
+                {
+                    if (item != null)
+                    {
+                        isEmpty = false;
+                        break;
+                    }
+                }
+
+                if (isEmpty)
+                {
+                    Console.WriteLine("Your inventory is currently empty");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Press X to exit");
+                }
+                else
+                {
+                    Console.WriteLine("Your items: ");
+                    foreach (string item in Inventory)
+                    {
+                        if (item != null)
+                        {
+                            Console.WriteLine("- " + item);
+                        }
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Press X to exit");
+                    }
+                }
             }
 
             static void StartGame()
