@@ -7,6 +7,7 @@ namespace NewGame
 {
     internal class Program
     {
+        //Alfie's Work
         public static void RespawnOne()
         {
             Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
@@ -28,7 +29,7 @@ namespace NewGame
             Console.WriteLine("Type the following for help: Help");
             userInput = Console.ReadLine();
 
-            //Aflie's Work
+            
             if (userInput.ToLower() == "quit")
                 {
                 Console.WriteLine("You quit the game");
