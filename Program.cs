@@ -8,6 +8,7 @@ namespace NewGame
     internal class Program
     {
         static string[] Inventory = new string[5];
+        //Alfie's Work
         public static void RespawnOne()
         {
             Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
@@ -20,6 +21,41 @@ namespace NewGame
             Thread.Sleep(2000);
         }
 
+        //AJ's Work-Inventory
+        public static void InventoryMenu()
+        {
+            bool isEmpty = true;
+            foreach (string item in Inventory)
+            {
+                if (item != null)
+                {
+                    isEmpty = false;
+                    break;
+                }
+            }
+
+            if (isEmpty)
+            {
+                Console.WriteLine("Your inventory is currently empty");
+
+                Thread.Sleep(1000);
+                Console.WriteLine("Press X to exit");
+            }
+            else
+            {
+                Console.WriteLine("Your items: ");
+                foreach (string item in Inventory)
+                {
+                    if (item != null)
+                    {
+                        Console.WriteLine("- " + item);
+                    }
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Press X to exit");
+                }
+            }
+        }
+
         static void Main()
         {
             string userInput;
@@ -29,7 +65,7 @@ namespace NewGame
             Console.WriteLine("Type the following for help: Help");
             userInput = Console.ReadLine();
 
-            //Aflie's Work
+            
             if (userInput.ToLower() == "quit")
             {
                 Console.WriteLine("You quit the game");
@@ -40,7 +76,7 @@ namespace NewGame
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
-                Console.WriteLine("Type I to view your inventory");
+                Console.WriteLine("Type Inv to view your inventory");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
@@ -51,49 +87,17 @@ namespace NewGame
                 {
                     StartGame();
                 }
-                else if (userInput.ToLower() == "i")
+                else if (userInput.ToLower() == "inv")
                 {
                     InventoryMenu();
+                    Thread.Sleep(5000);
+                    StartGame();
                 }
                 else
                 {
                     Console.WriteLine("Go away");
                     Thread.Sleep(1000);
                     Environment.Exit(0);
-                }
-            }
-
-            //AJ's Work-Inventory
-            static void InventoryMenu()
-            {
-                bool isEmpty = true;
-                foreach (string item in Inventory)
-                {
-                    if (item != null)
-                    {
-                        isEmpty = false;
-                        break;
-                    }
-                }
-
-                if (isEmpty)
-                {
-                    Console.WriteLine("Your inventory is currently empty");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("Press X to exit");
-                }
-                else
-                {
-                    Console.WriteLine("Your items: ");
-                    foreach (string item in Inventory)
-                    {
-                        if (item != null)
-                        {
-                            Console.WriteLine("- " + item);
-                        }
-                        Thread.Sleep(1000);
-                        Console.WriteLine("Press X to exit");
-                    }
                 }
             }
 
