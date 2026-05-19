@@ -7,11 +7,15 @@ namespace NewGame
 {
     internal class Program
     {
+
         public static void Welcome()
         {
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
             Console.Write("\nPress Enter to start"); Console.ReadLine();
         }
+
+
+        static string[] Inventory = new string[5];
 
         //Alfie's Work
         public static void RespawnOne()
@@ -26,6 +30,41 @@ namespace NewGame
             Thread.Sleep(2000);
         }
 
+        //AJ's Work-Inventory
+        public static void InventoryMenu()
+        {
+            bool isEmpty = true;
+            foreach (string item in Inventory)
+            {
+                if (item != null)
+                {
+                    isEmpty = false;
+                    break;
+                }
+            }
+
+            if (isEmpty)
+            {
+                Console.WriteLine("Your inventory is currently empty");
+
+                Thread.Sleep(1000);
+                Console.WriteLine("Press X to exit");
+            }
+            else
+            {
+                Console.WriteLine("Your items: ");
+                foreach (string item in Inventory)
+                {
+                    if (item != null)
+                    {
+                        Console.WriteLine("- " + item);
+                    }
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Press X to exit");
+                }
+            }
+        }
+
         static void Main()
         {
             string userInput;
@@ -37,19 +76,30 @@ namespace NewGame
 
             
             if (userInput.ToLower() == "quit")
-                {
+            {
                 Console.WriteLine("You quit the game");
                 Thread.Sleep(1000);
                 Environment.Exit(0);
-                }
+            }
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
+                Console.WriteLine("Type Inv to view your inventory");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
                 {
+                    StartGame();
+                }
+                else if (userInput.ToLower() == "proceed")
+                {
+                    StartGame();
+                }
+                else if (userInput.ToLower() == "inv")
+                {
+                    InventoryMenu();
+                    Thread.Sleep(5000);
                     StartGame();
                 }
                 else
@@ -58,16 +108,6 @@ namespace NewGame
                     Thread.Sleep(1000);
                     Environment.Exit(0);
                 }
-            }
-            else if (userInput.ToLower() == "proceed")
-            {
-                StartGame();
-            }
-            else
-            {
-                Console.WriteLine("Go away");
-                Thread.Sleep(1000);
-                Environment.Exit(0);
             }
 
             static void StartGame()
