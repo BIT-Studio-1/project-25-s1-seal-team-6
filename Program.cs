@@ -293,7 +293,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to collected the sword? Y/N");
                 userInput = Console.ReadLine();
-                if (userInput == "y" || userInput == "yes")
+                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                 {
                     inventory[0] = "Rusty Sword";
                     hasSword = true;
@@ -433,12 +433,39 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("His body turns to dust, floating in the air.");
                 Thread.Sleep(2000);
-                Console.WriteLine("You have absorbed the back knights soul and gained +25 health");
+                Console.WriteLine("You have absorbed the Black Knight's soul and gained +25 health");
                 Console.WriteLine("Max health total: 125HP");
                 Thread.Sleep(2000);
                 Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once laid.");
                 Thread.Sleep(2000);
-                Console.ReadLine();
+                Console.WriteLine("Beyond the drifting fog, a vast cathedral rose above the kingdom like the corpse of a forgotten god.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Its spires clawed toward the heavens, while shattered stained glass glimmered faintly beneath the sky.");
+                Thread.Sleep(2000);
+                Console.WriteLine("The great doors stood partially open, though it didn't seem inviting.");
+                Thread.Sleep(2000);
+                Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
+                Thread.Sleep(2000);
+                Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Would you like to proceed?");
+                userInput = Console.ReadLine();
+                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "proceed")
+                {
+
+                }
+                else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                {
+
+                }
+                else if (userInput.ToLower() == "help")
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine(responses[rand.Next(responses.Length)]);
+                }
             }
 
             //Klae's Work Section
