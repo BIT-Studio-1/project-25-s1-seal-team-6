@@ -91,11 +91,7 @@ namespace NewGame
                 if (userInput.ToLower() == "proceed")
                 {
                     StartGame();
-                }
-                else if (userInput.ToLower() == "proceed")
-                {
-                    StartGame();
-                }
+                }                
                 else if (userInput.ToLower() == "inv")
                 {
                     InventoryMenu();
