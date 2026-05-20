@@ -452,7 +452,7 @@ namespace NewGame
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "proceed")
                 {
-
+                    Console.WriteLine();
                 }
                 else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                 {
