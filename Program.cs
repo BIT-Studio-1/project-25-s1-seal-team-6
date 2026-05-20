@@ -436,7 +436,7 @@ namespace NewGame
                 Console.WriteLine("You have absorbed the Black Knight's soul and gained +25 health");
                 Console.WriteLine("Max health total: 125HP");
                 Thread.Sleep(2000);
-                Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once laid.");
+                Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once lay.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Beyond the drifting fog, a vast cathedral rose above the kingdom like the corpse of a forgotten god.");
                 Thread.Sleep(2000);
@@ -446,13 +446,27 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
                 Thread.Sleep(2000);
-                Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
-                Thread.Sleep(2000);
-                Console.WriteLine("Would you like to proceed?");
+                Console.WriteLine("Would you like to enter?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "proceed")
                 {
-                    Console.WriteLine();
+                    Console.WriteLine("\n\nYou push against the cathedral doors with both hands. The ancient wood groans as the entrance slowly opens.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Rows of broken benches stretch endlessly across the vast cathedral hall, cloaked in dust and silence..");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("At the center of the cathedral, before a ruined altar, a lone figure kneels motionless.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Its body is thin and wrapped in torn black cloth stained with age. Twin daggers rest at its sides, their metal darkened like burnt silver.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("For a moment, the figure appears lifeless. Then the sound reaches you.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Breathing. Slow. Hollow. Wrong..");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("“You should not have entered this place,” a rasping voice whispers.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("The kneeling figure slowly rose from before the ruined altar. Beneath the hood, two pale eyes opened like dying embers in the dark.");
+                    Thread.Sleep(2000);
+
                 }
                 else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                 {
