@@ -206,7 +206,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
+                Console.WriteLine("\n\nThe traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
                 Thread.Sleep(2000);
                 Console.WriteLine("The land soon begins to change—wild fields giving way to broken stone paths half-swallowed by earth.");
                 Thread.Sleep(2000);
@@ -297,13 +297,13 @@ namespace NewGame
                 {
                     inventory[0] = "Rusty Sword";
                     hasSword = true;
-                    Console.WriteLine("You obtained: Rusty Sword");
+                    Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
                 else
                 {
-                    Console.WriteLine("You leave the sword behind.");
+                    Console.WriteLine("\nYou leave the sword behind.");
                 }
-                Console.WriteLine("You continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
+                Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
                 Console.WriteLine("The traveler slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
                 Thread.Sleep(2000);
@@ -448,9 +448,10 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to enter?");
                 userInput = Console.ReadLine();
+                playerHealth = 125;
                 if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "proceed")
                 {
-                    Console.WriteLine("\n\nYou push against the cathedral doors with both hands. The ancient wood groans as the entrance slowly opens.");
+                    Console.WriteLine("\n\nYou push against the cathedral doors with both hands. The ancient wood groans as the entrance slowly opens further.");
                     Thread.Sleep(2000);
                     Console.WriteLine("Rows of broken benches stretch endlessly across the vast cathedral hall, cloaked in dust and silence..");
                     Thread.Sleep(2000);
@@ -467,7 +468,9 @@ namespace NewGame
                     Console.WriteLine("The kneeling figure slowly rose from before the ruined altar. Beneath the hood, two pale eyes opened like dying embers in the dark.");
                     Thread.Sleep(2000);
                     int UnAssassinHealth = 115;
-                    player = rand.Next(0, 3);
+                    while ((playerHealth > 0) && (UnAssassinHealth > 0))
+                    { 
+                        player = rand.Next(0, 3);
                     if (player == 0)
                     {
                         Console.WriteLine("------------------------------------------------");
@@ -495,34 +498,35 @@ namespace NewGame
                         Console.WriteLine("------------------------------------------------");
                     }
 
-                    if (UnAssassinHealth > 0)
-                    {
-                        int assassinAttack = rand.Next(0, 3);
-                        if (assassinAttack == 0)
+                        if (UnAssassinHealth > 0)
                         {
-                            Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("The Undead Assassin swings his daggers, slashing you!");
-                            playerHealth -= 25;
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine("------------------------------------------------");
-                            Thread.Sleep(2000);
-                        }
-                        else if (assassinAttack == 1)
-                        {
-                            Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("The Undead Assassin darts forward, driving a dagger into your side!");
-                            playerHealth -= 45;
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine("------------------------------------------------");
-                            Thread.Sleep(2000);
-                        }
-                        else
-                        {
-                            Console.WriteLine("------------------------------------------------");
-                            Console.WriteLine("The Undead Assassin's strike misses.");
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine("------------------------------------------------");
-                            Thread.Sleep(2000);
+                            int assassinAttack = rand.Next(0, 3);
+                            if (assassinAttack == 0)
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Undead Assassin swings his daggers, slashing you!");
+                                playerHealth -= 25;
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                            else if (assassinAttack == 1)
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Undead Assassin darts forward, driving a dagger into your side!");
+                                playerHealth -= 45;
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                            else
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Undead Assassin's strike misses.");
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
                         }
                     }
                     if (playerHealth <= 0)
