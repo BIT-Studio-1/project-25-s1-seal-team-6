@@ -81,6 +81,10 @@ namespace NewGame
                 Thread.Sleep(1000);
                 Environment.Exit(0);
             }
+            else if (userInput.ToLower() == "proceed")
+            {
+                StartGame();
+            }
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
