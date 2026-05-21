@@ -189,7 +189,7 @@ namespace NewGame
                     else if (userInput.ToLower() == "inv")
                     {
                         InventoryMenu();
-                        Thread.Sleep(5000);
+                        Thread.Sleep(1000);
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
@@ -291,6 +291,13 @@ namespace NewGame
                         Console.WriteLine("It is very intimidating.");
                         Thread.Sleep(2000);
                     }
+
+                    else if (userInput.ToLower() == "inv")
+                    {
+                        InventoryMenu();
+                        Thread.Sleep(1000);
+                    }
+
                     else if (userInput.ToLower() == "help")
                     {
                         Console.WriteLine("At the gate: Y/N");
@@ -388,6 +395,13 @@ namespace NewGame
                             {
                                 Console.WriteLine("You brace for the Black Knight's attack.");
                             }
+
+                            else if (choice == "inv" || choice == "inv")
+                            {
+                                Console.WriteLine("You bravely check your inventory mid combat");
+                                InventoryMenu();
+                            }
+
                             else
                             {
                                 Console.WriteLine("You hesitate and lose your chance to act.");
