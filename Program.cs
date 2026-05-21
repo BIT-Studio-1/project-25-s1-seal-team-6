@@ -97,6 +97,7 @@ namespace NewGame
             }
             else if (userInput.ToLower() == "proceed")
             {
+                Welcome();
                 StartGame();
             }
             else if (userInput.ToLower() == "help")
@@ -138,7 +139,7 @@ namespace NewGame
                 };
                 Random rand = new Random();
                 string userInput;
-                Welcome();
+                
                 Console.Clear();
                 Console.WriteLine("Proceeding.");
                 Thread.Sleep(2000);
