@@ -7,6 +7,16 @@ namespace NewGame
 {
     internal class Program
     {
+
+        public static void Welcome()
+        {
+            Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
+            Console.Write("\nPress Enter to start"); Console.ReadLine();
+        }
+
+
+        static string[] Inventory = new string[5];
+
         //Alfie's Work
         public static void RespawnOne()
         {
@@ -20,6 +30,41 @@ namespace NewGame
             Thread.Sleep(2000);
         }
 
+        //AJ's Work-Inventory
+        public static void InventoryMenu()
+        {
+            bool isEmpty = true;
+            foreach (string item in Inventory)
+            {
+                if (item != null)
+                {
+                    isEmpty = false;
+                    break;
+                }
+            }
+
+            if (isEmpty)
+            {
+                Console.WriteLine("Your inventory is currently empty");
+
+                Thread.Sleep(1000);
+                Console.WriteLine("Press X to exit");
+            }
+            else
+            {
+                Console.WriteLine("Your items: ");
+                foreach (string item in Inventory)
+                {
+                    if (item != null)
+                    {
+                        Console.WriteLine("- " + item);
+                    }
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Press X to exit");
+                }
+            }
+        }
+
         static void Main()
         {
             string userInput;
@@ -31,19 +76,30 @@ namespace NewGame
 
             
             if (userInput.ToLower() == "quit")
-                {
+            {
                 Console.WriteLine("You quit the game");
                 Thread.Sleep(1000);
                 Environment.Exit(0);
-                }
+            }
+            else if (userInput.ToLower() == "proceed")
+            {
+                StartGame();
+            }
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
+                Console.WriteLine("Type Inv to view your inventory");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
                 {
+                    StartGame();
+                }                
+                else if (userInput.ToLower() == "inv")
+                {
+                    InventoryMenu();
+                    Thread.Sleep(5000);
                     StartGame();
                 }
                 else
@@ -52,16 +108,6 @@ namespace NewGame
                     Thread.Sleep(1000);
                     Environment.Exit(0);
                 }
-            }
-            else if (userInput.ToLower() == "proceed")
-            {
-                StartGame();
-            }
-            else
-            {
-                Console.WriteLine("Go away");
-                Thread.Sleep(1000);
-                Environment.Exit(0);
             }
 
             static void StartGame()
@@ -78,6 +124,7 @@ namespace NewGame
                 };
                 Random rand = new Random();
                 string userInput;
+                Welcome();
                 Console.Clear();
                 Console.WriteLine("Proceeding.");
                 Thread.Sleep(2000);
@@ -153,13 +200,13 @@ namespace NewGame
                                 Console.WriteLine(responses[rand.Next(responses.Length)]);
                             }
                         }
-                        }
+                    }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
+                Console.WriteLine("\n\nThe traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
                 Thread.Sleep(2000);
                 Console.WriteLine("The land soon begins to change—wild fields giving way to broken stone paths half-swallowed by earth.");
                 Thread.Sleep(2000);
@@ -225,7 +272,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "help")
                     {
-                        Console.WriteLine("At the gate: Y/N");                        
+                        Console.WriteLine("At the gate: Y/N");
                     }
                     else
                     {
@@ -233,7 +280,7 @@ namespace NewGame
                     }
                 }
 
-        
+
 
                 bool hasSword = false;
                 Console.WriteLine("\nThe traveler presses onward, leaving the bonfire’s fading warmth behind.");
@@ -246,17 +293,17 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to collected the sword? Y/N");
                 userInput = Console.ReadLine();
-                if (userInput == "y" || userInput == "yes")
+                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                 {
                     inventory[0] = "Rusty Sword";
                     hasSword = true;
-                    Console.WriteLine("You obtained: Rusty Sword");
+                    Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
                 else
                 {
-                    Console.WriteLine("You leave the sword behind.");
+                    Console.WriteLine("\nYou leave the sword behind.");
                 }
-                Console.WriteLine("You continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
+                Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
                 Console.WriteLine("The traveler slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
                 Thread.Sleep(2000);
@@ -376,7 +423,6 @@ namespace NewGame
                             Console.WriteLine("------------------------------------------------");
                         }
                     }
-
                 }
 
 
@@ -393,12 +439,125 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("His body turns to dust, floating in the air.");
                 Thread.Sleep(2000);
-                Console.WriteLine("You have absorbed the back knights soul and gained +25 health");
+                Console.WriteLine("You have absorbed the Black Knight's soul and gained +25 health");
                 Console.WriteLine("Max health total: 125HP");
                 Thread.Sleep(2000);
-                Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once laid.");
+                Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once lay.");
                 Thread.Sleep(2000);
-                Console.ReadLine();
+                Console.WriteLine("Beyond the drifting fog, a vast cathedral rose above the kingdom like the corpse of a forgotten god.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Its spires clawed toward the heavens, while shattered stained glass glimmered faintly beneath the sky.");
+                Thread.Sleep(2000);
+                Console.WriteLine("The great doors stood partially open, though it didn't seem inviting.");
+                Thread.Sleep(2000);
+                Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Would you like to enter?");
+                userInput = Console.ReadLine();
+                playerHealth = 125;
+                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "proceed")
+                {
+                    Console.WriteLine("\n\nYou push against the cathedral doors with both hands. The ancient wood groans as the entrance slowly opens further.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Rows of broken benches stretch endlessly across the vast cathedral hall, cloaked in dust and silence..");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("At the center of the cathedral, before a ruined altar, a lone figure kneels motionless.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Its body is thin and wrapped in torn black cloth stained with age. Twin daggers rest at its sides, their metal darkened like burnt silver.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("For a moment, the figure appears lifeless. Then the sound reaches you.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Breathing. Slow. Hollow. Wrong..");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("“You should not have entered this place,” a rasping voice whispers.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("The kneeling figure slowly rose from before the ruined altar. Beneath the hood, two pale eyes opened like dying embers in the dark.");
+                    Thread.Sleep(2000);
+                    int UnAssassinHealth = 115;
+                    while ((playerHealth > 0) && (UnAssassinHealth > 0))
+                    { 
+                        player = rand.Next(0, 3);
+                    if (player == 0)
+                    {
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("You slash the Undead Assassin with the Rusty Sword!");
+                        UnAssassinHealth -= 25;
+                        Console.WriteLine($"Undead Assassin Health: {UnAssassinHealth}");
+                        Console.WriteLine("------------------------------------------------");
+                        Thread.Sleep(2000);
+                    }
+                    else if (player == 1)
+                    {
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("You lunge at the Undead Assassin, piercing him!");
+                        UnAssassinHealth -= 50;
+                        Console.WriteLine($"Undead Assassin Health: {UnAssassinHealth}");
+                        Console.WriteLine("------------------------------------------------");
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("Your sword swing misses.");
+                        Console.WriteLine($"Undead Assassin Health: {UnAssassinHealth}");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("------------------------------------------------");
+                    }
+
+                        if (UnAssassinHealth > 0)
+                        {
+                            int assassinAttack = rand.Next(0, 3);
+                            if (assassinAttack == 0)
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Undead Assassin swings his daggers, slashing you!");
+                                playerHealth -= 25;
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                            else if (assassinAttack == 1)
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Undead Assassin darts forward, driving a dagger into your side!");
+                                playerHealth -= 45;
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                            else
+                            {
+                                Console.WriteLine("------------------------------------------------");
+                                Console.WriteLine("The Undead Assassin's strike misses.");
+                                Console.WriteLine($"Your Health: {playerHealth}");
+                                Console.WriteLine("------------------------------------------------");
+                                Thread.Sleep(2000);
+                            }
+                        }
+                    }
+                    if (playerHealth <= 0)
+                    {
+                        Console.WriteLine("You Died...");
+                        RespawnOne();
+                    }
+                    else if (UnAssassinHealth <= 0)
+                    {
+                        Console.WriteLine("Victory Achieved");
+                    }
+                }
+                else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                {
+
+                }
+                else if (userInput.ToLower() == "help")
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine(responses[rand.Next(responses.Length)]);
+                }
+
             }
 
             //Klae's Work Section
