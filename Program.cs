@@ -7,15 +7,13 @@ namespace NewGame
 {
     internal class Program
     {
+        static string[] Inventory = new string[5];
 
         public static void Welcome()
         {
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
             Console.Write("\nPress Enter to start"); Console.ReadLine();
         }
-
-
-        static string[] Inventory = new string[5];
 
         //Alfie's Work
         public static void RespawnOne()
@@ -46,9 +44,14 @@ namespace NewGame
             if (isEmpty)
             {
                 Console.WriteLine("Your inventory is currently empty");
-
+                Console.WriteLine("Proceeding.");
+                Thread.Sleep(2000);
+                Console.Write(".");
                 Thread.Sleep(1000);
-                Console.WriteLine("Press X to exit");
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
             }
             else
             {
@@ -59,8 +62,14 @@ namespace NewGame
                     {
                         Console.WriteLine("- " + item);
                     }
+                    Console.WriteLine("Proceeding.");
+                    Thread.Sleep(2000);
+                    Console.Write(".");
                     Thread.Sleep(1000);
-                    Console.WriteLine("Press X to exit");
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                    Console.Write(".");
+                    Thread.Sleep(1000);
                 }
             }
         }
@@ -85,6 +94,13 @@ namespace NewGame
             {
                 StartGame();
             }
+            else if (userInput.ToLower() == "inv")
+            {
+                InventoryMenu();
+                Thread.Sleep(5000);
+                StartGame();
+            }
+
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
@@ -114,7 +130,6 @@ namespace NewGame
             {
                 int player, BKknight;
                 int playerHealth = 100;
-                string[] inventory = new string[5];
                 string[] responses =
                 {
                 "\nThe world does not respond.",
@@ -169,6 +184,12 @@ namespace NewGame
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire does not judge. It only burns.");
                         Thread.Sleep(2000);
+                    }
+
+                    else if (userInput.ToLower() == "inv")
+                    {
+                        InventoryMenu();
+                        Thread.Sleep(5000);
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
@@ -295,7 +316,7 @@ namespace NewGame
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                 {
-                    inventory[0] = "Rusty Sword";
+                    Inventory[0] = "Rusty Sword";
                     hasSword = true;
                     Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
