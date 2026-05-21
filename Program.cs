@@ -44,13 +44,6 @@ namespace NewGame
             if (isEmpty)
             {
                 Console.WriteLine("Your inventory is currently empty");
-                Console.WriteLine("Proceeding.");
-                Thread.Sleep(2000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
                 Thread.Sleep(1000);
             }
             else
@@ -61,15 +54,8 @@ namespace NewGame
                     if (item != null)
                     {
                         Console.WriteLine("- " + item);
+                        Thread.Sleep(1000);
                     }
-                    Console.WriteLine("Proceeding.");
-                    Thread.Sleep(2000);
-                    Console.Write(".");
-                    Thread.Sleep(1000);
-                    Console.Write(".");
-                    Thread.Sleep(1000);
-                    Console.Write(".");
-                    Thread.Sleep(1000);
                 }
             }
         }
@@ -97,7 +83,11 @@ namespace NewGame
             else if (userInput.ToLower() == "inv")
             {
                 InventoryMenu();
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
+                Console.WriteLine("What did you expect, you haven't even started yet");
+                Thread.Sleep(1000);
+                Console.WriteLine("Starting now");
+                Thread.Sleep(1000);
                 StartGame();
             }
 
