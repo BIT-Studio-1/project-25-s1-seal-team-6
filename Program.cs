@@ -318,11 +318,14 @@ namespace NewGame
                 int BKhealth = 100;
                 while ((playerHealth > 0) && (BKhealth > 0))
                 {
-                    if (hasSword)
+                    //Chan's
+
+                    if (hasSword) //sword combat
                     {
-                        //Chan
+                        
                         while (playerHealth > 0 && BKhealth > 0)
                         {
+                            Console.WriteLine("You fight with the Rusty Sword");
                             Console.WriteLine("\n------------------------------------------------");
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine($"Black Knight Health: {BKhealth}");
@@ -423,6 +426,116 @@ namespace NewGame
                             Console.WriteLine("------------------------------------------------");
                         }
                     }
+                    else //fist combat
+                    {
+                        Console.WriteLine("\nYou chose not to take the sword.");
+                        Thread.Sleep(1500);
+                        Console.WriteLine("Your fists are all you have.");
+                        Thread.Sleep(1500);
+
+                        while (playerHealth > 0 && BKhealth > 0)
+                        {
+                            Console.WriteLine("\n------------------------------------------------");
+                            Console.WriteLine($"Your Health: {playerHealth}");
+                            Console.WriteLine($"Black Knight Health: {BKhealth}");
+                            Console.WriteLine("------------------------------------------------");
+
+                            Console.WriteLine("You stand bare-handed before the Black Knight.");
+
+                            Console.WriteLine("1. Punch");
+                            Console.WriteLine("2. Heavy Punch");
+                            Console.WriteLine("3. Defend");
+
+                            string choice = Console.ReadLine().ToLower();
+
+                            
+                            if (choice == "1" || choice == "punch")
+                            {
+                                int damage = rand.Next(5, 11);
+
+                                Console.WriteLine("You punch Black Knight!");
+                                Console.WriteLine($"You deal {damage} damage!");
+
+                                BKhealth -= damage;
+                            }
+                            else if (choice == "2" || choice == "heavy punch")
+                            {
+                                int hitChance = rand.Next(0, 2);
+
+                                if (hitChance == 1)
+                                {
+                                    int damage = rand.Next(10, 25);
+
+                                    Console.WriteLine("Your heavy punch lands!");
+                                    Console.WriteLine($"You deal {damage} damage!");
+
+                                    BKhealth -= damage;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Your punch misses");
+                                }
+                            }
+                            else if (choice == "3" || choice == "defend")
+                            {
+                                Console.WriteLine("You raise your fists defensively.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("You hesitated and lose your chance to act");
+                            }
+
+                            if (BKhealth <= 0)
+                            {
+                                break;
+                            }
+
+                            Thread.Sleep(1000);
+
+                            int enemyAttack = rand.Next(0, 3);
+
+                            if (enemyAttack == 0) {
+                                int damage = 20;
+
+                                if (choice == "3" || choice == "defend")
+                                    {
+                                        damage /= 2;
+
+                                        Console.WriteLine("You block part of the attack!");
+                                    }
+
+                                Console.WriteLine("The Black Knight slashes you!");
+                                Console.WriteLine($"You take {damage} damage!");
+
+                                playerHealth -= damage;
+                            }
+                            else if (enemyAttack == 1)
+                            {
+                                Console.WriteLine("The Black Knight misses!");
+                            }
+                            else
+                            {
+                                int damage = 30;
+
+                                if (choice == "3" || choice == "defend")
+                                {
+                                    damage /= 2;
+
+                                    Console.WriteLine("You absorb part of the heavy strike!");
+                                }
+
+                                Console.WriteLine("The Black Knight performs a heavy strike!");
+                                Console.WriteLine($"You take {damage} damage!");
+
+                                playerHealth -= damage;
+                            }
+
+                            Thread.Sleep(1500);
+                        }
+
+                    }
+
+
                 }
 
 
