@@ -549,16 +549,17 @@ namespace NewGame
                                 Thread.Sleep(2000);
                             }
                         }
+                        if (playerHealth <= 0)
+                        {
+                            Console.WriteLine("You Died...");
+
+                        }
+                        else if (UnAssassinHealth <= 0)
+                        {
+                            Console.WriteLine("Victory Achieved");
+                        }
                     }
-                    if (playerHealth <= 0)
-                    {
-                        Console.WriteLine("You Died...");
-                        
-                    }
-                    else if (UnAssassinHealth <= 0)
-                    {
-                        Console.WriteLine("Victory Achieved");
-                    }
+                    
                 }
             
                 else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
