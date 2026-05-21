@@ -722,6 +722,7 @@ namespace NewGame
                 {
                     Console.WriteLine(responses[rand.Next(responses.Length)]);
                 }
+                
             }
 
             
