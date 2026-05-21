@@ -20,8 +20,12 @@ namespace NewGame
         }
 
         public static void Meadow()
+        {
+            Console.WriteLine("        ______\r\n       /     /\\\r\n      /     /  \\\r\n     /_____/----\\_    (  \r\n    \"     \"          ).  \r\n   _ ___          o (:') o   \r\n  (@))_))        o ~/~~\\~ o   \r\n                  o  o  o\r\n");
+        }
+
+        public static void Pending_Bonfire()
         { 
-        
         
         
         }
