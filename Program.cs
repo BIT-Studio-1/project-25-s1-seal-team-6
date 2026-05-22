@@ -337,7 +337,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to collected the sword? Y/N");
                 userInput = Console.ReadLine();
-                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                if (hasSword == false && userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                 {
                     Inventory[0] = "Rusty Sword";
                     hasSword = true;
@@ -359,9 +359,12 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
                 Thread.Sleep(2000);
-                int BKhealth = 100;
-                while ((playerHealth > 0) && (BKhealth > 0))
+                bool blackKnightDefeated = false;
+                
+                while (blackKnightDefeated == false)
                 {
+                    int BKhealth = 100;
+                    playerHealth = 100;
                     //Chan's
 
                     if (hasSword) //sword combat
@@ -433,11 +436,6 @@ namespace NewGame
                             }
                             Thread.Sleep(1500);
 
-                            if (BKhealth <= 0)
-                            {
-                                break;
-                            }
-                            Thread.Sleep(1500);
 
                             //Enemy
 
@@ -475,6 +473,18 @@ namespace NewGame
 
                             Thread.Sleep(1500);
                             Console.WriteLine("------------------------------------------------");
+                        }
+
+                        if (playerHealth <= 0)
+                        {
+                            Console.WriteLine("You Died...");
+                            RespawnOne();
+                            
+                        }
+                        else if (BKhealth <= 0)
+                        {
+                            Console.WriteLine("Victory Achieved");
+                            blackKnightDefeated = true;
                         }
                     }
                     else //fist combat
@@ -582,6 +592,39 @@ namespace NewGame
                             }
 
                             Thread.Sleep(1500);
+
+                            if (playerHealth <= 0)
+                            {
+                                Console.WriteLine("You Died...");
+                                RespawnOne();
+                                if (hasSword == false)
+                                {
+                                    Console.WriteLine("\nBeside the bonfire, the Rusty Sword still rests where you left it.");
+                                    Thread.Sleep(2000);
+                                    Console.WriteLine("Will you take it this time? Y/N");
+
+                                    userInput = Console.ReadLine().ToLower();
+
+                                    if (userInput == "y" || userInput == "yes")
+                                    {
+                                        hasSword = true;
+                                        Inventory[0] = "Rusty Sword";
+
+                                        Console.WriteLine("\nYou obtained: Rusty Sword");
+                                        Thread.Sleep(1500);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nYou leave the sword behind once more.");
+                                        Thread.Sleep(1500);
+                                    }
+                                }
+                            }
+                            else if (BKhealth <= 0)
+                            {
+                                Console.WriteLine("Victory Achieved");
+                                blackKnightDefeated = true;
+                            }
                         }
 
                     }
@@ -590,15 +633,7 @@ namespace NewGame
                 }
 
 
-                if (playerHealth <= 0)
-                {
-                    Console.WriteLine("You Died...");
-                    RespawnOne();
-                }
-                else if (BKhealth <= 0)
-                {
-                    Console.WriteLine("Victory Achieved");
-                }
+                
                 Console.WriteLine("\n\nThe black knight groans as he falls to his knees");
                 Thread.Sleep(2000);
                 Console.WriteLine("His body turns to dust, floating in the air.");
@@ -706,7 +741,8 @@ namespace NewGame
                     }
                     else if (UnAssassinHealth <= 0)
                     {
-                        Console.WriteLine("Victory Achieved");                        
+                        Console.WriteLine("Victory Achieved"); 
+                        Console.ReadLine();
                     }
 
                 }
@@ -724,6 +760,8 @@ namespace NewGame
                 {
                     Console.WriteLine(responses[rand.Next(responses.Length)]);
                 }
+                Console.WriteLine("...");
+                Console.ReadLine();
                 
             }
 
