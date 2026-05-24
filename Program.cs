@@ -855,7 +855,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler remains seated as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine("\n\nThe traveler sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
