@@ -674,7 +674,7 @@ namespace NewGame
                         }
                     }
                 }              
-                }
+                
 
 
                 //if (playerHealth <= 0) Commented out by Klae E. Possible Repeat error.
