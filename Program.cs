@@ -1212,6 +1212,8 @@ namespace NewGame
                     }
 
                 }
+                //Alfie. Continues towards castle
+                Console.WriteLine("...");
             }
         }
     }
