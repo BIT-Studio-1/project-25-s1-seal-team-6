@@ -46,8 +46,8 @@ namespace NewGame
         
         public static void RespawnMain()
         {
-            
 
+            string userInput = Console.ReadLine(); //ADDED THIS TO FIX THE ERROR SO I CAN RUN PROGRAM :) -Alfie
             if ((userInput.ToLower() == "bonfire") || (userInput.ToLower() == "campfire"))
             {
                 Console.WriteLine("You arrive at a small encampment\n\n It looks like it has been left on it own, the fire only just about to go out!");
