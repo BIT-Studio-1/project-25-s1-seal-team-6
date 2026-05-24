@@ -932,7 +932,7 @@ namespace NewGame
 
                 Console.WriteLine("Do you want to explore the area? Y/N");
                 userInput = Console.ReadLine();
-                if (hasSword == false && userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                 {
 
                     Console.WriteLine("\nNEW LOCATION UNLOCKED");
