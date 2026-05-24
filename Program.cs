@@ -830,7 +830,7 @@ namespace NewGame
                 Console.WriteLine("...");
                 Console.ReadLine();                
             }
-
+                       ///Kobe//  3rd boss fight===============================================================================================================
                         Console.WriteLine("\nThe Undead Assassin collapses to the frozen stone, its blade slipping from lifeless fingers.\".");
             Thread.Sleep(2000);
 
@@ -1125,8 +1125,11 @@ namespace NewGame
         }
     }
 }
-
-
+ }
+   }
+     }
+       }
+}
 
             
 
