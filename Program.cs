@@ -10,7 +10,8 @@ namespace NewGame
     {
         static string[] Inventory = new string[5];
 
-        //Klae's Work
+        //Start of Klae's Work
+        //Start of Artwork Section
         public static void Welcome()
         {
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
@@ -20,6 +21,7 @@ namespace NewGame
         public static void Death()
         {
             Console.WriteLine("    __   __            _                       _____     _ _          _ _ _ _      \r\n    \\ \\ / /__  _   _  | |__   __ ___   _____  |  ___|_ _(_) | ___  __| | | | |     \r\n     \\ V / _ \\| | | | | '_ \\ / _` \\ \\ / / _ \\ | |_ / _` | | |/ _ \\/ _` | | | |     \r\n      | | (_) | |_| | | | | | (_| |\\ V /  __/ |  _| (_| | | |  __/ (_| |_|_|_|     \r\n  ____|_|\\___/ \\__,_| |_| |_|\\__,_| \\_/ \\___| |_|  \\__,_|_|_|\\___|\\__,_(_|_|_)   _ \r\n |  _ \\  ___  __ _| |_| |__     __ ___      ____ _(_) |_ ___   _   _  ___  _   _| |\r\n | | | |/ _ \\/ _` | __| '_ \\   / _` \\ \\ /\\ / / _` | | __/ __| | | | |/ _ \\| | | | |\r\n | |_| |  __/ (_| | |_| | | | | (_| |\\ V  V / (_| | | |_\\__ \\ | |_| | (_) | |_| |_|\r\n |____/ \\___|\\__,_|\\__|_| |_|  \\__,_| \\_/\\_/ \\__,_|_|\\__|___/  \\__, |\\___/ \\__,_(_)\r\n                                                               |___/               ");
+            Console.Write("\nPress Enter to Respawn"); Console.ReadLine();
             Console.Clear();
         }
 
@@ -40,6 +42,49 @@ namespace NewGame
             Console.Clear();
 
         }
+        //End of Artwork Section
+        
+        public static void RespawnMain()
+        {
+            
+
+            if ((userInput.ToLower() == "bonfire") || (userInput.ToLower() == "campfire"))
+            {
+                Console.WriteLine("You arrive at a small encampment\n\n It looks like it has been left on it own, the fire only just about to go out!");
+                Thread.Sleep(1000);
+                Console.WriteLine("What do you do? blow on the fire or leave it to go out?");
+                Thread.Sleep(1000);
+                Console.WriteLine("Say Blow to keep the fire alive or say Wait to let it go out");
+                userInput = Console.ReadLine();
+
+                if (userInput.ToLower() == "blow")
+                {
+                    Console.WriteLine("You choose to blow on it just at the right time!");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("You only had just seconds before it went out");
+                    Thread.Sleep(1000);
+
+                    Console.WriteLine("Because you saved the bonfire it will remember to respawn you back here instead of the start");
+                    int bonfire = 0; bonfire++;
+                    Console.ReadLine();
+                }
+
+                else
+                {
+                    Console.WriteLine("You idoit, you let it go out, the campfire will remember that!");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("You lost a bonfire! you failed to save it.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("The campfire has decided to not respawn you here!");
+                    Console.ReadLine();
+                }
+
+            }
+
+        }
+
+
+        //End of Klae's Work Section
 
         //Alfie's Work
         public static void RespawnOne()
@@ -592,7 +637,8 @@ namespace NewGame
 
                 if (playerHealth <= 0)
                 {
-                    Console.WriteLine("You Died...");
+                    Death();
+                    //Console.WriteLine("You Died...");
                     RespawnOne();
                 }
                 else if (BKhealth <= 0)
@@ -731,40 +777,7 @@ namespace NewGame
 
 
 
-            //Klae's Work Section
-
-            //if ((userInput.ToLower() == "bonfire") || (userInput.ToLower() == "campfire"))
-            //    {
-            //        Console.WriteLine("You arrive at a small encampment\n\n It looks like it has been left on it own, the fire only just about to go out!");
-            //        Thread.Sleep(1000);
-            //        Console.WriteLine("What do you do? blow on the fire or leave it to go out?");
-            //        Thread.Sleep(1000);
-            //        Console.WriteLine("Say Blow to keep the fire alive or say Wait to let it go out");
-            //        userInput = Console.ReadLine();
-
-            //        if (userInput.ToLower() == "blow")
-            //        {
-            //            Console.WriteLine("You choose to blow on it just at the right time!");
-            //            Thread.Sleep(1000);
-            //            Console.WriteLine("You only had just seconds before it went out");
-            //            Thread.Sleep(1000);
-
-            //            Console.WriteLine("Because you saved the bonfire it will remember to respawn you back here instead of the start");
-            //            int bonfire = 0; bonfire++;
-            //            Console.ReadLine();
-            //        }
-
-            //        else
-            //        {
-            //            Console.WriteLine("You idoit, you let it go out, the campfire will remember that!");
-            //            Thread.Sleep(1000);
-            //            Console.WriteLine("You lost a bonfire! you failed to save it.");
-            //            Thread.Sleep(1000);
-            //            Console.WriteLine("The campfire has decided to not respawn you here!");
-            //            Console.ReadLine();
-            //        }
-
-            //    }
+            
 
 
             
