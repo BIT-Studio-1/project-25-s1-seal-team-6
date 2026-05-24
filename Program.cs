@@ -706,7 +706,6 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to enter?");
                 bool cathedralChoiceMade = false;
-
                 while (cathedralChoiceMade == false)
                 {
                     userInput = Console.ReadLine();
@@ -814,6 +813,39 @@ namespace NewGame
                                 Console.WriteLine("Max health total: 150HP");
                                 Thread.Sleep(2000);
                                 playerHealth = 150;
+                                Console.WriteLine("A new weapon lays on the altar where the Undead Assassin once knelt");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("A long, sharp blade.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("Would you like to collect it?");
+                                Thread.Sleep(2000);                                
+                                bool weaponChoiceMade = false;
+                                while (weaponChoiceMade == false)
+                                {
+                                    userInput = Console.ReadLine().ToLower();
+                                    if (userInput == "y" || userInput == "yes")
+                                    {
+                                        hasSword = true;
+                                        Inventory[1] = "Claymore";
+                                        Console.WriteLine("\nYou obtained: Claymore");
+                                        Thread.Sleep(1500);
+                                        weaponChoiceMade = true;
+                                    }
+                                    else if (userInput == "n" || userInput == "no")
+                                    {
+                                        Console.WriteLine("\nYou continue onwards with your Rusty Sword");
+                                        weaponChoiceMade = true;
+                                    }
+                                    else if (userInput == "help")
+                                    {
+                                        Console.WriteLine("\nType Yes to collect the Claymore");
+                                        Console.WriteLine("Type No to leave it behind");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                                    }
+                                }
                             }
                         }
                     }
