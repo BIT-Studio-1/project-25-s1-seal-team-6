@@ -732,14 +732,14 @@ namespace NewGame
                         while (assassinDefeated == false)
                         {
                             playerHealth = 125;
-                            int UnAssassinHealth = 115;
+                            int assassinHealth = 115;
 
                             Console.WriteLine("\nThe Undead Assassin waits before the ruined altar...");
                             Thread.Sleep(2000);
 
                             //Chan's work 
 
-                            while ((playerHealth > 0) && (UnAssassinHealth > 0))
+                            while ((playerHealth > 0) && (assassinHealth > 0))
                             {
                                 
                                 Console.WriteLine("---------------------------------------");
@@ -803,41 +803,80 @@ namespace NewGame
 
                                 Thread.Sleep(1500);
 
+                                //Enemy
 
+                                int assassinAttack = rand.Next(0, 4);
 
-
-
-                                if (UnAssassinHealth > 0)
+                                if (assassinAttack == 0)
                                 {
-                                    int assassinAttack = rand.Next(0, 3);
-                                    if (assassinAttack == 0)
+                                    int damage = 20;
+
+                                    Console.WriteLine("\nThe Assassin rushes forward with twin daggers!");
+
+                                    if (choice == "3" || choice == "dodge")
                                     {
-                                        Console.WriteLine("------------------------------------------------");
-                                        Console.WriteLine("The Undead Assassin swings his daggers, slashing you!");
-                                        playerHealth -= 25;
-                                        Console.WriteLine($"Your Health: {playerHealth}");
-                                        Console.WriteLine("------------------------------------------------");
-                                        Thread.Sleep(2000);
+                                        Console.WriteLine("You dodge the attack!");
                                     }
-                                    else if (assassinAttack == 1)
+                                    else if (choice == "4" || choice == "parry")
                                     {
-                                        Console.WriteLine("------------------------------------------------");
-                                        Console.WriteLine("The Undead Assassin darts forward, driving a dagger into your side!");
-                                        playerHealth -= 50;
-                                        Console.WriteLine($"Your Health: {playerHealth}");
-                                        Console.WriteLine("------------------------------------------------");
-                                        Thread.Sleep(2000);
+                                        Console.WriteLine("PARRY SUCCESSFUL!");
+                                        Console.WriteLine("The Assassin is staggered!");
+
+                                        assassinHealth -= 15;
                                     }
                                     else
                                     {
-                                        Console.WriteLine("------------------------------------------------");
-                                        Console.WriteLine("The Undead Assassin's strike misses.");
-                                        Console.WriteLine($"Your Health: {playerHealth}");
-                                        Console.WriteLine("------------------------------------------------");
-                                        Thread.Sleep(2000);
+                                        Console.WriteLine($"You take {damage} damage!");
+                                        playerHealth -= damage;
                                     }
                                 }
+
+                                else if (assassinAttack == 1)
+                                {
+                                    int damage = 35;
+
+                                    Console.WriteLine("\nThe Assassin vanishes into the shadows!");
+
+                                    if (choice == "3" || choice == "dodge")
+                                    {
+                                        Console.WriteLine("You narrowly evade the ambush!");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("A blade pierces your side!");
+                                        Console.WriteLine($"You take {damage} damage!");
+
+                                        playerHealth -= damage;
+                                    }
+                                }
+
+                                else if (assassinAttack == 2)
+                                {
+                                    Console.WriteLine("\nThe Assassin circles cautiously...");
+                                }
+
+                                else
+                                {
+                                    int damage = 45;
+
+                                    Console.WriteLine("\nThe Assassin performs a deadly execution strike!");
+
+                                    if (choice == "4" || choice == "parry")
+                                    {
+                                        Console.WriteLine("You deflect the execution strike!");
+                                        assassinHealth -= 20;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"You take {damage} damage!");
+                                        playerHealth -= damage;
+                                    }
+                                }
+
+                                Thread.Sleep(1500);
                             }
+
+                            
                             if (playerHealth <= 0)
                             {
                                 Console.WriteLine("You Died...");
@@ -845,7 +884,7 @@ namespace NewGame
                                 Console.WriteLine("\nYou awaken beside the cathedral entrance.");
                                 Thread.Sleep(2000);
                             }
-                            else if (UnAssassinHealth <= 0)
+                            else if (assasinHealth <= 0)
                             {
                                 Console.WriteLine("Victory Achieved");
                                 assassinDefeated = true;
