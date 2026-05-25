@@ -736,35 +736,76 @@ namespace NewGame
 
                             Console.WriteLine("\nThe Undead Assassin waits before the ruined altar...");
                             Thread.Sleep(2000);
+
+                            //Chan's work 
+
                             while ((playerHealth > 0) && (UnAssassinHealth > 0))
                             {
-                                player = rand.Next(0, 3);
-                                if (player == 0)
+                                
+                                Console.WriteLine("---------------------------------------");
+                                Console.WriteLine($"Your HP: {playerHealth}");
+                                Console.WriteLine($"Assassin HP: {assassinHealth}");
+                                Console.WriteLine("---------------------------------------");
+                                Thread.Sleep(1000);
+
+                                Console.WriteLine("Choose your action:");
+                                Console.WriteLine("1. Slash");
+                                Console.WriteLine("2. Heavy Strike");
+                                Console.WriteLine("3. Dodge");
+                                Console.WriteLine("4. Parry");
+
+                                string choice = Console.ReadLine().ToLower();
+
+                                //player
+
+                                if (choice == "1" || choice == "slash")
                                 {
-                                    Console.WriteLine("------------------------------------------------");
-                                    Console.WriteLine("You slash the Undead Assassin with the Rusty Sword!");
-                                    UnAssassinHealth -= 25;
-                                    Console.WriteLine($"Undead Assassin Health: {UnAssassinHealth}");
-                                    Console.WriteLine("------------------------------------------------");
-                                    Thread.Sleep(2000);
+                                    int damage = rand.Next(18, 31);
+
+                                    Console.WriteLine("\nYou slash the Assassin!");
+                                    Console.WriteLine($"You deal {damage} damage!");
+
+                                    assassinHealth -= damage;
                                 }
-                                else if (player == 1)
+                                else if (choice == "2" || choice == "heavy strike")
                                 {
-                                    Console.WriteLine("------------------------------------------------");
-                                    Console.WriteLine("You lunge at the Undead Assassin, piercing him!");
-                                    UnAssassinHealth -= 50;
-                                    Console.WriteLine($"Undead Assassin Health: {UnAssassinHealth}");
-                                    Console.WriteLine("------------------------------------------------");
-                                    Thread.Sleep(2000);
+                                    int hitChance = rand.Next(0, 100);
+
+                                    if (hitChance < 60)
+                                    {
+                                        int damage = rand.Next(35, 51);
+
+                                        Console.WriteLine("\nYour heavy strike lands!");
+                                        Console.WriteLine($"You deal {damage} damage!");
+
+                                        assassinHealth -= damage;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nThe Assassin dodges your heavy strike!");
+                                    }
+                                }
+                                else if (choice == "3" || choice == "dodge")
+                                {
+                                    Console.WriteLine("\nYou prepare to dodge.");
+                                }
+                                else if (choice == "4" || choice == "parry")
+                                {
+                                    Console.WriteLine("\nYou ready your blade to parry.");
                                 }
                                 else
                                 {
-                                    Console.WriteLine("------------------------------------------------");
-                                    Console.WriteLine("Your sword swing misses.");
-                                    Console.WriteLine($"Undead Assassin Health: {UnAssassinHealth}");
-                                    Thread.Sleep(2000);
-                                    Console.WriteLine("------------------------------------------------");
+                                    Console.WriteLine("\nYou hesitate...");
                                 }
+
+                                if (assassinHealth <= 0)
+                                    break;
+
+                                Thread.Sleep(1500);
+
+
+
+
 
                                 if (UnAssassinHealth > 0)
                                 {
