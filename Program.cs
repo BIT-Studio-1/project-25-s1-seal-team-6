@@ -1290,7 +1290,7 @@ namespace NewGame
                     {
                         Console.WriteLine("You have been slain!");
                     }
-
+                    // Boss fight end//
                 }
                 //Alfie. Continues towards castle
                 Console.WriteLine("The snow sets on the travelers armour.");
