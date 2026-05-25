@@ -1282,7 +1282,7 @@ namespace NewGame
                         Console.WriteLine($"Max Health:{playerHealth}");
                         Thread.Sleep(2500);
                         //Console.WriteLine("Max health increased to 200HP");
-                        //Thread.Sleep(3000); CHANGE TO 175 OR 200. -Alfie
+                        //Thread.Sleep(3000); CHANGE TO 150 OR 175. -Alfie
 
                         abysswalkerDefeated = true;
                     }
