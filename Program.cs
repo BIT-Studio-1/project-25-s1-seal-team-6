@@ -884,7 +884,7 @@ namespace NewGame
                                 Console.WriteLine("\nYou awaken beside the cathedral entrance.");
                                 Thread.Sleep(2000);
                             }
-                            else if (assasinHealth <= 0)
+                            else if (assassinHealth <= 0)
                             {
                                 Console.WriteLine("Victory Achieved");
                                 assassinDefeated = true;
@@ -1232,20 +1232,7 @@ namespace NewGame
 
                         if (abyssHealth <= 90 && abyssHealth > 0)
                         {
-                            Console.WriteLine("\nThe Abysswalker stabs its blade into the frozen ground.");
-                            Thread.Sleep(3000);
-
-                            Console.WriteLine("The entire mountain trembles violently.");
-                            Thread.Sleep(3000);
-
-                            Console.WriteLine("Black flames explode into the storm.");
-                            Thread.Sleep(3500);
-
-                            Console.WriteLine("\n\"THE ABYSS ETERNAL!\"");
-                            Thread.Sleep(3500);
-
-                            Console.WriteLine("\nThe Abysswalker becomes enraged!");
-                            Thread.Sleep(2500);
+                            
 
 
                         }
@@ -1260,11 +1247,20 @@ namespace NewGame
                     }
                     else if (abyssHealth <= 0)
                     {
+                        Console.WriteLine("\nThe Abysswalker stabs its blade into the frozen ground.");
+                        Thread.Sleep(3000);
+
+                        Console.WriteLine("The entire mountain trembles violently.");
+                        Thread.Sleep(3000);
+
                         Console.WriteLine("\nThe Abysswalker slowly falls to one knee.");
                         Thread.Sleep(3000);
 
-                        Console.WriteLine("Its greatsword crashes against the frozen stone.");
-                        Thread.Sleep(3000);
+                        Console.WriteLine("Black flames explode into the storm.");
+                        Thread.Sleep(3500);
+
+                        Console.WriteLine("\n\"THE ABYSS ETERNAL!\"");
+                        Thread.Sleep(3500);
 
                         Console.WriteLine("\nThe abyssal flames begin to disappear.");
                         Thread.Sleep(3000);
@@ -1281,8 +1277,12 @@ namespace NewGame
                         Console.WriteLine("\nYou absorbed the Abysswalker's soul.");
                         Thread.Sleep(2500);
 
-                        Console.WriteLine("Max health increased to 200HP");
-                        Thread.Sleep(3000);
+                        Console.WriteLine("\nYou gain +25 health.");
+                        playerHealth = playerHealth + 25;
+                        Console.WriteLine($"Max Health:{playerHealth}");
+                        Thread.Sleep(2500);
+                        //Console.WriteLine("Max health increased to 200HP");
+                        //Thread.Sleep(3000); CHANGE TO 175 OR 200. -Alfie
 
                         abysswalkerDefeated = true;
                     }
@@ -1293,7 +1293,14 @@ namespace NewGame
 
                 }
                 //Alfie. Continues towards castle
-                Console.WriteLine("...");
+                Console.WriteLine("The snow sets on the travelers armour.");
+                Thread.Sleep(2000);
+                Console.WriteLine("It was now time to proceed back down the mountain");
+                Thread.Sleep(2000);
+                Console.WriteLine("The storm breaks, giving you a view of a large, cobblestone castle");
+                Thread.Sleep(2000);
+                Console.WriteLine("Waiting patiently in the distance.");
+                Thread.Sleep(2000);
             }
         }
     }
