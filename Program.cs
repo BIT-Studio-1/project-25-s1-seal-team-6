@@ -1038,23 +1038,10 @@ namespace NewGame
 
                 Console.WriteLine("Towering mountains rise beyond the horizon.");
                 Thread.Sleep(2500);
-
-                Console.WriteLine("\nThe Shattered Peaks.");
-                Thread.Sleep(3500);
-
-                Console.WriteLine("Do you want to explore the area? Y/N");
-                userInput = Console.ReadLine();
-                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
-                {
-
-                    Console.WriteLine("\nNEW LOCATION UNLOCKED");
-                    Console.WriteLine("\n SHATTERED PEAKS");
-                }
-                else
-                {
-                }
-
-
+                
+                Console.WriteLine("\nNEW LOCATION UNLOCKED");
+                Console.WriteLine("\n SHATTERED PEAKS");
+               
                 Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
                 Thread.Sleep(3000);
 
