@@ -659,11 +659,20 @@ namespace NewGame
                                         Console.WriteLine("\nYou obtained: Rusty Sword");
                                         Thread.Sleep(1500);
                                     }
-                                    else
+                                    else if (userInput == "help")
+                                    {
+                                        Console.WriteLine("\nType Yes to collect the Rusty Sword");
+                                        Console.WriteLine("Type No to leave it behind");
+                                    }
+                                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                                     {
                                         Console.WriteLine("\nYou leave the sword behind once more.");
                                         Thread.Sleep(1500);
                                     }
+                                    else
+                                    {
+                                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                                    }              
                                 }
                             }
                             else if (BKhealth <= 0)
@@ -1282,6 +1291,38 @@ namespace NewGame
                     }
                     // Boss fight end//
                 }
+                //Alfie. Added new eapon after abyss walker fight
+                Console.WriteLine("A new weapon rests in the snow");
+                Thread.Sleep(2000);
+                Console.WriteLine("Would you like to collect it?");
+                Thread.Sleep(2000);
+                bool AbyssDec = false;
+                while (AbyssDec == false)
+                {
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                    {
+                        Inventory[2] = "Abyss GreatSword";
+                        Console.WriteLine("\nYou obtained: Abyss GreatSword");
+                        Thread.Sleep(1500);
+                        AbyssDec = true;
+                    }
+                    else if (userInput == "help")
+                    {
+                        Console.WriteLine("\nType Yes to collect the Abyss GreatSword");
+                        Console.WriteLine("Type No to leave it behind");
+                    }
+                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                    {
+                        Console.WriteLine("\nYou leave the sword behind, snow quickly blankets it");
+                        Thread.Sleep(1500);
+                        AbyssDec = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
                 //Alfie. Continues towards castle
                 Console.WriteLine("The snow sets on the travelers armour.");
                 Thread.Sleep(2000);
@@ -1316,7 +1357,6 @@ namespace NewGame
                         Thread.Sleep(2000);
 
                     }
-
                     else if (userInput.ToLower() == "inv")
                     {
                         InventoryMenu();
