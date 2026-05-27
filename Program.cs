@@ -1291,6 +1291,53 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Waiting patiently in the distance.");
                 Thread.Sleep(2000);
+                Console.WriteLine("A faint orange glow flickers through the snowfall below the mountain path.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Half-buried beneath the stone remains of an ancient watchtower, a lonely bonfire crackles against the cold wind.");
+                Thread.Sleep(2000);                
+                bool snowyBonfire = true;
+                while (snowyBonfire == true)
+                {
+                    Console.WriteLine("Would you like to rest?");
+                    Thread.Sleep(2000);
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                        Console.WriteLine("To leave the bonfire type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("\n\nThe traveler lowers themselves beside the bonfire, exhaustion weighing heavily upon their body.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The warmth of the flames slowly melts the frost from your armor as ash drifts silently into the night sky.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("For a brief moment, the mountain grows quiet.. Only the crackling of the fire remains.");
+                        Thread.Sleep(2000);
+
+                    }
+
+                    else if (userInput.ToLower() == "inv")
+                    {
+                        InventoryMenu();
+                        Thread.Sleep(1000);
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("\n\nThe traveler stares into the bonfire for only a moment before turning away from its warmth.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The cold mountain wind bites against your armor once more as you continue toward the distant castle..");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Behind you, the lonely fire crackles softly within the snowstorm.");
+                        Thread.Sleep(2000);
+                        snowyBonfire = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
+                Console.WriteLine("...");
             }
         }
     }
