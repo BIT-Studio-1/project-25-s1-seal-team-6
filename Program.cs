@@ -1224,24 +1224,15 @@ namespace NewGame
 
                             playerHealth -= damage;
                         }
-
                         Thread.Sleep(2000);
-
-
-                        if (abyssHealth <= 90 && abyssHealth > 0)
-                        {
-                            
-
-
-                        }
                     }
 
-                    if (playerHealth <= 0)
+                    if (playerHealth <= 0) // Player health is stuck at 0 which the if is looping on its self.
                     {
                         Death();
-
                         Console.WriteLine("\nYou awaken beside a lonely bonfire within the Shattered Peaks.");
                         Thread.Sleep(3000);
+                        playerHealth = maxHealth; // I have set this to a basic amount to just get out again.
                     }
                     else if (abyssHealth <= 0)
                     {
