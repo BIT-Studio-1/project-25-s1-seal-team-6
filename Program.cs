@@ -705,6 +705,7 @@ namespace NewGame
                 Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to enter?");
+                int maxHealth = 125;
                 bool cathedralChoiceMade = false;
                 while (cathedralChoiceMade == false)
                 {
@@ -893,6 +894,7 @@ namespace NewGame
                                 Console.WriteLine("Max health total: 150HP");
                                 Thread.Sleep(2000);
                                 playerHealth = 150;
+                                maxHealth = 150;
                                 Console.WriteLine("A new weapon lays on the altar where the Undead Assassin once knelt");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("A long, sharp blade.");
@@ -1098,7 +1100,7 @@ namespace NewGame
                 Console.WriteLine("             ABYSSWALKER");
                 Console.WriteLine("=======================================");
                 Thread.Sleep(4000);
-
+                
                 bool abysswalkerDefeated = false;
 
                 while (abysswalkerDefeated == false)
@@ -1265,7 +1267,8 @@ namespace NewGame
                         Thread.Sleep(2500);
 
                         Console.WriteLine("\nYou gain +25 health.");
-                        playerHealth = playerHealth + 25;
+                        maxHealth += 25;          
+                        playerHealth = maxHealth; 
                         Console.WriteLine($"Max Health:{playerHealth}");
                         Thread.Sleep(2500);
                         //Console.WriteLine("Max health increased to 200HP");
