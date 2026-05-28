@@ -3,12 +3,14 @@ using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
 
 namespace NewGame
 {
     internal class Program
     {
-        static string[] Inventory = new string[5];
+        // New object-oriented inventory list
+        static List<Item> Inventory = new List<Item>();
 
         //Start of Klae's Work
         //Start of Artwork Section
@@ -100,37 +102,61 @@ namespace NewGame
         }
 
         //AJ's Work-Inventory
-        public static void InventoryMenu()
+        public static void InventoryMenu(ref int playerHealth, int maxHealth)
         {
-            bool isEmpty = true;
-            foreach (string item in Inventory)
+            if (Inventory.Count == 0)
             {
-                if (item != null)
-                {
-                    isEmpty = false;
-                    break;
-                }
+                Console.WriteLine("\nYour inventory is currently empty.");
+                Thread.Sleep(1000);
+                return;
             }
 
-            if (isEmpty)
+            Console.WriteLine("\n--- YOUR ITEMS ---");
+            for (int i = 0; i < Inventory.Count; i++)
             {
-                Console.WriteLine("Your inventory is currently empty");
-                Thread.Sleep(1000);
+                Console.WriteLine($"{i + 1}. {Inventory[i].Name}");
             }
-            else
+
+            Console.WriteLine("\nEnter an item number to read the description, or 0 to close inventory:");
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= Inventory.Count)
             {
-                Console.WriteLine("Your items: ");
-                foreach (string item in Inventory)
+                Item selectedItem = Inventory[choice - 1];
+
+                Console.Clear();
+                Console.WriteLine($"=== {selectedItem.Name} ===");
+                Console.WriteLine($"Description: {selectedItem.Description}\n");
+                Console.WriteLine("1. Use / Consume");
+                Console.WriteLine("2. Drop");
+                Console.WriteLine("3. Back to game");
+
+                string action = Console.ReadLine();
+                if (action == "1")
                 {
-                    if (item != null)
+                    selectedItem.Use(ref playerHealth, maxHealth);
+                    if (selectedItem is Consumable)
                     {
-                        Console.WriteLine("- " + item);
-                        Thread.Sleep(1000);
+                        Inventory.Remove(selectedItem);
                     }
+                    Console.WriteLine("\nPress Enter to continue...");
+                    Console.ReadLine();
+                }
+                else if (action == "2")
+                {
+                    if (selectedItem.IsDroppable)
+                    {
+                        Console.WriteLine($"\nYou toss the {selectedItem.Name} aside into the dust. Hopefully that wasn't useful");
+                        Inventory.Remove(selectedItem);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nYou cannot drop the {selectedItem.Name}! It is essential to your journey.");
+                    }
+                    Console.WriteLine("\nPress Enter to continue...");
+                    Console.ReadLine();
                 }
             }
         }
-        
+
         static void Main()
         {
             string userInput;
@@ -1370,6 +1396,51 @@ namespace NewGame
                 }
                 Console.WriteLine("...");
             }
+        }
+    }
+    // AJ item types and stuff
+    public class Item
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool IsDroppable { get; set; }
+
+        public Item(string name, string description, bool isDroppable = true)
+        {
+            Name = name;
+            Description = description;
+            IsDroppable = isDroppable;
+        }
+
+        // Custom action when used. Virtual allows other classes to change this behavior.
+        public virtual void Use(ref int playerHealth, int maxHealth)
+        {
+            Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
+        }
+    }
+
+    // Health potion you can use in combat 
+    public class Consumable : Item
+    {
+        public int HealAmount { get; set; }
+
+        public Consumable(string name, string description, int healAmount)
+            : base(name, description, isDroppable: true) // Potions can always be dropped
+        {
+            HealAmount = healAmount;
+        }
+
+        public override void Use(ref int playerHealth, int maxHealth)
+        {
+            if (playerHealth >= maxHealth)
+            {
+                Console.WriteLine("\nYour health is already full!");
+                return;
+            }
+
+            playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
+            Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
+            Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
         }
     }
 }
