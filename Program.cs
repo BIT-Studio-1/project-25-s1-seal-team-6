@@ -1403,7 +1403,13 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("...");
+                Console.WriteLine("The traveler stumbles along an old stone path");
+                Thread.Sleep(2000);
+                Console.WriteLine("The snow grows lighter as you make your way back towards the kingdom");
+                Thread.Sleep(2000);
+                Console.WriteLine("Eventually, you arrive at the kingdom...");
+                Thread.Sleep(2000);
+                Console.ReadLine();
             }
         }
     }
