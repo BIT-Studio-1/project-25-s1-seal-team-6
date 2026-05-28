@@ -26,6 +26,14 @@ namespace NewGame
             Console.Write("\nPress Enter to Respawn"); Console.ReadLine();
             Console.Clear();
         }
+        public static void Castle()
+        {
+
+
+
+
+
+        }
 
         public static void Meadow()
         {
@@ -1490,7 +1498,7 @@ namespace NewGame
                         Thread.Sleep(2000);
                         Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
                         Thread.Sleep(2000);
-                        bool explore = false;
+                        explore = false;
                     }
                     else
                     {
