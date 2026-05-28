@@ -9,7 +9,7 @@ namespace NewGame
 {
     internal class Program
     {
-        // New object-oriented inventory list
+        // New inventory variable
         static List<Item> Inventory = new List<Item>();
 
         //Start of Klae's Work
@@ -68,6 +68,8 @@ namespace NewGame
 
                     Console.WriteLine("Because you saved the bonfire it will remember to respawn you back here instead of the start");
                     int bonfire = 0; bonfire++;
+                    Console.WriteLine("You found a glowing pot nestled in the embers!");
+                    Inventory.Add(new Consumable("Estus Potion", "A warm, radiant fluid that mends broken bones and restores vitality.", 40));
                     Console.ReadLine();
                 }
 
@@ -161,13 +163,17 @@ namespace NewGame
         {
             string userInput;
             string result;
+
+            // temporary hp before it is set in the game itself
+            int tempHealth = 100;
+            int tempMax = 100;
+
             Welcome();
             Console.WriteLine("You are in a dark and forbidding place.");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("Type the following for help: Help");
             userInput = Console.ReadLine();
 
-            
             if (userInput.ToLower() == "quit")
             {
                 Console.WriteLine("You quit the game");
@@ -180,7 +186,7 @@ namespace NewGame
             }
             else if (userInput.ToLower() == "inv")
             {
-                InventoryMenu();
+                InventoryMenu(ref tempHealth, tempMax);
                 Thread.Sleep(1000);
                 Console.WriteLine("What did you expect, you haven't even started yet");
                 Thread.Sleep(1000);
@@ -188,7 +194,6 @@ namespace NewGame
                 Thread.Sleep(1000);
                 StartGame();
             }
-
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
@@ -199,10 +204,10 @@ namespace NewGame
                 if (userInput.ToLower() == "proceed")
                 {
                     StartGame();
-                }                
+                }
                 else if (userInput.ToLower() == "inv")
                 {
-                    InventoryMenu();
+                    InventoryMenu(ref tempHealth, tempMax);
                     Thread.Sleep(5000);
                     StartGame();
                 }
@@ -348,6 +353,8 @@ namespace NewGame
                             Console.WriteLine("\nRest or Proceed?");
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "rest")
+                                Console.WriteLine("You found a glowing vial nestled in the embers!");
+                                Inventory.Add(new Consumable("Estus Potion", "A warm, radiant fluid that mends broken bones and restores vitality.", 40));
                             {
                                 RespawnOne();
                             }
@@ -381,7 +388,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
 
@@ -408,9 +415,10 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to collected the sword? Y/N");
                 userInput = Console.ReadLine();
-                if (hasSword == false && userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                if (hasSword == false && (userInput.ToLower() == "y" || userInput.ToLower() == "yes"))
                 {
-                    Inventory[0] = "Rusty Sword";
+                    // false means the item is marked essential and you can't drop it, we can use it to stop people dropping anything that might softlock them or cause any other problems
+                    Inventory.Add(new Item("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", false));
                     hasSword = true;
                     Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
@@ -492,7 +500,7 @@ namespace NewGame
                             else if (choice == "inv" || choice == "inv")
                             {
                                 Console.WriteLine("You bravely check your inventory mid combat");
-                                InventoryMenu();
+                                InventoryMenu(ref playerHealth, maxHealth);
                             }
 
                             else
@@ -1016,7 +1024,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
                     else if (userInput.ToLower() == "proceed")
@@ -1376,7 +1384,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
                     else if (userInput.ToLower() == "proceed")
