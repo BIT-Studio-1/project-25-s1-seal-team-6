@@ -3,12 +3,14 @@ using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
 
 namespace NewGame
 {
     internal class Program
     {
-        static string[] Inventory = new string[5];
+        // New inventory variable
+        static List<Item> Inventory = new List<Item>();
 
         //Start of Klae's Work
         //Start of Artwork Section
@@ -66,6 +68,8 @@ namespace NewGame
 
                     Console.WriteLine("Because you saved the bonfire it will remember to respawn you back here instead of the start");
                     int bonfire = 0; bonfire++;
+                    Console.WriteLine("You found a glowing pot nestled in the embers!");
+                    Inventory.Add(new Consumable("Estus Potion", "A warm, radiant fluid that mends broken bones and restores vitality.", 40));
                     Console.ReadLine();
                 }
 
@@ -100,48 +104,76 @@ namespace NewGame
         }
 
         //AJ's Work-Inventory
-        public static void InventoryMenu()
+        public static void InventoryMenu(ref int playerHealth, int maxHealth)
         {
-            bool isEmpty = true;
-            foreach (string item in Inventory)
+            if (Inventory.Count == 0)
             {
-                if (item != null)
-                {
-                    isEmpty = false;
-                    break;
-                }
+                Console.WriteLine("\nYour inventory is currently empty.");
+                Thread.Sleep(1000);
+                return;
             }
 
-            if (isEmpty)
+            Console.WriteLine("\n--- YOUR ITEMS ---");
+            for (int i = 0; i < Inventory.Count; i++)
             {
-                Console.WriteLine("Your inventory is currently empty");
-                Thread.Sleep(1000);
+                Console.WriteLine($"{i + 1}. {Inventory[i].Name}");
             }
-            else
+
+            Console.WriteLine("\nEnter an item number to read the description, or 0 to close inventory:");
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= Inventory.Count)
             {
-                Console.WriteLine("Your items: ");
-                foreach (string item in Inventory)
+                Item selectedItem = Inventory[choice - 1];
+
+                Console.Clear();
+                Console.WriteLine($"=== {selectedItem.Name} ===");
+                Console.WriteLine($"Description: {selectedItem.Description}\n");
+                Console.WriteLine("1. Use / Consume");
+                Console.WriteLine("2. Drop");
+                Console.WriteLine("3. Back to game");
+
+                string action = Console.ReadLine();
+                if (action == "1")
                 {
-                    if (item != null)
+                    selectedItem.Use(ref playerHealth, maxHealth);
+                    if (selectedItem is Consumable)
                     {
-                        Console.WriteLine("- " + item);
-                        Thread.Sleep(1000);
+                        Inventory.Remove(selectedItem);
                     }
+                    Console.WriteLine("\nPress Enter to continue...");
+                    Console.ReadLine();
+                }
+                else if (action == "2")
+                {
+                    if (selectedItem.IsDroppable)
+                    {
+                        Console.WriteLine($"\nYou toss the {selectedItem.Name} aside into the dust. Hopefully that wasn't useful");
+                        Inventory.Remove(selectedItem);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nYou cannot drop the {selectedItem.Name}! It is essential to your journey.");
+                    }
+                    Console.WriteLine("\nPress Enter to continue...");
+                    Console.ReadLine();
                 }
             }
         }
-        
+
         static void Main()
         {
             string userInput;
             string result;
+
+            // temporary hp before it is set in the game itself
+            int tempHealth = 100;
+            int tempMax = 100;
+
             Welcome();
             Console.WriteLine("You are in a dark and forbidding place.");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("Type the following for help: Help");
             userInput = Console.ReadLine();
 
-            
             if (userInput.ToLower() == "quit")
             {
                 Console.WriteLine("You quit the game");
@@ -154,7 +186,7 @@ namespace NewGame
             }
             else if (userInput.ToLower() == "inv")
             {
-                InventoryMenu();
+                InventoryMenu(ref tempHealth, tempMax);
                 Thread.Sleep(1000);
                 Console.WriteLine("What did you expect, you haven't even started yet");
                 Thread.Sleep(1000);
@@ -162,7 +194,6 @@ namespace NewGame
                 Thread.Sleep(1000);
                 StartGame();
             }
-
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
@@ -173,10 +204,10 @@ namespace NewGame
                 if (userInput.ToLower() == "proceed")
                 {
                     StartGame();
-                }                
+                }
                 else if (userInput.ToLower() == "inv")
                 {
-                    InventoryMenu();
+                    InventoryMenu(ref tempHealth, tempMax);
                     Thread.Sleep(5000);
                     StartGame();
                 }
@@ -192,6 +223,7 @@ namespace NewGame
             {
                 int player, BKknight;
                 int playerHealth = 100;
+                int maxHealth = 100;
                 string[] responses =
                 {
                 "\nThe world does not respond.",
@@ -249,7 +281,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
                     else if (userInput.ToLower() == "proceed")
@@ -323,6 +355,8 @@ namespace NewGame
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "rest")
                             {
+                                Console.WriteLine("You found a glowing vial nestled in the embers!");
+                                Inventory.Add(new Consumable("Estus Potion", "A warm, radiant fluid that mends broken bones and restores vitality.", 40));
                                 RespawnOne();
                             }
                             else if (userInput.ToLower() == "help")
@@ -355,7 +389,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
 
@@ -382,9 +416,10 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to collected the sword? Y/N");
                 userInput = Console.ReadLine();
-                if (hasSword == false && userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                if (hasSword == false && (userInput.ToLower() == "y" || userInput.ToLower() == "yes"))
                 {
-                    Inventory[0] = "Rusty Sword";
+                    // false means the item is marked essential and you can't drop it, we can use it to stop people dropping anything that might softlock them or cause any other problems
+                    Inventory.Add(new Item("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", false));
                     hasSword = true;
                     Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
@@ -466,7 +501,7 @@ namespace NewGame
                             else if (choice == "inv" || choice == "inv")
                             {
                                 Console.WriteLine("You bravely check your inventory mid combat");
-                                InventoryMenu();
+                                InventoryMenu(ref playerHealth, maxHealth);
                             }
 
                             else
@@ -641,6 +676,7 @@ namespace NewGame
 
                             if (playerHealth <= 0)
                             {
+                                Death();
                                 Console.WriteLine("You Died...");
                                 RespawnOne();
                                 if (hasSword == false)
@@ -654,16 +690,25 @@ namespace NewGame
                                     if (userInput == "y" || userInput == "yes")
                                     {
                                         hasSword = true;
-                                        Inventory[0] = "Rusty Sword";
+                                        Inventory.Add(new Item("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", false));
 
                                         Console.WriteLine("\nYou obtained: Rusty Sword");
                                         Thread.Sleep(1500);
                                     }
-                                    else
+                                    else if (userInput == "help")
+                                    {
+                                        Console.WriteLine("\nType Yes to collect the Rusty Sword");
+                                        Console.WriteLine("Type No to leave it behind");
+                                    }
+                                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                                     {
                                         Console.WriteLine("\nYou leave the sword behind once more.");
                                         Thread.Sleep(1500);
                                     }
+                                    else
+                                    {
+                                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                                    }              
                                 }
                             }
                             else if (BKhealth <= 0)
@@ -705,6 +750,7 @@ namespace NewGame
                 Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to enter?");
+                maxHealth = maxHealth + 25;
                 bool cathedralChoiceMade = false;
                 while (cathedralChoiceMade == false)
                 {
@@ -879,6 +925,7 @@ namespace NewGame
                             
                             if (playerHealth <= 0)
                             {
+                                Death();
                                 Console.WriteLine("You Died...");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("\nYou awaken beside the cathedral entrance.");
@@ -893,6 +940,7 @@ namespace NewGame
                                 Console.WriteLine("Max health total: 150HP");
                                 Thread.Sleep(2000);
                                 playerHealth = 150;
+                                maxHealth = 150;
                                 Console.WriteLine("A new weapon lays on the altar where the Undead Assassin once knelt");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("A long, sharp blade.");
@@ -906,7 +954,7 @@ namespace NewGame
                                     if (userInput == "y" || userInput == "yes")
                                     {
                                         hasSword = true;
-                                        Inventory[1] = "Claymore";
+                                        Inventory.Add(new Item("Claymore", "A heavy, sturdy blade that you struggle to wield.", true));
                                         Console.WriteLine("\nYou obtained: Claymore");
                                         Thread.Sleep(1500);
                                         weaponChoiceMade = true;
@@ -979,7 +1027,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
                     else if (userInput.ToLower() == "proceed")
@@ -1038,23 +1086,10 @@ namespace NewGame
 
                 Console.WriteLine("Towering mountains rise beyond the horizon.");
                 Thread.Sleep(2500);
-
-                Console.WriteLine("\nThe Shattered Peaks.");
-                Thread.Sleep(3500);
-
-                Console.WriteLine("Do you want to explore the area? Y/N");
-                userInput = Console.ReadLine();
-                if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
-                {
-
-                    Console.WriteLine("\nNEW LOCATION UNLOCKED");
-                    Console.WriteLine("\n SHATTERED PEAKS");
-                }
-                else
-                {
-                }
-
-
+                
+                Console.WriteLine("\nNEW LOCATION UNLOCKED");
+                Console.WriteLine("\n SHATTERED PEAKS");
+               
                 Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
                 Thread.Sleep(3000);
 
@@ -1111,7 +1146,7 @@ namespace NewGame
                 Console.WriteLine("             ABYSSWALKER");
                 Console.WriteLine("=======================================");
                 Thread.Sleep(4000);
-
+                
                 bool abysswalkerDefeated = false;
 
                 while (abysswalkerDefeated)
@@ -1280,24 +1315,15 @@ namespace NewGame
 
                             playerHealth -= damage;
                         }
-
                         Thread.Sleep(2000);
-
-
-                        if (abyssHealth <= 90 && abyssHealth > 0)
-                        {
-                            
-
-
-                        }
                     }
 
-                    if (playerHealth <= 0)
+                    if (playerHealth <= 0) // Player health is stuck at 0 which the if is looping on its self.
                     {
                         Death();
-
                         Console.WriteLine("\nYou awaken beside a lonely bonfire within the Shattered Peaks.");
                         Thread.Sleep(3000);
+                        playerHealth = maxHealth; // I have set this to a basic amount to just get out again.
                     }
                     else if (abyssHealth <= 0)
                     {
@@ -1332,7 +1358,8 @@ namespace NewGame
                         Thread.Sleep(2500);
 
                         Console.WriteLine("\nYou gain +25 health.");
-                        playerHealth = playerHealth + 25;
+                        maxHealth += 25;          
+                        playerHealth = maxHealth; 
                         Console.WriteLine($"Max Health:{playerHealth}");
                         Thread.Sleep(2500);
                         //Console.WriteLine("Max health increased to 200HP");
@@ -1346,6 +1373,38 @@ namespace NewGame
                     }
                     // Boss fight end//
                 }
+                //Alfie. Added new eapon after abyss walker fight
+                Console.WriteLine("A new weapon rests in the snow");
+                Thread.Sleep(2000);
+                Console.WriteLine("Would you like to collect it?");
+                Thread.Sleep(2000);
+                bool AbyssDec = false;
+                while (AbyssDec == false)
+                {
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                    {
+                        Inventory.Add(new Item("Abyss Greatsword", "A sword earned in combat against a worthy opponent.", true));
+                        Console.WriteLine("\nYou obtained: Abyss GreatSword");
+                        Thread.Sleep(1500);
+                        AbyssDec = true;
+                    }
+                    else if (userInput == "help")
+                    {
+                        Console.WriteLine("\nType Yes to collect the Abyss GreatSword");
+                        Console.WriteLine("Type No to leave it behind");
+                    }
+                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                    {
+                        Console.WriteLine("\nYou leave the sword behind, snow quickly blankets it");
+                        Thread.Sleep(1500);
+                        AbyssDec = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
                 //Alfie. Continues towards castle
                 Console.WriteLine("The snow sets on the travelers armour.");
                 Thread.Sleep(2000);
@@ -1355,7 +1414,137 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Waiting patiently in the distance.");
                 Thread.Sleep(2000);
+                Console.WriteLine("A faint orange glow flickers through the snowfall below the mountain path.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Half-buried beneath the stone remains of an ancient watchtower, a lonely bonfire crackles against the cold wind.");
+                Thread.Sleep(2000);                
+                bool snowyBonfire = true;
+                while (snowyBonfire == true)
+                {
+                    Console.WriteLine("Would you like to rest?");
+                    Thread.Sleep(2000);
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                        Console.WriteLine("To leave the bonfire type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("\n\nThe traveler lowers themselves beside the bonfire, exhaustion weighing heavily upon their body.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The warmth of the flames slowly melts the frost from your armor as ash drifts silently into the night sky.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("For a brief moment, the mountain grows quiet.. Only the crackling of the fire remains.");
+                        Thread.Sleep(2000);
+
+                    }
+                    else if (userInput.ToLower() == "inv")
+                    {
+                        InventoryMenu(ref playerHealth, maxHealth);
+                        Thread.Sleep(1000);
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("\n\nThe traveler stares into the bonfire for only a moment before turning away from its warmth.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The cold mountain wind bites against your armor once more as you continue toward the distant castle..");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Behind you, the lonely fire crackles softly within the snowstorm.");
+                        Thread.Sleep(2000);
+                        snowyBonfire = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
+                Console.WriteLine("The traveler stumbles along an old stone path");
+                Thread.Sleep(2000);
+                Console.WriteLine("The snow grows lighter as you make your way back towards the kingdom");
+                Thread.Sleep(2000);
+                Console.WriteLine("Eventually, you arrive at the kingdom...");
+                Thread.Sleep(2000);
+                Console.WriteLine("The castle waits for you past broken buildings");
+                Thread.Sleep(2000);
+                bool explore = true;
+                while (explore == true)
+                {
+                    Console.WriteLine("Would you like to explore the area, or proceed towards the castle?");
+                    Thread.Sleep(2000);
+                    Console.ReadLine();
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo explore the area type: Explore");
+                        Console.WriteLine("To proceed towards the castle type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
+                    {
+                        Console.WriteLine("");//I will continue this -Alfie
+                        Thread.Sleep(2000);
+                    }
+                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("You ignore the buildings, proceeding towards the castle");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
+                        Thread.Sleep(2000);
+                        bool explore = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+
+                }
+                Console.WriteLine("...");
             }
+        }
+    }
+    // AJ item types and stuff
+    public class Item
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool IsDroppable { get; set; }
+
+        public Item(string name, string description, bool isDroppable = true)
+        {
+            Name = name;
+            Description = description;
+            IsDroppable = isDroppable;
+        }
+
+        // Custom action when used. Virtual allows other classes to change this behavior.
+        public virtual void Use(ref int playerHealth, int maxHealth)
+        {
+            Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
+        }
+    }
+
+    // Health potion you can use in combat 
+    public class Consumable : Item
+    {
+        public int HealAmount { get; set; }
+
+        public Consumable(string name, string description, int healAmount)
+            : base(name, description, isDroppable: true) // Potions can always be dropped
+        {
+            HealAmount = healAmount;
+        }
+
+        public override void Use(ref int playerHealth, int maxHealth)
+        {
+            if (playerHealth >= maxHealth)
+            {
+                Console.WriteLine("\nYour health is already full!");
+                return;
+            }
+
+            playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
+            Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
+            Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
         }
     }
 }
