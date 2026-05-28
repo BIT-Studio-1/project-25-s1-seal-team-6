@@ -1157,7 +1157,7 @@ namespace NewGame
                 
                 bool abysswalkerDefeated = false;
 
-                while (abysswalkerDefeated)
+                while (abysswalkerDefeated == false)
                 {
                     int abyssHealth = 180;
                     bool phaseTwo = false;
