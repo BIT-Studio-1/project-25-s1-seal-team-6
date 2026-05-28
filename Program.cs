@@ -1425,7 +1425,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                     {
-                        Console.WriteLine("");
+                        Console.WriteLine("");//I will continue this -Alfie
                         Thread.Sleep(2000);
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
