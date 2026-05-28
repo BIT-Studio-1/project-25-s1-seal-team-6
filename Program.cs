@@ -223,6 +223,7 @@ namespace NewGame
             {
                 int player, BKknight;
                 int playerHealth = 100;
+                int maxHealth = 100;
                 string[] responses =
                 {
                 "\nThe world does not respond.",
@@ -748,7 +749,7 @@ namespace NewGame
                 Console.WriteLine("A cold wind spilled from within the cathedral halls, carrying the scent of ash and something long left to rot.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Would you like to enter?");
-                int maxHealth = 125;
+                maxHealth = maxHealth + 25;
                 bool cathedralChoiceMade = false;
                 while (cathedralChoiceMade == false)
                 {
