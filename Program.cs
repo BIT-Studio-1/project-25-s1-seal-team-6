@@ -1114,29 +1114,58 @@ namespace NewGame
 
                 bool abysswalkerDefeated = false;
 
-                while (abysswalkerDefeated == false)
+                while (abysswalkerDefeated)
                 {
-                    int abyssHealth = 160;
+                    int abyssHealth = 180;
+                    bool phaseTwo = false;
                     //playerHealth = 150; COMMENTED OUT AS PLAYER HEALTH ONLY GOES TO 150 IF THEY FIGHT CATHEDRAL BOSS, OTHERWISE HESLTH REMAINS AT 125HP -Alfie :)
+
+                    Console.WriteLine("\nThe Abysswalker drags its blade across the frozen ground...");
+                    Thread.Sleep(2000);
 
                     while (playerHealth > 0 && abyssHealth > 0)
                     {
                         Console.WriteLine("\n------------------------------------------------");
-                        Console.WriteLine($"Your Health: {playerHealth}");
-                        Console.WriteLine($"Abysswalker Health: {abyssHealth}");
+                        Console.WriteLine($"Your HP: {playerHealth}");
+                        Console.WriteLine($"Abysswalker HP: {abyssHealth}");
                         Console.WriteLine("------------------------------------------------");
 
-                        Console.WriteLine("Choose an action:");
+
+                        int enemyIntent = rand.Next(0, 4);
+
+                        if (enemyIntent == 0)
+                        {
+                            Console.WriteLine("\nThe Abysswalker raises its blade overhead...");
+                        }
+                        else if (enemyIntent == 1)
+                        {
+                            Console.WriteLine("\nDark flames begin gathering around the Abysswalker...");
+                        }
+                        else if (enemyIntent == 2)
+                        {
+                            Console.WriteLine("\nThe Abysswalker vanishes into the blizzard...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nThe Abysswalker lowers its stance for a devastating strike...");
+                        }
+
+                        Thread.Sleep(1500);
+
+
+                        Console.WriteLine("\nChoose your action:");
                         Console.WriteLine("1. Quick Strike");
                         Console.WriteLine("2. Charge Blow");
                         Console.WriteLine("3. Raise Shield");
+                        Console.WriteLine("4. Parry");
+                        Console.WriteLine("5. Heal");
 
                         string choice = Console.ReadLine().ToLower();
 
 
                         if (choice == "1" || choice == "Quick Strike")
                         {
-                            int damage = rand.Next(30, 40);
+                            int damage = rand.Next(20, 36);
 
                             Console.WriteLine("\nYou slash the Abysswalker!");
                             Console.WriteLine($"You deal {damage} damage!");
@@ -1145,11 +1174,11 @@ namespace NewGame
                         }
                         else if (choice == "2" || choice == "Charge Blow")
                         {
-                            int hitChance = rand.Next(0, 2);
+                            int hitChance = rand.Next(0, 50);
 
-                            if (hitChance == 1)
+                            if (hitChance < 61)
                             {
-                                int damage = rand.Next(40, 66);
+                                int damage = rand.Next(40, 65);
 
                                 Console.WriteLine("\nYour heavy attack lands!");
                                 Console.WriteLine($"You deal {damage} damage!");
@@ -1158,12 +1187,37 @@ namespace NewGame
                             }
                             else
                             {
-                                Console.WriteLine("\nYour heavy attack misses!");
+                                Console.WriteLine("\nYour heavy attack misses! ");
+                                Console.WriteLine("\nThe Abysswalker avoids your attack!");
                             }
                         }
                         else if (choice == "3" || choice == "Raise Shield")
                         {
                             Console.WriteLine("\nYou brace against the freezing wind.");
+                        }
+                        else if (choice == "5" || choice == "heal")
+                        {
+                            int healAmount = 35;
+
+                            playerHealth += healAmount;
+
+                            if (playerHealth > 150)
+                                playerHealth = 150;
+
+                            Console.WriteLine($"\nYou restore {healAmount} HP!");
+
+                            Thread.Sleep(1000);
+
+                            Console.WriteLine("The Abysswalker punishes your opening!");
+
+                            int punishDamage = 20;
+
+                            Console.WriteLine($"You take {punishDamage} damage!");
+                            playerHealth -= punishDamage;
+                        }
+                        else if (choice == "4" || choice == "parry")
+                        {
+                            Console.WriteLine("\nYou steady yourself for a parry.");
                         }
                         else
                         {
