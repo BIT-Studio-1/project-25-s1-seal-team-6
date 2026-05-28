@@ -676,6 +676,7 @@ namespace NewGame
 
                             if (playerHealth <= 0)
                             {
+                                Death();
                                 Console.WriteLine("You Died...");
                                 RespawnOne();
                                 if (hasSword == false)
@@ -924,6 +925,7 @@ namespace NewGame
                             
                             if (playerHealth <= 0)
                             {
+                                Death();
                                 Console.WriteLine("You Died...");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("\nYou awaken beside the cathedral entrance.");
