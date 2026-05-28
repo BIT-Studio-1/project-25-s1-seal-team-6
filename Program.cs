@@ -1409,7 +1409,40 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Eventually, you arrive at the kingdom...");
                 Thread.Sleep(2000);
-                Console.ReadLine();
+                Console.WriteLine("The castle waits for you past broken buildings");
+                Thread.Sleep(2000);
+                bool explore = true;
+                while (explore == true)
+                {
+                    Console.WriteLine("Would you like to explore the area, or proceed towards the castle?");
+                    Thread.Sleep(2000);
+                    Console.ReadLine();
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo explore the area type: Explore");
+                        Console.WriteLine("To proceed towards the castle type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
+                    {
+                        Console.WriteLine("");
+                        Thread.Sleep(2000);
+                    }
+                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("You ignore the buildings, proceeding towards the castle");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
+                        Thread.Sleep(2000);
+                        bool explore = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+
+                }
+                Console.WriteLine("...");
             }
         }
     }
