@@ -280,7 +280,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "inv")
                     {
-                        InventoryMenu();
+                        InventoryMenu(ref playerHealth, maxHealth);
                         Thread.Sleep(1000);
                     }
                     else if (userInput.ToLower() == "proceed")
@@ -353,9 +353,9 @@ namespace NewGame
                             Console.WriteLine("\nRest or Proceed?");
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "rest")
+                            {
                                 Console.WriteLine("You found a glowing vial nestled in the embers!");
                                 Inventory.Add(new Consumable("Estus Potion", "A warm, radiant fluid that mends broken bones and restores vitality.", 40));
-                            {
                                 RespawnOne();
                             }
                             else if (userInput.ToLower() == "help")
@@ -688,7 +688,7 @@ namespace NewGame
                                     if (userInput == "y" || userInput == "yes")
                                     {
                                         hasSword = true;
-                                        Inventory[0] = "Rusty Sword";
+                                        Inventory.Add(new Item("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", false));
 
                                         Console.WriteLine("\nYou obtained: Rusty Sword");
                                         Thread.Sleep(1500);
@@ -951,7 +951,7 @@ namespace NewGame
                                     if (userInput == "y" || userInput == "yes")
                                     {
                                         hasSword = true;
-                                        Inventory[1] = "Claymore";
+                                        Inventory.Add(new Item("Claymore", "A heavy, sturdy blade that you struggle to wield.", true));
                                         Console.WriteLine("\nYou obtained: Claymore");
                                         Thread.Sleep(1500);
                                         weaponChoiceMade = true;
@@ -1327,7 +1327,7 @@ namespace NewGame
                     userInput = Console.ReadLine();
                     if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                     {
-                        Inventory[2] = "Abyss GreatSword";
+                        Inventory.Add(new Item("Abyss Greatsword", "A sword earned in combat against a worthy opponent.", true));
                         Console.WriteLine("\nYou obtained: Abyss GreatSword");
                         Thread.Sleep(1500);
                         AbyssDec = true;
