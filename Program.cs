@@ -1492,56 +1492,101 @@ namespace NewGame
                         Thread.Sleep(2000);
                         Console.WriteLine("Despite the silence, an uneasy feeling settles in your chest.");
                         Thread.Sleep(2000);
-                        Console.WriteLine("Would you like to continue exploring, or proceed towards the castle?");
-                        Thread.Sleep(2000);
-                        userInput = Console.ReadLine();
-                        if (userInput.ToLower() == "help")
+                        bool exploreContinue = true;
+                        while (exploreContinue == true)
                         {
-                            Console.WriteLine("\n\nTo explore the area type: Explore");
-                            Console.WriteLine("To proceed towards the castle type: Proceed");
-                        }
-                        else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
-                        {
-                            Console.WriteLine("The traveler proceeds towards one of the houses, pushes against the warped wooden door.");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("Dust fills the air as the entrance slowly creaks open, revealing a room untouched for countless years.");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("Only darkness greets you from within, broken by thin beams of pale light slipping through cracks in the ceiling.");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("The silence feels unnatural, as though the building itself is holding its breath...");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("Would you like to explore the building, or proceed towards the castle?");
+                            Console.WriteLine("Would you like to continue exploring, or proceed towards the castle?");
                             Thread.Sleep(2000);
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "help")
                             {
-                                Console.WriteLine("\n\nTo explore the area type: Explore");
+                                Console.WriteLine("\n\nTo continue exploring the area type: Explore");
                                 Console.WriteLine("To proceed towards the castle type: Proceed");
                             }
                             else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                             {
-
+                                exploreContinue = false;
+                                Console.WriteLine("The traveler proceeds towards one of the houses, pushes against the warped wooden door.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("Dust fills the air as the entrance slowly creaks open, revealing a room untouched for countless years.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("Only darkness greets you from within, broken by thin beams of pale light slipping through cracks in the ceiling.");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("The silence feels unnatural, as though the building itself is holding its breath...");
+                                Thread.Sleep(2000);
+                                bool exploreBuilding = true;
+                                while (exploreBuilding == true)
+                                {
+                                    Console.WriteLine("Would you like to explore the building, or proceed towards the castle?");
+                                    Thread.Sleep(2000);
+                                    userInput = Console.ReadLine();
+                                    if (userInput.ToLower() == "help")
+                                    {
+                                        Console.WriteLine("\n\nTo explore the building type: Explore");
+                                        Console.WriteLine("To proceed towards the castle type: Proceed");
+                                    }
+                                    else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
+                                    {
+                                        Console.WriteLine("The traveler moves cautiously through the abandoned building");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("In the far corner of the building, something catches your eye beneath a pile of collapsed timber.");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("Pushing aside the debris, you uncover a massive greataxe resting against the wall.");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("Though dulled by age, its iron head remains intact, etched with faded runes from a forgotten age.");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("Would you like to collect the Greataxe? Y/N");
+                                        userInput = Console.ReadLine();
+                                        if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+                                        {
+                                            Inventory.Add(new Item("Greataxe", "The weapon is heavy in your hands, yet perfectly balanced—as if it had been waiting for someone to claim it.", false));
+                                            Console.WriteLine("\nYou obtained: Greataxe");
+                                            Thread.Sleep(2000);
+                                            Console.WriteLine("\nIt was now time to proceed.");
+                                            Thread.Sleep(2000);
+                                            explore = false;
+                                            exploreContinue = false;
+                                            exploreBuilding = false;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("\nYou leave the Greataxe behind.");
+                                            Console.WriteLine("\nIt was now time to proceed.");
+                                            Thread.Sleep(2000);
+                                            explore = false;
+                                            exploreContinue = false;
+                                            exploreBuilding = false;
+                                        }
+                                    }
+                                    else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
+                                    {
+                                        Console.WriteLine("You decide not to enter the building. Turning back towards the castle...");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
+                                        Thread.Sleep(2000);
+                                        explore = false;
+                                        exploreContinue = false;
+                                        exploreBuilding = false;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                                    }
+                                }
                             }
                             else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
                             {
-
+                                Console.WriteLine("You ignore the buildings, proceeding towards the castle");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
+                                Thread.Sleep(2000);
+                                explore = false;
+                                exploreContinue = false;
                             }
                             else
                             {
                                 Console.WriteLine(responses[rand.Next(responses.Length)]);
                             }
-                        }
-                        else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
-                        {
-                            Console.WriteLine("You ignore the buildings, proceeding towards the castle");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
-                            Thread.Sleep(2000);
-                            explore = false;
-                        }
-                        else
-                        {
-                            Console.WriteLine(responses[rand.Next(responses.Length)]);
                         }
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
@@ -1557,7 +1602,8 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("...");
+                Console.WriteLine("The castle's towering silhouette looms over the ruined district.");
+                Thread.Sleep(2000);
             }
         }
     }
