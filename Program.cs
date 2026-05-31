@@ -1480,7 +1480,6 @@ namespace NewGame
                 {
                     Console.WriteLine("Would you like to explore the area, or proceed towards the castle?");
                     Thread.Sleep(2000);
-                    Console.ReadLine();
                     userInput = Console.ReadLine();
                     if (userInput.ToLower() == "help")
                     {
@@ -1489,8 +1488,61 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                     {
-                        Console.WriteLine("");//I will continue this -Alfie
+                        Console.WriteLine("Collapsed homes line the road, their doors hanging open as if their occupants had vanished in an instant.");
                         Thread.Sleep(2000);
+                        Console.WriteLine("Despite the silence, an uneasy feeling settles in your chest.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Would you like to continue exploring, or proceed towards the castle?");
+                        Thread.Sleep(2000);
+                        userInput = Console.ReadLine();
+                        if (userInput.ToLower() == "help")
+                        {
+                            Console.WriteLine("\n\nTo explore the area type: Explore");
+                            Console.WriteLine("To proceed towards the castle type: Proceed");
+                        }
+                        else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
+                        {
+                            Console.WriteLine("The traveler proceeds towards one of the houses, pushes against the warped wooden door.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("Dust fills the air as the entrance slowly creaks open, revealing a room untouched for countless years.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("Only darkness greets you from within, broken by thin beams of pale light slipping through cracks in the ceiling.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("The silence feels unnatural, as though the building itself is holding its breath...");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("Would you like to explore the building, or proceed towards the castle?");
+                            Thread.Sleep(2000);
+                            userInput = Console.ReadLine();
+                            if (userInput.ToLower() == "help")
+                            {
+                                Console.WriteLine("\n\nTo explore the area type: Explore");
+                                Console.WriteLine("To proceed towards the castle type: Proceed");
+                            }
+                            else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
+                            {
+
+                            }
+                            else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
+                            {
+
+                            }
+                            else
+                            {
+                                Console.WriteLine(responses[rand.Next(responses.Length)]);
+                            }
+                        }
+                        else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
+                        {
+                            Console.WriteLine("You ignore the buildings, proceeding towards the castle");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
+                            Thread.Sleep(2000);
+                            explore = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine(responses[rand.Next(responses.Length)]);
+                        }
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
                     {
@@ -1504,7 +1556,6 @@ namespace NewGame
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
-
                 }
                 Console.WriteLine("...");
             }
