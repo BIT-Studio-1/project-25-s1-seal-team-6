@@ -586,13 +586,12 @@ namespace NewGame
                         if (playerHealth <= 0)
                         {
                             Death();
-                            Console.WriteLine("You Died...");
                             RespawnOne();
                             
                         }
                         else if (BKhealth <= 0)
                         {
-                            Console.WriteLine("Victory Achieved");
+                            BlackKnightFalls();
                             blackKnightDefeated = true;
                         }
                     }
@@ -705,7 +704,6 @@ namespace NewGame
                             if (playerHealth <= 0)
                             {
                                 Death();
-                                Console.WriteLine("You Died...");
                                 RespawnOne();
                                 if (hasSword == false)
                                 {
@@ -741,7 +739,7 @@ namespace NewGame
                             }
                             else if (BKhealth <= 0)
                             {
-                                Console.WriteLine("Victory Achieved");
+                                BlackKnightFalls();
                                 blackKnightDefeated = true;
                             }
                         }
@@ -954,14 +952,13 @@ namespace NewGame
                             if (playerHealth <= 0)
                             {
                                 Death();
-                                Console.WriteLine("You Died...");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("\nYou awaken beside the cathedral entrance.");
                                 Thread.Sleep(2000);
                             }
                             else if (assassinHealth <= 0)
                             {
-                                Console.WriteLine("Victory Achieved");
+                                UndeadAssassinFalls();
                                 assassinDefeated = true;
                                 Thread.Sleep(2000);
                                 Console.WriteLine("You have absorbed the Undead Assassin's soul and gained +25 health");
@@ -1351,7 +1348,7 @@ namespace NewGame
                         Death();
                         Console.WriteLine("\nYou awaken beside a lonely bonfire within the Shattered Peaks.");
                         Thread.Sleep(3000);
-                        playerHealth = maxHealth; // I have set this to a basic amount to just get out again.
+                        playerHealth = maxHealth; // I have set this to a basic amount to just get out again - Klae.
                     }
                     else if (abyssHealth <= 0)
                     {
@@ -1379,7 +1376,7 @@ namespace NewGame
                         Console.WriteLine("\nThe Abysswalker fades into ash within the snowstorm.");
                         Thread.Sleep(4000);
 
-                        Console.WriteLine("\n============== VICTORY ACHIEVED ==============");
+                        AbysswalkerFalls();
                         Thread.Sleep(4000);
 
                         Console.WriteLine("\nYou absorbed the Abysswalker's soul.");
@@ -1439,11 +1436,13 @@ namespace NewGame
                 Console.WriteLine("It was now time to proceed back down the mountain");
                 Thread.Sleep(2000);
                 Console.WriteLine("The storm breaks, giving you a view of a large, cobblestone castle");
+                Castle();
                 Thread.Sleep(2000);
                 Console.WriteLine("Waiting patiently in the distance.");
                 Thread.Sleep(2000);
                 Console.WriteLine("A faint orange glow flickers through the snowfall below the mountain path.");
                 Thread.Sleep(2000);
+                WatchTower();
                 Console.WriteLine("Half-buried beneath the stone remains of an ancient watchtower, a lonely bonfire crackles against the cold wind.");
                 Thread.Sleep(2000);                
                 bool snowyBonfire = true;
