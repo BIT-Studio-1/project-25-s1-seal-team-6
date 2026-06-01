@@ -478,6 +478,8 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("For a moment, it seems no more alive than the statues scattered throughout the kingdom.\nThen the knight moves.");
                 Thread.Sleep(2000);
+                BKArt();
+                Thread.Sleep(2000);
                 Console.WriteLine("Beneath the shattered visor, two faint embers flicker within the darkness where eyes should have been.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
@@ -820,7 +822,7 @@ namespace NewGame
                         {
                             playerHealth = 125;
                             int assassinHealth = 115;
-
+                            UAArt();
                             Console.WriteLine("\nThe Undead Assassin waits before the ruined altar...");
                             Thread.Sleep(2000);
 
@@ -1180,7 +1182,8 @@ namespace NewGame
 
                 Console.WriteLine("\n\"Then let this peak become your grave.\"");
                 Thread.Sleep(1000);
-
+                AWArt();
+                Thread.Sleep(2000);
                 Console.WriteLine("\n=======================================");
                 Console.WriteLine("           BOSS ENCOUNTER");
                 Console.WriteLine("             ABYSSWALKER");
