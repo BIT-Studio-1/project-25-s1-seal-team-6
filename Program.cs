@@ -72,8 +72,23 @@ namespace NewGame
             Console.Clear();
 
         }
+        public static void BKArt()
+        {
+            Console.WriteLine("");
+
+        }
+        public static void UAArt()
+        {
+            Console.WriteLine("");
+
+        }
+        public static void AWArt()
+        {
+            Console.WriteLine("");
+
+        }
         //End of Artwork Section
-        
+
         public static void RespawnMain()
         {
 
