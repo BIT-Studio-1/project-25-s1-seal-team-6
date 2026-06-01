@@ -1675,8 +1675,38 @@ namespace NewGame
                 }
                 Console.WriteLine("The traveler stares up at the large castle doors");
                 Thread.Sleep(2000);
-                Console.WriteLine("The traveler stares up at the large castle doors");
+                Console.WriteLine("You push the weight of your body against one of the two doors");
                 Thread.Sleep(2000);
+                Console.WriteLine("Opening the doors just enough to get inside");
+                Thread.Sleep(2000);
+                Console.WriteLine("As you push past the doors, they slam shut behind you...");
+                Thread.Sleep(2000);
+                Console.WriteLine("There was no escape... your only option is to proceed");
+                Thread.Sleep(2000);
+                Console.WriteLine("A large spiral staircase made of marble stood in the middle of the room");
+                Thread.Sleep(2000);
+                Console.WriteLine("Next to the stairs, a small chest sat unopened");
+                Thread.Sleep(2000);
+                Console.WriteLine("Would you like to open the chest or proceed up the stairs?");
+                Thread.Sleep(2000);
+                userInput = Console.ReadLine();
+                if (userInput.ToLower() == "help")
+                {
+                    Console.WriteLine("\n\nTo open the chest type: Open");
+                    Console.WriteLine("To proceed up the stairs type: Proceed");
+                }
+                else if (userInput.ToLower() == "open")
+                {
+
+                }
+                else if (userInput.ToLower() == "proceed")
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine(responses[rand.Next(responses.Length)]);
+                }
             }
         }
     }
