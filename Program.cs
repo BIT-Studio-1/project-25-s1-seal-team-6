@@ -1697,16 +1697,24 @@ namespace NewGame
                 }
                 else if (userInput.ToLower() == "open")
                 {
-
+                    Console.WriteLine("You open the chest, and notice an old key");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("\nYou obtained: Old Key");
+                    Thread.Sleep(2000);
+                    //Adding rest in soon
                 }
                 else if (userInput.ToLower() == "proceed")
                 {
-
+                    Console.WriteLine("You ignore the chest and proceed up the stairs..");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("There couldn't be anything of importance in there...");
+                    Thread.Sleep(2000);
                 }
                 else
                 {
                     Console.WriteLine(responses[rand.Next(responses.Length)]);
                 }
+                Console.WriteLine("...");
             }
         }
     }
