@@ -1,16 +1,20 @@
-﻿using System.ComponentModel.Design;
+﻿using NewGame;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
-using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace NewGame
 {
     internal class Program
     {
-        // New inventory variable
+        // New inventory variable, and max inventory weight variable
         static List<Item> Inventory = new List<Item>();
+        static double MaxWeight = 50.0;
 
         //Start of Klae's Work
         //Start of Artwork Section
@@ -134,17 +138,28 @@ namespace NewGame
         //AJ's Work-Inventory
         public static void InventoryMenu(ref int playerHealth, int maxHealth)
         {
+            // Adding up the item weights
+            double currentWeight = 0;
+            foreach (var item in Inventory)
+            {
+                currentWeight += item.Weight;
+            }
+
             if (Inventory.Count == 0)
             {
                 Console.WriteLine("\nYour inventory is currently empty.");
+                Console.WriteLine($"Weight: {currentWeight} / {MaxWeight} kg");
                 Thread.Sleep(1000);
                 return;
             }
 
+            // updated to show inventory weight
             Console.WriteLine("\n--- YOUR ITEMS ---");
+            Console.WriteLine($"Total Weight: {currentWeight} / {MaxWeight} kg\n");
             for (int i = 0; i < Inventory.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {Inventory[i].Name}");
+                // Per item weight info
+                Console.WriteLine($"{i + 1}. {Inventory[i].Name} ({Inventory[i].Weight}kg)");
             }
 
             Console.WriteLine("\nEnter an item number to read the description, or 0 to close inventory:");
@@ -154,7 +169,8 @@ namespace NewGame
 
                 Console.Clear();
                 Console.WriteLine($"=== {selectedItem.Name} ===");
-                Console.WriteLine($"Description: {selectedItem.Description}\n");
+                Console.WriteLine($"Description: {selectedItem.Description}");
+                Console.WriteLine($"Weight: {selectedItem.Weight} kg\n");
                 Console.WriteLine("1. Use / Consume");
                 Console.WriteLine("2. Drop");
                 Console.WriteLine("3. Back to game");
@@ -174,7 +190,29 @@ namespace NewGame
                 {
                     if (selectedItem.IsDroppable)
                     {
-                        Console.WriteLine($"\nYou toss the {selectedItem.Name} aside into the dust. Hopefully that wasn't useful");
+                        // make sure player has at least 1 weapon otherwise they can't drop their weapon
+                        if (selectedItem is Weapon)
+                        {
+                            int totalWeaponsCount = 0;
+                            foreach (var item in Inventory)
+                            {
+                                if (item is Weapon)
+                                {
+                                    totalWeaponsCount++;
+                                }
+                            }
+
+                            if (totalWeaponsCount <= 1)
+                            {
+                                Console.WriteLine("\nYou cannot drop this! You must keep at least one weapon in your inventory.");
+                                Console.WriteLine("\nPress Enter to continue...");
+                                Console.ReadLine();
+                                return;
+                            }
+                        }
+
+                        // discard weapon and remove from inventory
+                        Console.WriteLine($"\nYou toss the {selectedItem.Name} aside into the dust.");
                         Inventory.Remove(selectedItem);
                     }
                     else
@@ -447,7 +485,7 @@ namespace NewGame
                 if (hasSword == false && (userInput.ToLower() == "y" || userInput.ToLower() == "yes"))
                 {
                     // false means the item is marked essential and you can't drop it, we can use it to stop people dropping anything that might softlock them or cause any other problems
-                    Inventory.Add(new Item("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", false));
+                    Inventory.Add(new Weapon("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", 4.5, 15));
                     hasSword = true;
                     Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
@@ -716,7 +754,7 @@ namespace NewGame
                                     if (userInput == "y" || userInput == "yes")
                                     {
                                         hasSword = true;
-                                        Inventory.Add(new Item("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", false));
+                                        Inventory.Add(new Weapon("Rusty Sword", "A weathered blade clutched by a fallen knight. It's in questionable condition, but is better than nothing.", 4.5, 15));
 
                                         Console.WriteLine("\nYou obtained: Rusty Sword");
                                         Thread.Sleep(1500);
@@ -979,7 +1017,7 @@ namespace NewGame
                                     if (userInput == "y" || userInput == "yes")
                                     {
                                         hasSword = true;
-                                        Inventory.Add(new Item("Claymore", "A heavy, sturdy blade that you struggle to wield.", true));
+                                        Inventory.Add(new Weapon("Claymore", "A heavy, sturdy blade that you struggle to wield.", 8, 25));
                                         Console.WriteLine("\nYou obtained: Claymore");
                                         Thread.Sleep(1500);
                                         weaponChoiceMade = true;
@@ -1409,7 +1447,7 @@ namespace NewGame
                     userInput = Console.ReadLine();
                     if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                     {
-                        Inventory.Add(new Item("Abyss Greatsword", "A sword earned in combat against a worthy opponent.", true));
+                        Inventory.Add(new Weapon("Abyss Greatsword", "A sword earned in combat against a worthy opponent.", 9, 32));
                         Console.WriteLine("\nYou obtained: Abyss GreatSword");
                         Thread.Sleep(1500);
                         AbyssDec = true;
@@ -1558,7 +1596,7 @@ namespace NewGame
                                         userInput = Console.ReadLine();
                                         if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                                         {
-                                            Inventory.Add(new Item("Greataxe", "The weapon is heavy in your hands, yet perfectly balanced—as if it had been waiting for someone to claim it.", false));
+                                            Inventory.Add(new Weapon("Greataxe", "The weapon is heavy in your hands, yet perfectly balanced—as if it had been waiting for someone to claim it.", 12, 40));
                                             Console.WriteLine("\nYou obtained: Greataxe");
                                             Thread.Sleep(2000);
                                             Console.WriteLine("\nIt was now time to proceed.");
@@ -1686,44 +1724,57 @@ namespace NewGame
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsDroppable { get; set; }
+        public double Weight { get; set; } // new weight property so your inventory can get full
 
-        public Item(string name, string description, bool isDroppable = true)
+        public Item(string name, string description, double weight, bool isDroppable = true)
         {
             Name = name;
             Description = description;
+            Weight = weight;
             IsDroppable = isDroppable;
         }
 
-        // Custom action when used. Virtual allows other classes to change this behavior.
         public virtual void Use(ref int playerHealth, int maxHealth)
         {
             Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
         }
     }
+}
 
-    // Health potion you can use in combat 
-    public class Consumable : Item
+// Health potion you can use in combat 
+public class Consumable : Item
+{
+    public int HealAmount { get; set; }
+
+    public Consumable(string name, string description, int healAmount)
+        : base(name, description, 0.5, isDroppable: true)
     {
-        public int HealAmount { get; set; }
+        HealAmount = healAmount;
+    }
 
-        public Consumable(string name, string description, int healAmount)
-            : base(name, description, isDroppable: true) // Potions can always be dropped
+    public override void Use(ref int playerHealth, int maxHealth)
+    {
+        if (playerHealth >= maxHealth)
         {
-            HealAmount = healAmount;
+            Console.WriteLine("\nYour health is already full!");
+            return;
         }
 
-        public override void Use(ref int playerHealth, int maxHealth)
-        {
-            if (playerHealth >= maxHealth)
-            {
-                Console.WriteLine("\nYour health is already full!");
-                return;
-            }
+        playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
+        Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
+        Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+    }
+}
 
-            playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
-            Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
-            Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
-        }
+// Weapon class
+public class Weapon : Item
+{
+    public int Damage { get; set; }
+
+    public Weapon(string name, string description, double weight, int damage)
+        : base(name, description, weight, isDroppable: true)
+    {
+        Damage = damage;
     }
 }
             
