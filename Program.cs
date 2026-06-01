@@ -1631,7 +1631,51 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("You climb up them, a bonfire flickers softly, waiting for you...");
                 Thread.Sleep(2000);
-                Console.WriteLine("This may be your last time to rest...");
+                Console.WriteLine("This may be your last chance to rest...");
+                Thread.Sleep(2000);
+                bool finalBonfire = true;
+                while (finalBonfire == true)
+                {
+                    Console.WriteLine("\n\nWhat would you like to do?");
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                        Console.WriteLine("To leave the bonfire type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("\n\nThe traveler sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The bonfire does not judge. It only burns.");
+                        Thread.Sleep(2000);
+                    }
+
+                    else if (userInput.ToLower() == "inv")
+                    {
+                        InventoryMenu(ref playerHealth, maxHealth);
+                        Thread.Sleep(1000);
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Ahead, the large castle doors wait patiently for you.");
+                        Thread.Sleep(2000);
+                        finalBonfire = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
+                Console.WriteLine("The traveler stares up at the large castle doors");
+                Thread.Sleep(2000);
+                Console.WriteLine("The traveler stares up at the large castle doors");
                 Thread.Sleep(2000);
             }
         }
