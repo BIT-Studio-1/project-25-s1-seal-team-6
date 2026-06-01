@@ -1674,7 +1674,10 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("..");
+                Console.WriteLine("The traveler stares up at the large castle doors");
+                Thread.Sleep(2000);
+                Console.WriteLine("The traveler stares up at the large castle doors");
+                Thread.Sleep(2000);
             }
         }
     }
