@@ -34,7 +34,21 @@ namespace NewGame
         {
             Console.WriteLine("                                                |>>>\r\n                                                |\r\n                                            _  _|_  _\r\n                                           |;|_|;|_|;|\r\n                                           \\\\.    .  /\r\n                                            \\\\:  .  /\r\n                                             ||:   |\r\n                                             ||:.  |\r\n                                             ||:  .|\r\n                                             ||:   |       \\,/\r\n                                             ||: , |            /`\\\r\n                                             ||:   |\r\n                                             ||: . |\r\n              __                            _||_   |\r\n     ____--`~    '--~~__            __ ----~    ~`---,              ___\r\n-~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~");
         }
+        public static void BlackKnightFalls()
+        {
+            Console.WriteLine("");
 
+        }
+        public static void UndeadAssassinFalls()
+        {
+            Console.WriteLine("");
+
+        }
+        public static void AbysswalkerFalls()
+        {
+            Console.WriteLine("");
+
+        }
         public static void Meadow()
         {
             Console.WriteLine("        ______\r\n       /     /\\\r\n      /     /  \\\r\n     /_____/----\\_    (  \r\n    \"     \"          ).  \r\n   _ ___          o (:') o   \r\n  (@))_))        o ~/~~\\~ o   \r\n                  o  o  o\r\n");
