@@ -1506,7 +1506,7 @@ namespace NewGame
                             else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                             {
                                 exploreContinue = false;
-                                Console.WriteLine("The traveler proceeds towards one of the houses, pushes against the warped wooden door.");
+                                Console.WriteLine("The traveler proceeds towards one of the houses, pushing against the warped wooden door.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Dust fills the air as the entrance slowly creaks open, revealing a room untouched for countless years.");
                                 Thread.Sleep(2000);
@@ -1603,6 +1603,16 @@ namespace NewGame
                     }
                 }
                 Console.WriteLine("The castle's towering silhouette looms over the ruined district.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Your armour weighs heavy but your strength was strong.");
+                Thread.Sleep(2000);
+                Console.WriteLine("But the exhaustion of your mission was noticable");
+                Thread.Sleep(2000);
+                Console.WriteLine("Moments pass before you reach the stone stairs leading up towards the castle doors");
+                Thread.Sleep(2000);
+                Console.WriteLine("You climb up them, a bonfire flickers softly, waiting for you...");
+                Thread.Sleep(2000);
+                Console.WriteLine("This may be your last time to rest...");
                 Thread.Sleep(2000);
             }
         }
