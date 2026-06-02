@@ -1792,8 +1792,23 @@ namespace NewGame
                 }
                 Console.WriteLine("You slowly make your way up the pristine marble staircase");
                 Thread.Sleep(2000);
-                Console.WriteLine("At the top of the stairs, a large wooden door stands before you, reinforced with an iron lock.");
+                Console.WriteLine("At the top of the stairs, a large wooden door stands before you.");
                 Thread.Sleep(2000);
+                Console.WriteLine("A heavy lock hangs from the door.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Whatever lies beyond this door has remained sealed for a very long time..");
+                Thread.Sleep(2000);
+                if (hasKey == true)
+                {
+                    Console.WriteLine("...");
+                }
+                else
+                {
+                    Console.WriteLine("You reach for the handle and give it a firm pull, but it refuses to budge.")
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You need a key to unlock this door...")
+                    Thread.Sleep(2000);
+                }
             }
         }
     }
