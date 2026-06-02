@@ -1879,6 +1879,18 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("The knight lowers its blade and advances. The doors slam shut behind you.");
                 Thread.Sleep(2000);
+                //FINAL BOSS FIGHT
+                //FINAL BOSS FIGHT
+                //FINAL BOSS FIGHT
+                Console.WriteLine("The Silver Knight lowers its blade and slowly bows its head.");
+                Thread.Sleep(2000);
+                Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Whatever spirit once inhabited it long since departed.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
+                Thread.Sleep(2000);
+
             }
         }
     }
