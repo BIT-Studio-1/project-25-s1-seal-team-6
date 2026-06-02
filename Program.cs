@@ -347,6 +347,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\n\nTo continue to rest at the bonfire type: Rest");
                         Console.WriteLine("To leave the bonfire type: Proceed");
+                        Console.WriteLine("To view your inventory type: Inv");
                     }
                     else if (userInput.ToLower() == "rest")
                     {
@@ -443,6 +444,7 @@ namespace NewGame
                             else if (userInput.ToLower() == "help")
                             {
                                 Console.WriteLine("At the bonfire: Rest / Proceed");
+                                Console.WriteLine("To view inventory: Inv");
                             }
                             else if (userInput.ToLower() == "proceed")
                             {
@@ -477,6 +479,7 @@ namespace NewGame
                     else if (userInput.ToLower() == "help")
                     {
                         Console.WriteLine("At the gate: Y/N");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else
                     {
@@ -780,6 +783,7 @@ namespace NewGame
                                     {
                                         Console.WriteLine("\nType Yes to collect the Rusty Sword");
                                         Console.WriteLine("Type No to leave it behind");
+                                        Console.WriteLine("To view inventory: Inv");
                                     }
                                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                                     {
@@ -1048,6 +1052,7 @@ namespace NewGame
                                     {
                                         Console.WriteLine("\nType Yes to collect the Claymore");
                                         Console.WriteLine("Type No to leave it behind");
+                                        Console.WriteLine("To view inventory: Inv");
                                     }
                                     else
                                     {
@@ -1068,6 +1073,7 @@ namespace NewGame
                     {
                         Console.WriteLine("To enter the cathedral type: Proceed");
                         Console.WriteLine("To ignore the cathedral type: No");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else
                     {
@@ -1092,6 +1098,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                         Console.WriteLine("To leave the bonfire type: Proceed");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else if (userInput.ToLower() == "rest")
                     {
@@ -1474,6 +1481,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\nType Yes to collect the Abyss GreatSword");
                         Console.WriteLine("Type No to leave it behind");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                     {
@@ -1511,6 +1519,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                         Console.WriteLine("To leave the bonfire type: Proceed");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else if (userInput.ToLower() == "rest")
                     {
@@ -1560,6 +1569,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\n\nTo explore the area type: Explore");
                         Console.WriteLine("To proceed towards the castle type: Proceed");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                     {
@@ -1577,6 +1587,7 @@ namespace NewGame
                             {
                                 Console.WriteLine("\n\nTo continue exploring the area type: Explore");
                                 Console.WriteLine("To proceed towards the castle type: Proceed");
+                                Console.WriteLine("To view inventory: Inv");
                             }
                             else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                             {
@@ -1599,6 +1610,7 @@ namespace NewGame
                                     {
                                         Console.WriteLine("\n\nTo explore the building type: Explore");
                                         Console.WriteLine("To proceed towards the castle type: Proceed");
+                                        Console.WriteLine("To view inventory: Inv");
                                     }
                                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                                     {
@@ -1698,6 +1710,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                         Console.WriteLine("To leave the bonfire type: Proceed");
+                        Console.WriteLine("To view inventory: Inv");
                     }
                     else if (userInput.ToLower() == "rest")
                     {
@@ -1750,6 +1763,7 @@ namespace NewGame
                 {
                     Console.WriteLine("\n\nTo open the chest type: Open");
                     Console.WriteLine("To proceed up the stairs type: Proceed");
+                    Console.WriteLine("To view inventory: Inv");
                 }
                 else if (userInput.ToLower() == "open")
                 {
