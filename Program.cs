@@ -1705,34 +1705,44 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Next to the stairs, a small chest sat unopened");
                 Thread.Sleep(2000);
-                Console.WriteLine("Would you like to open the chest or proceed up the stairs?");
+                bool keychoice = false;
+                bool hasKey = false;
+                while (keychoice == false)
+                {
+                    Console.WriteLine("Would you like to open the chest or proceed up the stairs?");
+                    Thread.Sleep(2000);
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo open the chest type: Open");
+                        Console.WriteLine("To proceed up the stairs type: Proceed");
+                    }
+                    else if (userInput.ToLower() == "open")
+                    {
+                        Console.WriteLine("You open the chest, and notice an old key");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("\nYou obtained: Old Key");
+                        Thread.Sleep(2000);
+                        hasKey = true;
+                        keychoice = true;
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("You ignore the chest and proceed up the stairs..");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("There couldn't be anything of importance in there...");
+                        Thread.Sleep(2000);
+                        keychoice = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
+                Console.WriteLine("You slowly make your way up the pristine marble staircase");
                 Thread.Sleep(2000);
-                userInput = Console.ReadLine();
-                if (userInput.ToLower() == "help")
-                {
-                    Console.WriteLine("\n\nTo open the chest type: Open");
-                    Console.WriteLine("To proceed up the stairs type: Proceed");
-                }
-                else if (userInput.ToLower() == "open")
-                {
-                    Console.WriteLine("You open the chest, and notice an old key");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("\nYou obtained: Old Key");
-                    Thread.Sleep(2000);
-                    //Adding rest in soon
-                }
-                else if (userInput.ToLower() == "proceed")
-                {
-                    Console.WriteLine("You ignore the chest and proceed up the stairs..");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("There couldn't be anything of importance in there...");
-                    Thread.Sleep(2000);
-                }
-                else
-                {
-                    Console.WriteLine(responses[rand.Next(responses.Length)]);
-                }
-                Console.WriteLine("...");
+                Console.WriteLine("At the top of the stairs, a large wooden door stands before you, reinforced with an iron lock.");
+                Thread.Sleep(2000);
             }
         }
     }
