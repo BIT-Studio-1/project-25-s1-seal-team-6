@@ -1890,7 +1890,26 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
                 Thread.Sleep(2000);
+                Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
+                userInput = Console.ReadLine();
+                if (userInput.ToLower() == "help")
+                {
+                    Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                    Console.WriteLine("To leave the castle type: Proceed");
+                    //no inv need
+                }
+                else if (userInput.ToLower() == "rest")
+                {
 
+                }
+                else if (userInput.ToLower() == "proceed")
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine(responses[rand.Next(responses.Length)]);
+                }
             }
         }
     }
