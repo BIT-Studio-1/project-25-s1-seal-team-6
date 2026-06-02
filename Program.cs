@@ -1837,15 +1837,48 @@ namespace NewGame
                 Thread.Sleep(2000);
                 if (hasKey == true)
                 {
-                    Console.WriteLine("...");
+                    Console.WriteLine("The old key feels heavy in your hand.");
+                    Thread.Sleep(2000);
                 }
-                else
+                if (hasKey == false)
                 {
                     Console.WriteLine("You reach for the handle and give it a firm pull, but it refuses to budge.");
                     Thread.Sleep(2000);
                     Console.WriteLine("You need a key to unlock this door...");
                     Thread.Sleep(2000);
                 }
+                while (hasKey == false)
+                {
+                    Console.WriteLine("The door is locked.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Would you like to return to the chest? Y/N");
+                    userInput = Console.ReadLine().ToLower();
+                    if (userInput == "y" || userInput == "yes")
+                    {
+                        Console.WriteLine("You return to the chest and open it.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Inside rests the old key you overlooked.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("\nYou obtained: Old Key");
+                        hasKey = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("There is nowhere else to go.");
+                    }
+                }
+                Console.WriteLine("The old key slides into the lock.");
+                Thread.Sleep(2000);
+                Console.WriteLine("With a heavy click, the door swings open.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Beyond lies a vast throne room lined with towering stone pillars.");
+                Thread.Sleep(2000);
+                Console.WriteLine("A knight clad in shining silver armor rises from beside the throne, drawing a massive greatsword.");
+                Thread.Sleep(2000);
+                Console.WriteLine("\"None may approach the throne."\");
+                Thread.Sleep(2000);
+                Console.WriteLine("The knight lowers its blade and advances. The doors slam shut behind you.");
+                Thread.Sleep(2000);
             }
         }
     }
