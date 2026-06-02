@@ -1804,9 +1804,9 @@ namespace NewGame
                 }
                 else
                 {
-                    Console.WriteLine("You reach for the handle and give it a firm pull, but it refuses to budge.")
+                    Console.WriteLine("You reach for the handle and give it a firm pull, but it refuses to budge.");
                     Thread.Sleep(2000);
-                    Console.WriteLine("You need a key to unlock this door...")
+                    Console.WriteLine("You need a key to unlock this door...");
                     Thread.Sleep(2000);
                 }
             }
