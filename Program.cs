@@ -345,6 +345,7 @@ namespace NewGame
                 int player, BKknight;
                 int playerHealth = 100;
                 int maxHealth = 100;
+                Weapon currentWeapon = null; //Added weapon variable for the final battle -Chan
                 string[] responses =
                 {
                 "\nThe world does not respond.",
@@ -2131,12 +2132,35 @@ namespace NewGame
 
                 //FINAL BOSS FIGHT
 
+                Console.WriteLine("\nChoose a weapon from your inventory.");
+
+List<Weapon> usableWeapons = new List<Weapon>();
+
+int number = 1;
+
+foreach (var item in Inventory)
+{
+    if (item is Weapon weapon)
+    {
+        usableWeapons.Add(weapon);
+
+        Console.WriteLine($"{number}. {weapon.Name} ({weapon.Damage} Damage)");
+
+        number++;
+    }
+}
+                int weaponChoice = Convert.ToInt32(Console.ReadLine());
+
+                currentWeapon =
+                    usableWeapons[weaponChoice - 1];
+
+          
 
 
 
-                
-                Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
-                Thread.Sleep(2000);
+
+                //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
+                //Thread.Sleep(2000); 
                 Console.WriteLine("Whatever spirit once inhabited it long since departed.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
