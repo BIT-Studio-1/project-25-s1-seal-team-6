@@ -2380,16 +2380,17 @@ foreach (var item in Inventory)
 
                 while (!kingDead && playerHealth > 0)
                 {
-                    Console.WriteLine("\n====================");
+                    Console.WriteLine("\n--------------------------------------");
                     Console.WriteLine($"Your HP: {playerHealth}");
                     Console.WriteLine($"King HP: {kingHealth}");
                     Console.WriteLine($"Weapon: {currentWeapon.Name}");
                     Console.WriteLine($"Durability: {weaponDurability}");
-                    Console.WriteLine("====================");
+                    Console.WriteLine("----------------------------------------");
 
                     Console.WriteLine("1. Attack");
                     Console.WriteLine("2. Heavy Strike");
                     Console.WriteLine("3. Defend");
+                    Console.WriteLine("4. Heal");
 
                     string choice = Console.ReadLine().ToLower();
 
@@ -2427,6 +2428,20 @@ foreach (var item in Inventory)
                     else if (choice == "3")
                     {
                         Console.WriteLine("You brace yourself.");
+                    }
+
+                    else if (choice == "4" || choice == "heal")
+                    {
+                        int healAmount = rand.Next(25, 46);
+
+                        playerHealth += healAmount;
+
+                        if (playerHealth > maxHealth)
+                        {
+                            playerHealth = maxHealth;
+                        }
+
+                        Console.WriteLine($"You restore {healAmount} HP!");
                     }
 
                     if (kingHealth <= 0)
