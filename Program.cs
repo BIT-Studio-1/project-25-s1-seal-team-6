@@ -2347,12 +2347,25 @@ namespace NewGame
 
                 //FINAL BOSS FIGHT
 
+                Weapon GetNextWeapon(List<Weapon> weapons, Weapon current)
+                {
+                    if (weapons.Count == 0)
+                        return null;
+
+                    int index = weapons.IndexOf(current);
+
+                    if (index == -1 || index + 1 >= weapons.Count)
+                        return weapons[0];
+
+                    return weapons[index + 1];
+                }
+
                 Console.WriteLine("\nChoose a weapon from your inventory.");
 
 List<Weapon> usableWeapons = new List<Weapon>();
 
 int number = 1;
-int healingPotions = 2;
+int healingPotions = 3;
 
 foreach (var item in Inventory)
 {
@@ -2375,7 +2388,7 @@ foreach (var item in Inventory)
 
                 int weaponDurability = 5;
 
-                int kingHealth = 300;
+                int kingHealth = 270;
 
                 bool kingDead = false;
 
@@ -2395,6 +2408,7 @@ foreach (var item in Inventory)
                     Console.WriteLine("2. Heavy Strike");
                     Console.WriteLine("3. Defend");
                     Console.WriteLine("4. Heal");
+                    Console.WriteLine("5. Change Weapon");
 
                     string choice = Console.ReadLine().ToLower();
 
@@ -2460,6 +2474,25 @@ foreach (var item in Inventory)
                             Console.WriteLine("You have no healing potions left!");
                         }
 
+                    }
+                    else if (choice == "5")
+                    {
+                        Console.WriteLine("\nChoose a weapon:");
+
+                        for (int i = 0; i < usableWeapons.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. {usableWeapons[i].Name}");
+                        }
+
+                        int newChoice = Convert.ToInt32(Console.ReadLine());
+
+                        if (newChoice >= 1 && newChoice <= usableWeapons.Count)
+                        {
+                            currentWeapon = usableWeapons[newChoice - 1];
+                            Console.WriteLine($"You equip {currentWeapon.Name}");
+                        }
+
+                        continue;
                     }
 
 
@@ -2535,7 +2568,7 @@ foreach (var item in Inventory)
                         currentWeapon =
                             usableWeapons[usableWeapons.Count - 1];
 
-                        weaponDurability = -1;
+                        weaponDurability = 5;
 
                         Console.WriteLine("\nYou obtain the Guardian Greatsword!");
                         Thread.Sleep(2500);
@@ -2550,7 +2583,7 @@ foreach (var item in Inventory)
                         Thread.Sleep(2500);
                     }
 
-                    if (weaponDurability <= 0 && currentWeapon.Name != "Guardian Greatsword")
+                    if (weaponDurability <= 0)
                     {
                         Console.WriteLine($"\n{currentWeapon.Name} shatters!");
 
@@ -2560,11 +2593,26 @@ foreach (var item in Inventory)
                         {
                             Console.WriteLine("You have no weapons left!");
 
-                            playerHealth = 0;
-                            break;
-                        }
+                            Console.WriteLine("The Silver Guardian Armor responds.");
 
-                        Console.WriteLine("\nChoose another weapon:");
+                            currentWeapon = new Weapon(
+                                "Silver Guardian Armor",
+                                "The sacred armor awakens as a weapon.",
+                                15,
+                                999
+                            );
+                            weaponDurability = 999;
+
+                            Console.WriteLine("\nThe armor transforms into your final weapon.");
+                        }
+                        else
+                        {
+                            currentWeapon = GetNextWeapon(usableWeapons, currentWeapon);
+                            weaponDurability = 5;
+
+                            Console.WriteLine($"\nYou switch to {currentWeapon.Name}");
+                        }
+                            Console.WriteLine("\nChoose another weapon:");
 
                         for (int i = 0; i < usableWeapons.Count; i++)
                         {
@@ -2597,6 +2645,24 @@ foreach (var item in Inventory)
                     playerHealth -= kingDamage;
 
                     Thread.Sleep(1500);
+
+                    if (playerHealth <= 0)
+                    {
+                        Death();
+
+                        Console.WriteLine("The Fallen King remains seated upon the throne.");
+                        Thread.Sleep(2000);
+
+                        playerHealth = maxHealth;
+                        kingHealth = 300;
+                        finalPhaseTriggered = false;
+                        healingPotions = 2;
+
+                        Console.WriteLine("You awaken beside the bonfire outside the throne room.");
+                        Thread.Sleep(2000);
+
+                        continue;
+                    }
                 }
 
                 if (kingDead)
@@ -2621,19 +2687,22 @@ foreach (var item in Inventory)
 
                     Console.WriteLine("\nTHE AGE OF SILENCE HAS ENDED");
                     Thread.Sleep(3000);
+
+
+
+
+
+
+                    //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
+                    //Thread.Sleep(2000); 
+                    Console.WriteLine("Whatever spirit once inhabited it long since departed.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
+                    Thread.Sleep(3000);
                 }
+                    Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
+                
 
-
-
-
-
-                //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
-                //Thread.Sleep(2000); 
-                Console.WriteLine("Whatever spirit once inhabited it long since departed.");
-                Thread.Sleep(3000);
-                Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
-                Thread.Sleep(3000);
-                Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "help")
                 {
