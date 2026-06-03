@@ -21,11 +21,11 @@ namespace NewGame
         static string[] developers =
         {
             "Dev-Team", // 0
-            "Alfie",    // 1
-            "Klae",     // 2
-            "Chanumi",  // 3
-            "AJ",       // 4
-            "Kobe"      // 5
+            "Alfie | Developer, Storyline Creator",     // 1
+            "Klae | Developer, Artwork Designer",         // 2
+            "Chanumi | Developer, Boss Fight Designer",  // 3
+            "AJ | Developer, Inventory Designer",       // 4
+            "Kobe | Developer, Map Creator"      // 5
         };
         //Start of Artwork Section
         public static void Welcome()
@@ -424,12 +424,12 @@ namespace NewGame
         {
             string[] developers =
             {
-            "Dev-Team",
-            "Alfie",
-            "Klae",
-            "Chanumi",
-            "AJ",
-            "Kobe"
+            "Dev-Team", 
+            "Alfie | Developer, Storyline Creator",     
+            "Klae | Developer, Artwork Designer",         
+            "Chanumi | Developer, Boss Fight Designer",  
+            "AJ | Developer, Inventory Designer",       
+            "Kobe | Developer, Map Creator"
             };
 
             //Developer List
@@ -456,11 +456,11 @@ namespace NewGame
 
             Console.WriteLine($"\nDeveloper identified as: {developers[devNumber]}");
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             Console.Clear();
 
-            Console.WriteLine($"Now restarting the game ({developers[devNumber]} | Developer)");
+            Console.WriteLine($"Now restarting the game ({developers[devNumber]})");
             Console.WriteLine("Resetting Inventory...");
             Console.WriteLine("Resetting Player Data...");
             Console.WriteLine("Reloading World...");
