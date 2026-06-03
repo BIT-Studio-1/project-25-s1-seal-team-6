@@ -2352,6 +2352,7 @@ namespace NewGame
 List<Weapon> usableWeapons = new List<Weapon>();
 
 int number = 1;
+int healingPotions = 2;
 
 foreach (var item in Inventory)
 {
@@ -2385,6 +2386,7 @@ foreach (var item in Inventory)
                     Console.WriteLine($"King HP: {kingHealth}");
                     Console.WriteLine($"Weapon: {currentWeapon.Name}");
                     Console.WriteLine($"Durability: {weaponDurability}");
+                    Console.WriteLine($"Potions Remaining: {healingPotions}");
                     Console.WriteLine("----------------------------------------");
 
                     Console.WriteLine("1. Attack");
@@ -2432,17 +2434,32 @@ foreach (var item in Inventory)
 
                     else if (choice == "4" || choice == "heal")
                     {
-                        int healAmount = rand.Next(25, 46);
-
-                        playerHealth += healAmount;
-
-                        if (playerHealth > maxHealth)
+                        if (healingPotions > 0)
                         {
-                            playerHealth = maxHealth;
+                            int healAmount = rand.Next(25, 46);
+
+                            playerHealth += healAmount;
+
+                            if (playerHealth > maxHealth)
+                            {
+                                playerHealth = maxHealth;
+                            }
+
+                            Console.WriteLine($"You restore {healAmount} HP!");
+
+                            healingPotions--;
+
+                            Console.WriteLine($"You drink a potion and restore {healAmount} HP!");
+                            Console.WriteLine($"Potions Remaining: {healingPotions}");
+ 
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no healing potions left!");
                         }
 
-                        Console.WriteLine($"You restore {healAmount} HP!");
                     }
+
 
                     if (kingHealth <= 0)
                     {
