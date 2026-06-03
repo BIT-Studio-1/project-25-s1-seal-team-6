@@ -2308,7 +2308,7 @@ namespace NewGame
                     "Silver Guardian Armor",
                     "The sacred armor of the kingdom's final guardian.",
                     15,
-                    0));
+                    40));
 
                 Console.WriteLine("[SILVER GUARDIAN ARMOR ACQUIRED]");
                 Thread.Sleep(1500);
@@ -2385,6 +2385,8 @@ namespace NewGame
                 int kingHealth = 300;
 
                 bool kingDead = false;
+
+                bool finalPhaseTriggered = false;
 
                 while (!kingDead && playerHealth > 0)
                 {
@@ -2474,7 +2476,88 @@ namespace NewGame
                         break;
                     }
 
-                    if (weaponDurability <= 0)
+                    if (kingHealth <= 150 && !finalPhaseTriggered)
+                    {
+                        finalPhaseTriggered = true;
+
+                        Console.WriteLine("\"Enough.\"");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("\"These relics... these trophies...\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"You mistake them for strength.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\nThe Fallen King raises his blade toward the heavens.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Let us see what remains when everything is taken from you.\"");
+                        Thread.Sleep(3000);
+
+                        Console.WriteLine("\nA wave of darkness erupts through the throne room!");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("Every weapon you carry shatters into fragments!");
+                        Thread.Sleep(3000);
+
+
+                        usableWeapons.RemoveAll(w => w.Name != "Silver Guardian Armor");
+
+                        if (usableWeapons.Count > 0)
+                        {
+                            currentWeapon = usableWeapons[0];
+
+                            weaponDurability = 999;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("The Guardian's blessing cannot be found!");
+                            playerHealth = 0;
+                            break;
+                        }
+                        Console.WriteLine("\nOne item remains.");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("The Silver Guardian Armor begins to glow.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Even now... the Guardian protects you.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"You have carried my legacy this far.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Now carry my blade as well.\"");
+                        Thread.Sleep(2500);
+
+                        usableWeapons.Add(
+                            new Weapon(
+                                "Guardian Greatsword",
+                                "The final weapon of the Silver Guardian.",
+                                10,
+                                45));
+
+                        currentWeapon =
+                            usableWeapons[usableWeapons.Count - 1];
+
+                        weaponDurability = -1;
+
+                        Console.WriteLine("\nYou obtain the Guardian Greatsword!");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("Ancient power surges through your body.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Now rise.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"And finish this.\"");
+                        Thread.Sleep(2500);
+                    }
+
+                    if (weaponDurability <= 0 && currentWeapon.Name != "Guardian Greatsword")
                     {
                         Console.WriteLine($"\n{currentWeapon.Name} shatters!");
 
@@ -2504,7 +2587,16 @@ namespace NewGame
                         weaponDurability = 5;
                     }
 
-                    int kingDamage = rand.Next(20, 36);
+                    int kingDamage;
+
+                    if (finalPhaseTriggered)
+                    {
+                        kingDamage = rand.Next(35, 51);
+                    }
+                    else
+                    {
+                        kingDamage = rand.Next(20, 36);
+                    }
 
                     Console.WriteLine(
                         $"The Fallen King strikes for {kingDamage} damage!");
@@ -2514,7 +2606,29 @@ namespace NewGame
                     Thread.Sleep(1500);
                 }
 
+                if (kingDead)
+                {
+                    Console.WriteLine("\nThe Fallen King's sword slips from his grasp.");
+                    Thread.Sleep(2500);
 
+                    Console.WriteLine("\"Impossible...\"");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"After all this time...\"");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"The kingdom is finally free...\"");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("\nThe darkness surrounding the throne begins to fade.");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("Sunlight shines through the ruined ceiling.");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("\nTHE AGE OF SILENCE HAS ENDED");
+                    Thread.Sleep(3000);
+                }
 
 
 
@@ -2523,8 +2637,9 @@ namespace NewGame
                 //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
                 //Thread.Sleep(2000); 
                 Console.WriteLine("Whatever spirit once inhabited it long since departed.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
+
                 Thread.Sleep(2000);
                 bool endGame = false;
                 while (endGame == false)
