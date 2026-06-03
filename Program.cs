@@ -1875,13 +1875,14 @@ namespace NewGame
                 Console.WriteLine("With a heavy click, the door swings open.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Beyond lies a vast throne room lined with towering stone pillars.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
+                Console.WriteLine(" ");
                 Console.WriteLine("A knight clad in shining silver armor rises from beside the throne, drawing a massive greatsword.");
-                Thread.Sleep(2000);
+                Thread.Sleep(2500);
                 Console.WriteLine("\"None may approach the throne.\"");
                 Thread.Sleep(2000);
                 Console.WriteLine("The knight lowers its blade and advances. The doors slam shut behind you.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
 
                 //Chan's work
                 //Silver Guardian boss
