@@ -2365,7 +2365,7 @@ namespace NewGame
 List<Weapon> usableWeapons = new List<Weapon>();
 
 int number = 1;
-int healingPotions = 3;
+int healingPotions = 5;
 
 foreach (var item in Inventory)
 {
@@ -2388,7 +2388,7 @@ foreach (var item in Inventory)
 
                 int weaponDurability = 5;
 
-                int kingHealth = 270;
+                int kingHealth = 230;
 
                 bool kingDead = false;
 
@@ -2495,6 +2495,7 @@ foreach (var item in Inventory)
                         continue;
                     }
 
+                    //king 
 
                     if (kingHealth <= 0)
                     {
@@ -2563,7 +2564,7 @@ foreach (var item in Inventory)
                                 "Guardian Greatsword",
                                 "The final weapon of the Silver Guardian.",
                                 10,
-                                45));
+                                65));
 
                         currentWeapon =
                             usableWeapons[usableWeapons.Count - 1];
@@ -2628,19 +2629,26 @@ foreach (var item in Inventory)
                         weaponDurability = 5;
                     }
 
+                    //king
                     int kingDamage;
 
                     if (finalPhaseTriggered)
                     {
-                        kingDamage = rand.Next(35, 51);
+                        kingDamage = rand.Next(25, 41);
                     }
                     else
                     {
-                        kingDamage = rand.Next(20, 36);
+                        kingDamage = rand.Next(20, 34);
+                    }
+
+                    if (choice == "3")
+                    {
+                        kingDamage /= 2;
+                        Console.WriteLine("You block part of the attack!");
                     }
 
                     Console.WriteLine(
-                        $"The Fallen King strikes for {kingDamage} damage!");
+                    $"The Fallen King strikes for {kingDamage} damage!");
 
                     playerHealth -= kingDamage;
 
@@ -2654,9 +2662,9 @@ foreach (var item in Inventory)
                         Thread.Sleep(2000);
 
                         playerHealth = maxHealth;
-                        kingHealth = 300;
+                        kingHealth = 200;
                         finalPhaseTriggered = false;
-                        healingPotions = 2;
+                        healingPotions = 3;
 
                         Console.WriteLine("You awaken beside the bonfire outside the throne room.");
                         Thread.Sleep(2000);
