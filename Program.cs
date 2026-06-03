@@ -1900,7 +1900,16 @@ namespace NewGame
                 }
                 else if (userInput.ToLower() == "rest")
                 {
-
+                    Console.WriteLine("The traveler lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("As you stare into the flickering flames, you cannot help but wonder if anything has truly changed.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("The kingdom still lies in ruin. The dead still wander its halls. And somewhere ahead, something waits.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("The bonfire crackles softly, offering no answers.");
+                    Thread.Sleep(2000);
                 }
                 else if (userInput.ToLower() == "proceed")
                 {
