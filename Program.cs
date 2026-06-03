@@ -2301,7 +2301,7 @@ namespace NewGame
                     "Silver Guardian Armor",
                     "The sacred armor of the kingdom's final guardian.",
                     15,
-                    0));
+                    40));
 
                 Console.WriteLine("[SILVER GUARDIAN ARMOR ACQUIRED]");
                 Thread.Sleep(1500);
@@ -2378,6 +2378,8 @@ foreach (var item in Inventory)
                 int kingHealth = 300;
 
                 bool kingDead = false;
+
+                bool finalPhaseTriggered = false;
 
                 while (!kingDead && playerHealth > 0)
                 {
@@ -2465,6 +2467,67 @@ foreach (var item in Inventory)
                     {
                         kingDead = true;
                         break;
+                    }
+
+                    if (kingHealth <= 150 && !finalPhaseTriggered)
+                    {
+                        finalPhaseTriggered = true;
+
+                        Console.WriteLine("\"Enough.\"");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("\nThe Fallen King raises his blade toward the heavens.");
+                        Thread.Sleep(2500);
+
+
+                        Console.WriteLine("\"Let us see what remains when everything is taken from you.\"");
+                        Thread.Sleep(3500);
+
+
+
+                        usableWeapons.RemoveAll(w => w.Name != "Silver Guardian Armor");
+
+                        if (usableWeapons.Count > 0)
+                        {
+                            currentWeapon = usableWeapons[0];
+
+                            weaponDurability = 999;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("The Guardian's blessing cannot be found!");
+                            playerHealth = 0;
+                            break;
+                        }
+                            Console.WriteLine("\nOne item remains.");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("The Silver Guardian Armor begins to glow.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Even now... the Guardian protects you.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"You have carried my legacy this far.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Now carry my blade as well.\"");
+                        Thread.Sleep(2500);
+
+                        usableWeapons.Add(
+                            new Weapon(
+                                "Guardian Greatsword",
+                                "The final weapon of the Silver Guardian.",
+                                10,
+                                45));
+
+                        currentWeapon =
+                            usableWeapons[usableWeapons.Count - 1];
+
+                        weaponDurability = 999;
+
+                        Console.WriteLine("\nYou obtain the Guardian Greatsword!");
                     }
 
                     if (weaponDurability <= 0)
