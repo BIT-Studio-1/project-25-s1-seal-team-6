@@ -185,7 +185,7 @@ namespace NewGame
 
             else if (wanted == "progress")
             {
-                Console.Write("Welcome Developer E. "); temp = Console.ReadLine();
+                Console.Write("Please enter password: "); temp = Console.ReadLine();
                 ProAuth = Convert.ToInt32(temp);
                 switch (ProAuth)
                 {
