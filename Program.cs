@@ -133,7 +133,9 @@ namespace NewGame
             }
 
         }
-        Console.WriteLine(@"
+        public static void Map()
+        {
+            Console.WriteLine(@"
               ╔═══════════════════════════╗
               ║        GAME MAP           ║
               ╚═══════════════════════════╝
@@ -171,6 +173,7 @@ namespace NewGame
                  =====================
                 
 ");
+        }
 
         //End of Klae's Work Section
 
