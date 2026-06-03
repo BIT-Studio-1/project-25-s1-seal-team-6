@@ -515,6 +515,10 @@ namespace NewGame
             {
                 StartGame();
             }
+            else if (userInput.ToLower() == "map")
+            {
+                Map();
+            }
             else if (userInput.ToLower() == "inv")
             {
                 InventoryMenu(ref tempHealth, tempMax);
@@ -530,6 +534,7 @@ namespace NewGame
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
                 Console.WriteLine("Type Inv to view your inventory");
+                Console.WriteLine("Type the following word to access your map: Map ");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
@@ -566,7 +571,7 @@ namespace NewGame
                 Random rand = new Random();
                 string userInput;
                 Console.Clear();
-                Console.WriteLine("Proceeding.");
+                Console.Write("Proceeding.");
                 Thread.Sleep(2000);
                 Console.Write(".");
                 Thread.Sleep(1000);
@@ -574,7 +579,7 @@ namespace NewGame
                 Thread.Sleep(1000);
                 Console.Write(".");
                 Thread.Sleep(1000);
-                Console.WriteLine("\nBeyond the stone walls of a kingdom long since forgotten,");
+                Console.WriteLine("\n\nBeyond the stone walls of a kingdom long since forgotten,");
                 Thread.Sleep(2000);
                 Console.WriteLine("the world stretched wild and untamed beneath the sky.");
                 Thread.Sleep(2000);
