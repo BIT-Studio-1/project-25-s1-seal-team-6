@@ -2076,18 +2076,21 @@ namespace NewGame
                 Console.WriteLine("A powerful force enters your body.");
                 Thread.Sleep(2500);
 
-                maxHealth += 100;
-                playerHealth = maxHealth;
-
-                Console.WriteLine("\nMAX HP increased by 100!");
-                Console.WriteLine($"Current HP: {playerHealth}/{maxHealth}");
-                Thread.Sleep(2500);
-
+  
                 Console.WriteLine("\nThe Guardian's armor reforms around your body.");
                 Thread.Sleep(2500);
 
+                Inventory.Add(new Weapon(
+                    "Silver Guardian Armor",
+                    "The sacred armor of the kingdom's final guardian.",
+                    15,
+                    0));
+
                 Console.WriteLine("[SILVER GUARDIAN ARMOR ACQUIRED]");
+                Thread.Sleep(1500);
+                Console.WriteLine("Silver Guardian Armor added to inventory.");
                 Thread.Sleep(3000);
+
 
                 Console.WriteLine("You feel protected by an ancient blessing.");
                 Thread.Sleep(2500);
@@ -2130,8 +2133,7 @@ namespace NewGame
 
 
 
-                Console.WriteLine("The Silver Knight lowers its blade and slowly bows its head.");
-                Thread.Sleep(2000);
+                
                 Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Whatever spirit once inhabited it long since departed.");
