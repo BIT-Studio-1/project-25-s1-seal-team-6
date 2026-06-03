@@ -17,11 +17,32 @@ namespace NewGame
         static double MaxWeight = 50.0;
 
         //Start of Klae's Work
+        static string PlayerName = "Traveler";
+        string[] developers =
+        {
+            "Dev-Team", // 0
+            "Alfie",    // 1
+            "Klae",     // 2
+            "Chanumi",  // 3
+            "AJ",       // 4
+            "Kobe"      // 5
+        };
         //Start of Artwork Section
         public static void Welcome()
         {
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
-            Console.Write("\nPress Enter to start"); Console.ReadLine();
+            Console.WriteLine();
+            Console.Write("What is your name, traveler? ");
+            PlayerName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(PlayerName))
+            {
+                PlayerName = "Traveler";
+            }
+
+            Console.WriteLine($"\nWelcome, {PlayerName}.");
+            Console.WriteLine("Your journey is about to begin.");
+            Thread.Sleep(5000);
             Console.Clear();
         }
         public static void Death()
@@ -385,6 +406,74 @@ namespace NewGame
 
         }
 
+        public static void RestartGame()
+        {
+            Console.Clear();
+            Console.WriteLine($"Now restarting the game {PlayerName}");
+            Thread.Sleep(2000);
+
+            // Reset inventory
+            Inventory.Clear();
+
+            Console.Clear();
+
+            Main();
+        }
+
+        public static void DeveloperRestart()
+        {
+            string[] developers =
+            {
+            "Dev-Team",
+            "Alfie",
+            "Klae",
+            "Chanumi",
+            "AJ",
+            "Kobe"
+            };
+
+            //Console.WriteLine("Developer List");
+            //Console.WriteLine("[0] Dev-Team");
+            //Console.WriteLine("[1] Alfie");
+            //Console.WriteLine("[2] Klae");
+            //Console.WriteLine("[3] Chanumi");
+            //Console.WriteLine("[4] AJ");
+            //Console.WriteLine("[5] Kobe");
+
+            Console.Write("\nEnter your Developer number: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int devNumber))
+            {
+                Console.WriteLine("Invalid number.");
+                return;
+            }
+
+            if (devNumber < 0 || devNumber >= developers.Length)
+            {
+                Console.WriteLine("Developer number not found.");
+                return;
+            }
+
+            Console.WriteLine($"\nDeveloper identified as: {developers[devNumber]}");
+
+            Thread.Sleep(1000);
+
+            Console.Clear();
+
+            Console.WriteLine($"Now restarting the game ({developers[devNumber]} | Developer)");
+            Console.WriteLine("Resetting Inventory...");
+            Console.WriteLine("Resetting Player Data...");
+            Console.WriteLine("Reloading World...");
+
+            Thread.Sleep(2500);
+
+            Inventory.Clear();
+
+            Console.Clear();
+
+            Main();
+        }
+
         //End of Klae's Work Section
 
         //Alfie's Work
@@ -518,6 +607,17 @@ namespace NewGame
                 Thread.Sleep(1000);
                 Environment.Exit(0);
             }
+            else if (userInput.ToLower() == "restart")
+            {
+                RestartGame();
+                return;
+            }
+
+            else if (userInput.ToLower() == "devrestart")
+            {
+                DeveloperRestart();
+                return;
+            }
             else if (userInput.ToLower() == "proceed")
             {
                 StartGame();
@@ -541,7 +641,9 @@ namespace NewGame
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
                 Console.WriteLine("Type Inv to view your inventory");
-                Console.WriteLine("Type the following word to access your map: Map ");
+                Console.WriteLine("Type Restart to restart the game");
+                Console.WriteLine("Type Quit to close the game");
+                Console.WriteLine("Type Map to access your map");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
@@ -623,7 +725,17 @@ namespace NewGame
                         Console.WriteLine("The bonfire does not judge. It only burns.");
                         Thread.Sleep(2000);
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
 
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else if (userInput.ToLower() == "inv")
                     {
                         InventoryMenu(ref playerHealth, maxHealth);
@@ -733,6 +845,17 @@ namespace NewGame
                         Console.WriteLine("It is very intimidating.");
                         Thread.Sleep(2000);
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
 
                     else if (userInput.ToLower() == "inv")
                     {
@@ -774,6 +897,17 @@ namespace NewGame
                 else
                 {
                     Console.WriteLine("\nYou leave the sword behind.");
+                }
+                else if (userInput.ToLower() == "restart")
+                {
+                    RestartGame();
+                    return;
+                }
+
+                else if (userInput.ToLower() == "devrestart")
+                {
+                    DeveloperRestart();
+                    return;
                 }
                 Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
@@ -853,7 +987,17 @@ namespace NewGame
                                 Console.WriteLine("You bravely check your inventory mid combat");
                                 InventoryMenu(ref playerHealth, maxHealth);
                             }
+                            else if (userInput.ToLower() == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
 
+                            else if (userInput.ToLower() == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
+                            }
                             else
                             {
                                 Console.WriteLine("You hesitate and lose your chance to act.");
@@ -967,6 +1111,17 @@ namespace NewGame
                                     Console.WriteLine("Your punch misses");
                                 }
                             }
+                            else if (userInput.ToLower() == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
+
+                            else if (userInput.ToLower() == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
+                            }
                             else if (choice == "3" || choice == "defend")
                             {
                                 Console.WriteLine("You raise your fists defensively.");
@@ -1048,6 +1203,17 @@ namespace NewGame
                                         Console.WriteLine("\nType Yes to collect the Rusty Sword");
                                         Console.WriteLine("Type No to leave it behind");
                                         Console.WriteLine("To view inventory: Inv");
+                                    }
+                                    else if (userInput.ToLower() == "restart")
+                                    {
+                                        RestartGame();
+                                        return;
+                                    }
+
+                                    else if (userInput.ToLower() == "devrestart")
+                                    {
+                                        DeveloperRestart();
+                                        return;
                                     }
                                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                                     {
@@ -1344,6 +1510,17 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
+                else if (userInput.ToLower() == "restart")
+                {
+                    RestartGame();
+                    return;
+                }
+
+                else if (userInput.ToLower() == "devrestart")
+                {
+                    DeveloperRestart();
+                    return;
+                }
                 Console.WriteLine("The cathedral fades into the distance behind you");
                 Thread.Sleep(2000);
                 Console.WriteLine("Cold wind swept through the empty streets, stirring ash and dust across the broken stone paths.");
@@ -1390,6 +1567,17 @@ namespace NewGame
                         Console.WriteLine("Ahead, snow and wilderness awaits.");
                         Thread.Sleep(2000);
                         atSPeaksBonfire = false;
+                    }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
                     }
                     else
                     {
@@ -1606,6 +1794,17 @@ namespace NewGame
                         {
                             Console.WriteLine("\nYou steady yourself for a parry.");
                         }
+                        else if (userInput.ToLower() == "restart")
+                        {
+                            RestartGame();
+                            return;
+                        }
+
+                        else if (userInput.ToLower() == "devrestart")
+                        {
+                            DeveloperRestart();
+                            return;
+                        }
                         else
                         {
                             Console.WriteLine("\nYou hesitate and lose your chance to act.");
@@ -1753,6 +1952,17 @@ namespace NewGame
                         Thread.Sleep(1500);
                         AbyssDec = true;
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
@@ -1810,6 +2020,17 @@ namespace NewGame
                         Thread.Sleep(2000);
                         snowyBonfire = false;
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
@@ -1852,6 +2073,17 @@ namespace NewGame
                                 Console.WriteLine("\n\nTo continue exploring the area type: Explore");
                                 Console.WriteLine("To proceed towards the castle type: Proceed");
                                 Console.WriteLine("To view inventory: Inv");
+                            }
+                            else if (userInput.ToLower() == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
+
+                            else if (userInput.ToLower() == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
                             }
                             else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                             {
@@ -1933,6 +2165,17 @@ namespace NewGame
                                 Thread.Sleep(2000);
                                 explore = false;
                                 exploreContinue = false;
+                            }
+                            else if (userInput.ToLower() == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
+
+                            else if (userInput.ToLower() == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
                             }
                             else
                             {
