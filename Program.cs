@@ -17,7 +17,7 @@ namespace NewGame
         static double MaxWeight = 50.0;
 
         //Start of Klae's Work
-        static string PlayerName = "Traveler";
+        static string PlayerName = "Traveler"; // Default Name if no name selected
         string[] developers =
         {
             "Dev-Team", // 0
@@ -432,13 +432,13 @@ namespace NewGame
             "Kobe"
             };
 
-            //Console.WriteLine("Developer List");
-            //Console.WriteLine("[0] Dev-Team");
-            //Console.WriteLine("[1] Alfie");
-            //Console.WriteLine("[2] Klae");
-            //Console.WriteLine("[3] Chanumi");
-            //Console.WriteLine("[4] AJ");
-            //Console.WriteLine("[5] Kobe");
+            //Developer List
+            //[0] Dev-Team
+            //[1] Alfie
+            //[2] Klae
+            //[3] Chanumi
+            //[4] AJ
+            //[5] Kobe
 
             Console.Write("\nEnter your Developer number: ");
 
@@ -486,7 +486,7 @@ namespace NewGame
 
         public static void RespawnOne()
         {
-            Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
+            Console.WriteLine($"The {PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
             Thread.Sleep(2000);
             Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
             Thread.Sleep(2000);
@@ -696,7 +696,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("its embers drifting like lost souls upon the wind.");
                 Thread.Sleep(2000);
-                Console.WriteLine("There, beside the fire, sat a weary traveler clad in rusted steel and silence,");
+                Console.WriteLine($"There, beside the fire, sat a weary {PlayerName} clad in rusted steel and silence,");
                 Thread.Sleep(2000);
                 Console.WriteLine("watching the distant castle loom over the horizon — vast, broken, and waiting.");
                 Thread.Sleep(2000);
@@ -716,7 +716,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler remains seated as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine($"\n\n {PlayerName} remains seated as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
@@ -743,7 +743,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Console.WriteLine($"\n\nThe {PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                         Thread.Sleep(2000);
@@ -762,7 +762,7 @@ namespace NewGame
                             }
                             else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                             {
-                                Console.WriteLine("\nThe traveler remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
+                                Console.WriteLine($"\n{PlayerName} remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
                                 Thread.Sleep(1500);
                                 deciding = false;
                             }
@@ -777,7 +777,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("\n\nThe traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
+                Console.WriteLine($"\n\n{PlayerName} presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
                 Thread.Sleep(2000);
                 Console.WriteLine("The land soon begins to change—wild fields giving way to broken stone paths half-swallowed by earth.");
                 Thread.Sleep(2000);
@@ -823,7 +823,7 @@ namespace NewGame
                             }
                             else if (userInput.ToLower() == "proceed")
                             {
-                                Console.WriteLine("The traveler leaves the warmth of the fire behind and steps deeper into the ruined kingdom.");
+                                Console.WriteLine($"{PlayerName} leaves the warmth of the fire behind and steps deeper into the ruined kingdom.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Somewhere ahead, unseen things stir in the dark.");
                                 Thread.Sleep(2000);
@@ -877,7 +877,7 @@ namespace NewGame
 
 
                 bool hasSword = false;
-                Console.WriteLine("\nThe traveler presses onward, leaving the bonfire’s fading warmth behind.");
+                Console.WriteLine($"\n{PlayerName} presses onward, leaving the bonfire’s fading warmth behind.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Something glints faintly beneath the pale light of the evening sky.");
                 Thread.Sleep(2000);
@@ -911,7 +911,7 @@ namespace NewGame
                 }
                 Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
-                Console.WriteLine("The traveler slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
+                Console.WriteLine($"{PlayerName} slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
                 Thread.Sleep(2000);
                 Console.WriteLine("At its center stands a lone figure clad in blackened armor, motionless beneath the pale light filtering through the clouds above.");
                 Thread.Sleep(2000);
@@ -1543,7 +1543,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine($"\n\n{PlayerName} sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
@@ -1560,7 +1560,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Console.WriteLine($"\n\n{PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                         Thread.Sleep(2000);
@@ -1641,7 +1641,7 @@ namespace NewGame
                 Console.WriteLine("Even the wind here sounds dead.");
                 Thread.Sleep(3000);
 
-                Console.WriteLine("\nThe traveler slowly climbs the frozen trail.");
+                Console.WriteLine($"\n{PlayerName} slowly climbs the frozen trail.");
                 Thread.Sleep(3000);
 
                 Console.WriteLine("Every step crunches against ice and ash.");
@@ -1969,7 +1969,7 @@ namespace NewGame
                     }
                 }
                 //Alfie. Continues towards castle
-                Console.WriteLine("The snow sets on the travelers armour.");
+                Console.WriteLine($"The snow sets on {PlayerName}'s armour.");
                 Thread.Sleep(2000);
                 Console.WriteLine("It was now time to proceed back down the mountain");
                 Thread.Sleep(2000);
@@ -1997,7 +1997,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler lowers themselves beside the bonfire, exhaustion weighing heavily upon their body.");
+                        Console.WriteLine($"\n\n{PlayerName} lowers themselves beside the bonfire, exhaustion weighing heavily upon their body.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The warmth of the flames slowly melts the frost from your armor as ash drifts silently into the night sky.");
                         Thread.Sleep(2000);
@@ -2012,7 +2012,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler stares into the bonfire for only a moment before turning away from its warmth.");
+                        Console.WriteLine($"\n\n{PlayerName} stares into the bonfire for only a moment before turning away from its warmth.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The cold mountain wind bites against your armor once more as you continue toward the distant castle..");
                         Thread.Sleep(2000);
@@ -2036,7 +2036,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The traveler stumbles along an old stone path");
+                Console.WriteLine($"{PlayerName} stumbles along an old stone path");
                 Thread.Sleep(2000);
                 Console.WriteLine("The snow grows lighter as you make your way back towards the kingdom");
                 Thread.Sleep(2000);
@@ -2088,7 +2088,7 @@ namespace NewGame
                             else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                             {
                                 exploreContinue = false;
-                                Console.WriteLine("The traveler proceeds towards one of the houses, pushing against the warped wooden door.");
+                                Console.WriteLine($"{PlayerName} proceeds towards one of the houses, pushing against the warped wooden door.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Dust fills the air as the entrance slowly creaks open, revealing a room untouched for countless years.");
                                 Thread.Sleep(2000);
@@ -2110,7 +2110,7 @@ namespace NewGame
                                     }
                                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                                     {
-                                        Console.WriteLine("The traveler moves cautiously through the abandoned building");
+                                        Console.WriteLine($"{PlayerName} moves cautiously through the abandoned building");
                                         Thread.Sleep(2000);
                                         Console.WriteLine("In the far corner of the building, something catches your eye beneath a pile of collapsed timber.");
                                         Thread.Sleep(2000);
@@ -2221,7 +2221,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine($"\n\n{PlayerName} sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
@@ -2236,7 +2236,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Console.WriteLine($"\n\n{PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                         Thread.Sleep(2000);
@@ -2249,7 +2249,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The traveler stares up at the large castle doors");
+                Console.WriteLine($"{PlayerName} stares up at the large castle doors");
                 Thread.Sleep(2000);
                 Console.WriteLine("You push the weight of your body against one of the two doors");
                 Thread.Sleep(2000);
@@ -2897,7 +2897,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\nThe traveler lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
+                        Console.WriteLine($"\n{PlayerName} lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
                         Thread.Sleep(2000);
@@ -2911,7 +2911,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\nThe traveler pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
+                        Console.WriteLine($"\n{PlayerName} pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
                         Thread.Sleep(2000);
                         Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
                         Thread.Sleep(2000);
