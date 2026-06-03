@@ -2476,13 +2476,23 @@ foreach (var item in Inventory)
                         Console.WriteLine("\"Enough.\"");
                         Thread.Sleep(2000);
 
+                        Console.WriteLine("\"These relics... these trophies...\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"You mistake them for strength.\"");
+                        Thread.Sleep(2500);
+
                         Console.WriteLine("\nThe Fallen King raises his blade toward the heavens.");
                         Thread.Sleep(2500);
 
-
                         Console.WriteLine("\"Let us see what remains when everything is taken from you.\"");
-                        Thread.Sleep(3500);
+                        Thread.Sleep(3000);
 
+                        Console.WriteLine("\nA wave of darkness erupts through the throne room!");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("Every weapon you carry shatters into fragments!");
+                        Thread.Sleep(3000);
 
 
                         usableWeapons.RemoveAll(w => w.Name != "Silver Guardian Armor");
@@ -2500,7 +2510,7 @@ foreach (var item in Inventory)
                             playerHealth = 0;
                             break;
                         }
-                            Console.WriteLine("\nOne item remains.");
+                        Console.WriteLine("\nOne item remains.");
                         Thread.Sleep(2000);
 
                         Console.WriteLine("The Silver Guardian Armor begins to glow.");
@@ -2525,12 +2535,22 @@ foreach (var item in Inventory)
                         currentWeapon =
                             usableWeapons[usableWeapons.Count - 1];
 
-                        weaponDurability = 999;
+                        weaponDurability = -1;
 
                         Console.WriteLine("\nYou obtain the Guardian Greatsword!");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("Ancient power surges through your body.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Now rise.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"And finish this.\"");
+                        Thread.Sleep(2500);
                     }
 
-                    if (weaponDurability <= 0)
+                    if (weaponDurability <= 0 && currentWeapon.Name != "Guardian Greatsword")
                     {
                         Console.WriteLine($"\n{currentWeapon.Name} shatters!");
 
@@ -2560,7 +2580,16 @@ foreach (var item in Inventory)
                         weaponDurability = 5;
                     }
 
-                    int kingDamage = rand.Next(20, 36);
+                    int kingDamage;
+
+                    if (finalPhaseTriggered)
+                    {
+                        kingDamage = rand.Next(35, 51);
+                    }
+                    else
+                    {
+                        kingDamage = rand.Next(20, 36);
+                    }
 
                     Console.WriteLine(
                         $"The Fallen King strikes for {kingDamage} damage!");
@@ -2570,7 +2599,29 @@ foreach (var item in Inventory)
                     Thread.Sleep(1500);
                 }
 
+                if (kingDead)
+                {
+                    Console.WriteLine("\nThe Fallen King's sword slips from his grasp.");
+                    Thread.Sleep(2500);
 
+                    Console.WriteLine("\"Impossible...\"");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"After all this time...\"");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"The kingdom is finally free...\"");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("\nThe darkness surrounding the throne begins to fade.");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("Sunlight shines through the ruined ceiling.");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("\nYOU HAVE COMPLETED THE GAME");
+                    Thread.Sleep(4000);
+                }
 
 
 
