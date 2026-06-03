@@ -133,53 +133,268 @@ namespace NewGame
             }
 
         }
-        //public static void Map() 
-        //{
-        //    Console.WriteLine("
-        //      ╔═══════════════════════════╗
-        //      ║        GAME MAP           ║
-        //      ╚═══════════════════════════╝
+        public static void Map()
+        {
+            string temp, wanted; int ProAuth = 0;
+            Console.WriteLine("Which map would you like to access? \nYou have access to the full game's map, or you can see what you have unlocked so far");
+            Console.Write("Say 'Full' or 'Progress' to access the map you would like: "); temp = Console.ReadLine();
+
+            wanted = temp.ToLower();
+
+            if (wanted == "full")
+                Console.WriteLine(@"                                                            ╔═══════════════════════════╗
+                                                            ║     PROGRESS GAME MAP     ║
+                                                            ╚═══════════════════════════╝
 
 
-        //          =====================
-        //         || BONFIRE MEADOW ||
-        //          =====================
-        //                  ||
-        //                  ||
-        //                  ||
-        //                  ||                        
-        //         =====================
-        //         || RUINED COURTYARD ||
-        //         =====================
-        //                  ||
-        //                  ||
-        //                  \/
-        //         =====================
-        //         ||  CATHEDRAL HALL ||
-        //         =====================
-        //                  ||
-        //                  ||
-        //                  ||
-        //                  \/
-        //         =====================
-        //         ||  SHATTERD PEAKS ||
-        //         =====================
-        //                  ||
-        //                  ||
-        //                  ||
-        //                  \/
-        //         =====================
-        //        ||      CASTLE       ||
-        //         =====================
-              
-        //    ");
+                                                               ======================
+                                                               ||  BONFIRE MEADOW  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/                        
+                                                               ======================
+                                                               || RUINED COURTYARD ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                                ||  CATHEDRAL HALL ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                               ||  SHATTERD PEAKS  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               =======================
+                                                               ||      CASTLE       ||
+                                                               =======================
+                                                                
+                                                            ╔═══════════════════════════╗
+                                                            ║   *  In Developement  *   ║
+                                                            ╚═══════════════════════════╝
+            ");
 
-        //}
-        
+            else if (wanted == "progress")
+            {
+                Console.Write("Please enter password: "); temp = Console.ReadLine();
+                ProAuth = Convert.ToInt32(temp);
+                switch (ProAuth)
+                {
+                    case 0:
+                        Console.WriteLine(@"                                                            ╔═══════════════════════════╗
+                                                            ║     PROGRESS GAME MAP     ║
+                                                            ╚═══════════════════════════╝
+
+
+                                                               ======================
+                                                               ||  BONFIRE MEADOW  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                        ");
+
+                        break;
+
+                    case 1:
+                        Console.WriteLine(@"                                                            ╔═══════════════════════════╗
+                                                            ║     PROGRESS GAME MAP     ║
+                                                            ╚═══════════════════════════╝
+
+
+                                                               ======================
+                                                               ||  BONFIRE MEADOW  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/                        
+                                                               ======================
+                                                               || RUINED COURTYARD ||
+                                                               ======================
+                                                                         ||
+                        ");
+
+                        break;
+
+
+                    case 2:
+                        Console.WriteLine(@"                                                            ╔═══════════════════════════╗
+                                                            ║     PROGRESS GAME MAP     ║
+                                                            ╚═══════════════════════════╝
+
+
+                                                               ======================
+                                                               ||  BONFIRE MEADOW  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/                        
+                                                               ======================
+                                                               || RUINED COURTYARD ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                                ||  CATHEDRAL HALL ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                        ");
+
+                        break;
+
+                    case 3:
+                        Console.WriteLine(@"                                                            ╔═══════════════════════════╗
+                                                            ║     PROGRESS GAME MAP     ║
+                                                            ╚═══════════════════════════╝
+
+
+                                                               ======================
+                                                               ||  BONFIRE MEADOW  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/                        
+                                                               ======================
+                                                               || RUINED COURTYARD ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                                ||  CATHEDRAL HALL ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                               ||  SHATTERD PEAKS  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                        ");
+
+                        break;
+
+                    case 4:
+                        Console.WriteLine(@"                                                            ╔═══════════════════════════╗
+                                                            ║     PROGRESS GAME MAP     ║
+                                                            ╚═══════════════════════════╝
+
+
+                                                               ======================
+                                                               ||  BONFIRE MEADOW  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/                        
+                                                               ======================
+                                                               || RUINED COURTYARD ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                                ||  CATHEDRAL HALL ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               ======================
+                                                               ||  SHATTERD PEAKS  ||
+                                                               ======================
+                                                                         ||
+                                                                         ||
+                                                                         ||
+                                                                         \/
+                                                               =======================
+                                                               ||      CASTLE       ||
+                                                               =======================
+                        ");
+
+                        break;
+
+                        //case 5:
+                        //    Console.WriteLine(@"");
+
+                        //    break;
+
+                        //case 6:
+                        //    Console.WriteLine(@"");
+
+                        //    break;
+
+                        //case 7:
+                        //    Console.WriteLine(@"");
+
+                        //    break;
+
+                        //case 8:
+                        //    Console.WriteLine(@"");
+
+                        //    break;
+
+                        //case 9:
+                        //    Console.WriteLine(@"");
+
+                        //    break;
+
+                }
+
+            }
+            else if (wanted == "help") //help section for maps.
+            {
+                Console.Clear();
+                Console.WriteLine("This could help you....\n");
+                Console.WriteLine("Full : Accesses the full game's map, this shows all the diffrent game levels\n");
+                Console.WriteLine("Progress : Accesses the progressive map of the game, this show what you have unlocked so far\n");
+
+                Console.WriteLine("When your ready to try again just press <ENTER>"); Console.ReadLine();
+                Console.Clear();
+                Map();
+            }
+
+            else //invaild input to maps().
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.Clear();
+                    Console.WriteLine("  ___                 _ _     _    ___        _   _                    __\r\n |_ _|_ ____   ____ _(_) | __| |  / _ \\ _ __ | |_(_) ___  _ __    _   / /\r\n  | || '_ \\ \\ / / _` | | |/ _` | | | | | '_ \\| __| |/ _ \\| '_ \\  (_) | | \r\n  | || | | \\ V / (_| | | | (_| | | |_| | |_) | |_| | (_) | | | |  _  | | \r\n |___|_| |_|\\_/ \\__,_|_|_|\\__,_|  \\___/| .__/ \\__|_|\\___/|_| |_| (_) | | \r\n                                       |_|                            \\_\\");
+                    Thread.Sleep(1500);
+                    Console.Clear();
+                    Thread.Sleep(1000);
+                }
+
+                Map();
+            }
+
+        }
 
         //End of Klae's Work Section
 
         //Alfie's Work
+        public static void Credits()
+        {
+            Console.WriteLine("   _____              _ _ _       \r\n  / ____|            | (_) |      \r\n | |     _ __ ___  __| |_| |_ ___ \r\n | |    | '__/ _ \\/ _` | | __/ __|\r\n | |____| | |  __/ (_| | | |_\\__ \\\r\n  \\_____|_|  \\___|\\__,_|_|\\__|___/");
+            Console.WriteLine("Chanumi Dinya Aluthge\nKlae Eckhol\nAlfie McCormack\nKurt Kobe Mendoza\nAnthony van der Schuit");
+            Console.ReadLine();
+        }
+
         public static void RespawnOne()
         {
             Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
@@ -307,6 +522,10 @@ namespace NewGame
             {
                 StartGame();
             }
+            else if (userInput.ToLower() == "map")
+            {
+                Map();
+            }
             else if (userInput.ToLower() == "inv")
             {
                 InventoryMenu(ref tempHealth, tempMax);
@@ -322,6 +541,7 @@ namespace NewGame
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
                 Console.WriteLine("Type Inv to view your inventory");
+                Console.WriteLine("Type the following word to access your map: Map ");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
@@ -347,6 +567,7 @@ namespace NewGame
                 int player, BKknight;
                 int playerHealth = 100;
                 int maxHealth = 100;
+                Weapon currentWeapon = null; //Added weapon variable for the final battle -Chan
                 string[] responses =
                 {
                 "\nThe world does not respond.",
@@ -357,7 +578,7 @@ namespace NewGame
                 Random rand = new Random();
                 string userInput;
                 Console.Clear();
-                Console.WriteLine("Proceeding.");
+                Console.Write("Proceeding.");
                 Thread.Sleep(2000);
                 Console.Write(".");
                 Thread.Sleep(1000);
@@ -365,7 +586,7 @@ namespace NewGame
                 Thread.Sleep(1000);
                 Console.Write(".");
                 Thread.Sleep(1000);
-                Console.WriteLine("\nBeyond the stone walls of a kingdom long since forgotten,");
+                Console.WriteLine("\n\nBeyond the stone walls of a kingdom long since forgotten,");
                 Thread.Sleep(2000);
                 Console.WriteLine("the world stretched wild and untamed beneath the sky.");
                 Thread.Sleep(2000);
@@ -506,6 +727,7 @@ namespace NewGame
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                     {
                         Console.WriteLine("\nYou stare at the entrance of the kingdom.");
+                        Thread.Sleep(2000);
                         Console.WriteLine("The gate does not blame you.");
                         Thread.Sleep(2000);
                         Console.WriteLine("It is very intimidating.");
@@ -1217,7 +1439,7 @@ namespace NewGame
                 Thread.Sleep(2500);
                 
                 Console.WriteLine("\nNEW LOCATION UNLOCKED");
-                Console.WriteLine("\n SHATTERED PEAKS");
+                Console.WriteLine("\nSHATTERED PEAKS");
                
                 Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
                 Thread.Sleep(3000);
@@ -1615,7 +1837,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                     {
-                        Console.WriteLine("Collapsed homes line the road, their doors hanging open as if their occupants had vanished in an instant.");
+                        Console.WriteLine("\nCollapsed homes line the road, their doors hanging open as if their occupants had vanished in an instant.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Despite the silence, an uneasy feeling settles in your chest.");
                         Thread.Sleep(2000);
@@ -1720,7 +1942,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("You ignore the buildings, proceeding towards the castle");
+                        Console.WriteLine("\nYou ignore the buildings, proceeding towards the castle");
                         Thread.Sleep(2000);
                         Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
                         Thread.Sleep(2000);
@@ -1731,7 +1953,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The castle's towering silhouette looms over the ruined district.");
+                Console.WriteLine("\nThe castle's towering silhouette looms over the ruined district.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Your armour weighs heavy but your strength was strong.");
                 Thread.Sleep(2000);
@@ -1802,7 +2024,7 @@ namespace NewGame
                 bool hasKey = false;
                 while (keychoice == false)
                 {
-                    Console.WriteLine("Would you like to open the chest or proceed up the stairs?");
+                    Console.WriteLine("\nWould you like to open the chest or proceed up the stairs?");
                     Thread.Sleep(2000);
                     userInput = Console.ReadLine();
                     if (userInput.ToLower() == "help")
@@ -1812,7 +2034,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "open")
                     {
-                        Console.WriteLine("You open the chest, and notice an old key");
+                        Console.WriteLine("\nYou open the chest, and notice an old key");
                         Thread.Sleep(2000);
                         Console.WriteLine("\nYou obtained: Old Key");
                         Thread.Sleep(2000);
@@ -1821,7 +2043,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("You ignore the chest and proceed up the stairs..");
+                        Console.WriteLine("\nYou ignore the chest and proceed up the stairs..");
                         Thread.Sleep(2000);
                         Console.WriteLine("There couldn't be anything of importance in there...");
                         Thread.Sleep(2000);
@@ -1832,7 +2054,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("You slowly make your way up the pristine marble staircase");
+                Console.WriteLine("\nYou slowly make your way up the pristine marble staircase");
                 Thread.Sleep(2000);
                 Console.WriteLine("At the top of the stairs, a large wooden door stands before you.");
                 Thread.Sleep(2000);
@@ -1842,15 +2064,632 @@ namespace NewGame
                 Thread.Sleep(2000);
                 if (hasKey == true)
                 {
-                    Console.WriteLine("...");
+                    Console.WriteLine("The old key feels heavy in your hand.");
+                    Thread.Sleep(2000);
                 }
-                else
+                if (hasKey == false)
                 {
                     Console.WriteLine("You reach for the handle and give it a firm pull, but it refuses to budge.");
                     Thread.Sleep(2000);
                     Console.WriteLine("You need a key to unlock this door...");
                     Thread.Sleep(2000);
                 }
+                while (hasKey == false)
+                {
+                    Console.WriteLine("The door is locked.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Would you like to return to the chest? Y/N");
+                    userInput = Console.ReadLine().ToLower();
+                    if (userInput == "y" || userInput == "yes")
+                    {
+                        Console.WriteLine("You return to the chest and open it.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Inside rests the old key you overlooked.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("\nYou obtained: Old Key");
+                        hasKey = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("There is nowhere else to go.");
+                    }
+                }
+                Console.WriteLine("The old key slides into the lock.");
+                Thread.Sleep(2000);
+                Console.WriteLine("With a heavy click, the door swings open.");
+                Thread.Sleep(2000);
+                Console.WriteLine("Beyond lies a vast throne room lined with towering stone pillars.");
+                Thread.Sleep(3000);
+                Console.WriteLine("\nA knight clad in shining silver armor rises from beside the throne, drawing a massive greatsword.");
+                Thread.Sleep(2500);
+                Console.WriteLine("\"None may approach the throne.\"");
+                Thread.Sleep(2000);
+                Console.WriteLine("The knight lowers its blade and advances. The doors slam shut behind you.");
+                Thread.Sleep(3000);
+
+                //Chan's work
+                //Silver Guardian boss
+
+                bool guardianDefeated = false;
+
+                while (guardianDefeated == false)
+                {
+                    int guardianHealth = 220;
+                    playerHealth = maxHealth;
+                    
+                    Console.WriteLine("          ENEMY ENCOUNTER");
+                    Console.WriteLine("          SILVER GUARDIAN");
+
+                    bool phaseTwo = false;
+
+                    while (playerHealth > 0 && guardianHealth > 0)
+                    {
+                        if (guardianHealth <= 100 && phaseTwo == false)
+                        {
+                            phaseTwo = true;
+
+                            Console.WriteLine("\nThe Silver Guardian slams its sword into the ground!");
+                            Thread.Sleep(2000);
+
+                            Console.WriteLine("Ancient light erupts from the throne room!");
+                            Thread.Sleep(2000);
+
+                            Console.WriteLine("PHASE TWO BEGINS!");
+                            Thread.Sleep(2000);
+                        }
+
+                        Console.WriteLine("\n--------------------------------");
+                        Console.WriteLine($"Your HP: {playerHealth}");
+                        Console.WriteLine($"Guardian HP: {guardianHealth}");
+                        Console.WriteLine("---------------------------------");
+
+                        int intent = rand.Next(0, 4);
+
+                        if (intent == 0)
+                            Console.WriteLine("The Guardian raises its greatsword.");
+                        else if (intent == 1)
+                            Console.WriteLine("The Guardian gathers holy energy.");
+                        else if (intent == 2)
+                            Console.WriteLine("The Guardian lowers its stance.");
+                        else
+                            Console.WriteLine("The Guardian watches carefully.");
+
+                        Console.WriteLine("\n1. Attack");
+                        Console.WriteLine("2. Heavy Attack");
+                        Console.WriteLine("3. Defend");
+                        Console.WriteLine("4. Parry");
+                        Console.WriteLine("5. Heal");
+
+                        string choice = Console.ReadLine().ToLower();
+
+                        // PLAYER TURN
+
+                        if (choice == "1")
+                        {
+                            int damage = rand.Next(25, 36);
+
+                            Console.WriteLine($"You deal {damage} damage!");
+                            guardianHealth -= damage;
+                        }
+                        else if (choice == "2")
+                        {
+                            if (rand.Next(100) < 60)
+                            {
+                                int damage = rand.Next(45, 71);
+
+                                Console.WriteLine($"Heavy attack deals {damage} damage!");
+                                guardianHealth -= damage;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Heavy attack missed!");
+                            }
+                        }
+                        else if (choice == "5")
+                        {
+                            int heal = 40;
+
+                            playerHealth += heal;
+
+                            if (playerHealth > maxHealth)
+                                playerHealth = maxHealth;
+
+                            Console.WriteLine($"Recovered {heal} HP.");
+                        }
+
+                        if (guardianHealth <= 0)
+                            break;
+
+                        Thread.Sleep(1500);
+
+                        // ENEMY TURN
+
+                        int attack = rand.Next(0, phaseTwo ? 5 : 3);
+
+                        if (attack == 0)
+                        {
+                            int damage = 25;
+
+                            if (choice == "3")
+                            {
+                                damage /= 2;
+                                Console.WriteLine("You block part of the strike!");
+                            }
+
+                            playerHealth -= damage;
+
+                            Console.WriteLine($"Guardian slash deals {damage} damage!");
+                        }
+                        else if (attack == 1)
+                        {
+                            int damage = 35;
+
+                            if (choice == "4")
+                            {
+                                Console.WriteLine("Perfect Parry!");
+                                guardianHealth -= 20;
+                            }
+                            else
+                            {
+                                playerHealth -= damage;
+                                Console.WriteLine($"Greatsword smash deals {damage} damage!");
+                            }
+                        }
+                        else if (attack == 2)
+                        {
+                            Console.WriteLine("The Guardian misses!");
+                        }
+                        else if (attack == 3)
+                        {
+                            int damage = 40;
+
+                            Console.WriteLine("Holy Light explodes across the room!");
+
+                            playerHealth -= damage;
+                        }
+                        else
+                        {
+                            int damage = 50;
+
+                            Console.WriteLine("The Guardian unleashes Judgement!");
+
+                            if (choice == "4")
+                            {
+                                Console.WriteLine("You parry the attack!");
+                                guardianHealth -= 30;
+                            }
+                            else
+                            {
+                                playerHealth -= damage;
+                            }
+                        }
+
+                        Thread.Sleep(1500);
+                    }
+
+                    if (playerHealth <= 0)
+                    {
+                        Death();
+                        Console.WriteLine("The Guardian remains before the throne.");
+                    }
+                    else
+                    {
+                        guardianDefeated = true;
+                    }
+                }
+                Console.WriteLine("The Silver Knight lowers its blade and slowly bows its head.");
+
+                Console.WriteLine("\nThe Silver Guardian falls to one knee.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("\"At last... a worthy successor...\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The silver light within its armor begins to crack.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("\"Take my strength... and finish what I could not.\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The Guardian dissolves into countless silver fragments.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The fragments surround you.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("A powerful force enters your body.");
+                Thread.Sleep(2500);
+
+  
+                Console.WriteLine("\nThe Guardian's armor reforms around your body.");
+                Thread.Sleep(2500);
+
+                Inventory.Add(new Weapon(
+                    "Silver Guardian Armor",
+                    "The sacred armor of the kingdom's final guardian.",
+                    15,
+                    40));
+
+                Console.WriteLine("[SILVER GUARDIAN ARMOR ACQUIRED]");
+                Thread.Sleep(1500);
+                Console.WriteLine("Silver Guardian Armor added to inventory.");
+                Thread.Sleep(3000);
+
+
+                Console.WriteLine("You feel protected by an ancient blessing.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The throne room falls silent...");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\nThen a deep voice echoes through the darkness.");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\"So... the Guardian has fallen.\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\"After centuries of loyalty...\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\"It chooses a mortal over its king.\"");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("The throne begins to shake violently.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\"Very well.\"");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("\"Come claim your reward... if you survive.\"");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\nA dark figure rises from the throne.");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\nFINAL BOSS AWAKENS");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("THE FALLEN KING");
+                Thread.Sleep(3000);
+
+                //FINAL BOSS FIGHT
+
+                Console.WriteLine("\nChoose a weapon from your inventory.");
+
+                List<Weapon> usableWeapons = new List<Weapon>();
+
+                int number = 1;
+                int healingPotions = 2;
+
+                foreach (var item in Inventory)
+                {
+                    if (item is Weapon weapon)
+                    {
+                        usableWeapons.Add(weapon);
+
+                        Console.WriteLine($"{number}. {weapon.Name} ({weapon.Damage} Damage)");
+
+                        number++;
+                    }
+                }
+                int weaponChoice = Convert.ToInt32(Console.ReadLine());
+
+                currentWeapon =
+                    usableWeapons[weaponChoice - 1];
+
+                Console.WriteLine($"\nYou equip {currentWeapon.Name}");
+                Thread.Sleep(1500);
+
+                int weaponDurability = 5;
+
+                int kingHealth = 300;
+
+                bool kingDead = false;
+
+                bool finalPhaseTriggered = false;
+
+                while (!kingDead && playerHealth > 0)
+                {
+                    Console.WriteLine("\n--------------------------------------");
+                    Console.WriteLine($"Your HP: {playerHealth}");
+                    Console.WriteLine($"King HP: {kingHealth}");
+                    Console.WriteLine($"Weapon: {currentWeapon.Name}");
+                    Console.WriteLine($"Durability: {weaponDurability}");
+                    Console.WriteLine($"Potions Remaining: {healingPotions}");
+                    Console.WriteLine("----------------------------------------");
+
+                    Console.WriteLine("1. Attack");
+                    Console.WriteLine("2. Heavy Strike");
+                    Console.WriteLine("3. Defend");
+                    Console.WriteLine("4. Heal");
+
+                    string choice = Console.ReadLine().ToLower();
+
+                    if (choice == "1")
+                    {
+                        int damage = rand.Next(
+                            currentWeapon.Damage - 5,
+                            currentWeapon.Damage + 6);
+
+                        Console.WriteLine($"You deal {damage} damage!");
+
+                        kingHealth -= damage;
+
+                        weaponDurability--;
+                    }
+                    else if (choice == "2")
+                    {
+                        int hitChance = rand.Next(0, 100);
+
+                        if (hitChance < 60)
+                        {
+                            int damage = rand.Next(35, 51);
+
+                            Console.WriteLine($"Heavy strike deals {damage} damage!");
+
+                            kingHealth -= damage;
+
+                            weaponDurability--;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Heavy strike missed!");
+                        }
+                    }
+                    else if (choice == "3")
+                    {
+                        Console.WriteLine("You brace yourself.");
+                    }
+
+                    else if (choice == "4" || choice == "heal")
+                    {
+                        if (healingPotions > 0)
+                        {
+                            int healAmount = rand.Next(25, 46);
+
+                            playerHealth += healAmount;
+
+                            if (playerHealth > maxHealth)
+                            {
+                                playerHealth = maxHealth;
+                            }
+
+                            Console.WriteLine($"You restore {healAmount} HP!");
+
+                            healingPotions--;
+
+                            Console.WriteLine($"You drink a potion and restore {healAmount} HP!");
+                            Console.WriteLine($"Potions Remaining: {healingPotions}");
+ 
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no healing potions left!");
+                        }
+
+                    }
+
+
+                    if (kingHealth <= 0)
+                    {
+                        kingDead = true;
+                        break;
+                    }
+
+                    if (kingHealth <= 150 && !finalPhaseTriggered)
+                    {
+                        finalPhaseTriggered = true;
+
+                        Console.WriteLine("\"Enough.\"");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("\"These relics... these trophies...\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"You mistake them for strength.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\nThe Fallen King raises his blade toward the heavens.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Let us see what remains when everything is taken from you.\"");
+                        Thread.Sleep(3000);
+
+                        Console.WriteLine("\nA wave of darkness erupts through the throne room!");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("Every weapon you carry shatters into fragments!");
+                        Thread.Sleep(3000);
+
+
+                        usableWeapons.RemoveAll(w => w.Name != "Silver Guardian Armor");
+
+                        if (usableWeapons.Count > 0)
+                        {
+                            currentWeapon = usableWeapons[0];
+
+                            weaponDurability = 999;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("The Guardian's blessing cannot be found!");
+                            playerHealth = 0;
+                            break;
+                        }
+                        Console.WriteLine("\nOne item remains.");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("The Silver Guardian Armor begins to glow.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Even now... the Guardian protects you.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"You have carried my legacy this far.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Now carry my blade as well.\"");
+                        Thread.Sleep(2500);
+
+                        usableWeapons.Add(
+                            new Weapon(
+                                "Guardian Greatsword",
+                                "The final weapon of the Silver Guardian.",
+                                10,
+                                45));
+
+                        currentWeapon =
+                            usableWeapons[usableWeapons.Count - 1];
+
+                        weaponDurability = -1;
+
+                        Console.WriteLine("\nYou obtain the Guardian Greatsword!");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("Ancient power surges through your body.");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"Now rise.\"");
+                        Thread.Sleep(2500);
+
+                        Console.WriteLine("\"And finish this.\"");
+                        Thread.Sleep(2500);
+                    }
+
+                    if (weaponDurability <= 0 && currentWeapon.Name != "Guardian Greatsword")
+                    {
+                        Console.WriteLine($"\n{currentWeapon.Name} shatters!");
+
+                        usableWeapons.Remove(currentWeapon);
+
+                        if (usableWeapons.Count == 0)
+                        {
+                            Console.WriteLine("You have no weapons left!");
+
+                            playerHealth = 0;
+                            break;
+                        }
+
+                        Console.WriteLine("\nChoose another weapon:");
+
+                        for (int i = 0; i < usableWeapons.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. {usableWeapons[i].Name}");
+                        }
+
+                        int newWeaponChoice =
+                            Convert.ToInt32(Console.ReadLine());
+
+                        currentWeapon =
+                            usableWeapons[newWeaponChoice - 1];
+
+                        weaponDurability = 5;
+                    }
+
+                    int kingDamage;
+
+                    if (finalPhaseTriggered)
+                    {
+                        kingDamage = rand.Next(35, 51);
+                    }
+                    else
+                    {
+                        kingDamage = rand.Next(20, 36);
+                    }
+
+                    Console.WriteLine(
+                        $"The Fallen King strikes for {kingDamage} damage!");
+
+                    playerHealth -= kingDamage;
+
+                    Thread.Sleep(1500);
+                }
+
+                if (kingDead)
+                {
+                    Console.WriteLine("\nThe Fallen King's sword slips from his grasp.");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"Impossible...\"");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"After all this time...\"");
+                    Thread.Sleep(2500);
+
+                    Console.WriteLine("\"The kingdom is finally free...\"");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("\nThe darkness surrounding the throne begins to fade.");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("Sunlight shines through the ruined ceiling.");
+                    Thread.Sleep(3000);
+
+                    Console.WriteLine("\nTHE AGE OF SILENCE HAS ENDED");
+                    Thread.Sleep(3000);
+                }
+
+
+
+
+
+                //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
+                //Thread.Sleep(2000); 
+                Console.WriteLine("Whatever spirit once inhabited it long since departed.");
+                Thread.Sleep(3000);
+                Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
+
+                Thread.Sleep(2000);
+                bool endGame = false;
+                while (endGame == false)
+                {
+                    Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                        Console.WriteLine("To leave the castle type: Proceed");
+                        //no inv need
+                    }
+                    else if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("\nThe traveler lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("As you stare into the flickering flames, you cannot help but wonder if anything has truly changed.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The kingdom still lies in ruin. The dead still wander its halls. And somewhere ahead, something waits.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The bonfire crackles softly, offering no answers.");
+                        Thread.Sleep(2000);
+                        endGame = true;
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("\nThe traveler pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("But you turn away.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Proceeding down the spiral staircase, and beyond the castle doors, revealing the ruined kingdom stretching into the distance.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Whatever answers you seek are not here.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
+                        Thread.Sleep(2000);
+                        endGame = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
+                }
+                Console.WriteLine("GAME OVER");
+                Console.ReadLine();
+                Credits();
             }
         }
     }
