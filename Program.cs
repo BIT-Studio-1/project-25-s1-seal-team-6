@@ -2619,8 +2619,8 @@ foreach (var item in Inventory)
                     Console.WriteLine("Sunlight shines through the ruined ceiling.");
                     Thread.Sleep(3000);
 
-                    Console.WriteLine("\nYOU HAVE COMPLETED THE GAME");
-                    Thread.Sleep(4000);
+                    Console.WriteLine("\nTHE AGE OF SILENCE HAS ENDED");
+                    Thread.Sleep(3000);
                 }
 
 
@@ -2630,9 +2630,9 @@ foreach (var item in Inventory)
                 //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
                 //Thread.Sleep(2000); 
                 Console.WriteLine("Whatever spirit once inhabited it long since departed.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "help")
