@@ -1930,6 +1930,8 @@ namespace NewGame
                 {
                     Console.WriteLine(responses[rand.Next(responses.Length)]);
                 }
+                Console.WriteLine("GAME OVER");
+                Console.ReadLine();
             }
         }
     }
