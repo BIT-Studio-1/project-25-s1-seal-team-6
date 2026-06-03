@@ -1882,9 +1882,254 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("The knight lowers its blade and advances. The doors slam shut behind you.");
                 Thread.Sleep(2000);
+
+                //Chan's work
+                //Silver Guardian boss
+
+                bool guardianDefeated = false;
+
+                while (guardianDefeated == false)
+                {
+                    int guardianHealth = 220;
+                    playerHealth = maxHealth;
+                    
+                    Console.WriteLine("          ENEMY ENCOUNTER");
+                    Console.WriteLine("          SILVER GUARDIAN");
+
+                    bool phaseTwo = false;
+
+                    while (playerHealth > 0 && guardianHealth > 0)
+                    {
+                        if (guardianHealth <= 100 && phaseTwo == false)
+                        {
+                            phaseTwo = true;
+
+                            Console.WriteLine("\nThe Silver Guardian slams its sword into the ground!");
+                            Thread.Sleep(2000);
+
+                            Console.WriteLine("Ancient light erupts from the throne room!");
+                            Thread.Sleep(2000);
+
+                            Console.WriteLine("PHASE TWO BEGINS!");
+                            Thread.Sleep(2000);
+                        }
+
+                        Console.WriteLine("\n--------------------------------");
+                        Console.WriteLine($"Your HP: {playerHealth}");
+                        Console.WriteLine($"Guardian HP: {guardianHealth}");
+                        Console.WriteLine("---------------------------------");
+
+                        int intent = rand.Next(0, 4);
+
+                        if (intent == 0)
+                            Console.WriteLine("The Guardian raises its greatsword.");
+                        else if (intent == 1)
+                            Console.WriteLine("The Guardian gathers holy energy.");
+                        else if (intent == 2)
+                            Console.WriteLine("The Guardian lowers its stance.");
+                        else
+                            Console.WriteLine("The Guardian watches carefully.");
+
+                        Console.WriteLine("\n1. Attack");
+                        Console.WriteLine("2. Heavy Attack");
+                        Console.WriteLine("3. Defend");
+                        Console.WriteLine("4. Parry");
+                        Console.WriteLine("5. Heal");
+
+                        string choice = Console.ReadLine().ToLower();
+
+                        // PLAYER TURN
+
+                        if (choice == "1")
+                        {
+                            int damage = rand.Next(25, 36);
+
+                            Console.WriteLine($"You deal {damage} damage!");
+                            guardianHealth -= damage;
+                        }
+                        else if (choice == "2")
+                        {
+                            if (rand.Next(100) < 60)
+                            {
+                                int damage = rand.Next(45, 71);
+
+                                Console.WriteLine($"Heavy attack deals {damage} damage!");
+                                guardianHealth -= damage;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Heavy attack missed!");
+                            }
+                        }
+                        else if (choice == "5")
+                        {
+                            int heal = 40;
+
+                            playerHealth += heal;
+
+                            if (playerHealth > maxHealth)
+                                playerHealth = maxHealth;
+
+                            Console.WriteLine($"Recovered {heal} HP.");
+                        }
+
+                        if (guardianHealth <= 0)
+                            break;
+
+                        Thread.Sleep(1500);
+
+                        // ENEMY TURN
+
+                        int attack = rand.Next(0, phaseTwo ? 5 : 3);
+
+                        if (attack == 0)
+                        {
+                            int damage = 25;
+
+                            if (choice == "3")
+                            {
+                                damage /= 2;
+                                Console.WriteLine("You block part of the strike!");
+                            }
+
+                            playerHealth -= damage;
+
+                            Console.WriteLine($"Guardian slash deals {damage} damage!");
+                        }
+                        else if (attack == 1)
+                        {
+                            int damage = 35;
+
+                            if (choice == "4")
+                            {
+                                Console.WriteLine("Perfect Parry!");
+                                guardianHealth -= 20;
+                            }
+                            else
+                            {
+                                playerHealth -= damage;
+                                Console.WriteLine($"Greatsword smash deals {damage} damage!");
+                            }
+                        }
+                        else if (attack == 2)
+                        {
+                            Console.WriteLine("The Guardian misses!");
+                        }
+                        else if (attack == 3)
+                        {
+                            int damage = 40;
+
+                            Console.WriteLine("Holy Light explodes across the room!");
+
+                            playerHealth -= damage;
+                        }
+                        else
+                        {
+                            int damage = 50;
+
+                            Console.WriteLine("The Guardian unleashes Judgement!");
+
+                            if (choice == "4")
+                            {
+                                Console.WriteLine("You parry the attack!");
+                                guardianHealth -= 30;
+                            }
+                            else
+                            {
+                                playerHealth -= damage;
+                            }
+                        }
+
+                        Thread.Sleep(1500);
+                    }
+
+                    if (playerHealth <= 0)
+                    {
+                        Death();
+                        Console.WriteLine("The Guardian remains before the throne.");
+                    }
+                    else
+                    {
+                        guardianDefeated = true;
+                    }
+                }
+                Console.WriteLine("The Silver Knight lowers its blade and slowly bows its head.");
+
+                Console.WriteLine("\nThe Silver Guardian falls to one knee.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("\"At last... a worthy successor...\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The silver light within its armor begins to crack.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("\"Take my strength... and finish what I could not.\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The Guardian dissolves into countless silver fragments.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The fragments surround you.");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("A powerful force enters your body.");
+                Thread.Sleep(2500);
+
+                maxHealth += 100;
+                playerHealth = maxHealth;
+
+                Console.WriteLine("\nMAX HP increased by 100!");
+                Console.WriteLine($"Current HP: {playerHealth}/{maxHealth}");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\nThe Guardian's armor reforms around your body.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("[SILVER GUARDIAN ARMOR ACQUIRED]");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("You feel protected by an ancient blessing.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("The throne room falls silent...");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\nThen a deep voice echoes through the darkness.");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\"So... the Guardian has fallen.\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\"After centuries of loyalty...\"");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\"It chooses a mortal over its king.\"");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("The throne begins to shake violently.");
+                Thread.Sleep(2500);
+
+                Console.WriteLine("\"Very well.\"");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("\"Come claim your reward... if you survive.\"");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\nA dark figure rises from the throne.");
+                Thread.Sleep(3000);
+
+                Console.WriteLine("\nFINAL BOSS AWAKENS");
+                Thread.Sleep(2000);
+
+                Console.WriteLine("THE FALLEN KING");
+                Thread.Sleep(3000);
+
                 //FINAL BOSS FIGHT
-                //FINAL BOSS FIGHT
-                //FINAL BOSS FIGHT
+
+
+
+
                 Console.WriteLine("The Silver Knight lowers its blade and slowly bows its head.");
                 Thread.Sleep(2000);
                 Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
