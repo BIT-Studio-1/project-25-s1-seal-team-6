@@ -18,7 +18,7 @@ namespace NewGame
 
         //Start of Klae's Work
         static string PlayerName = "Traveler"; // Default Name if no name selected
-        string[] developers =
+        static string[] developers =
         {
             "Dev-Team", // 0
             "Alfie",    // 1
@@ -55,7 +55,7 @@ namespace NewGame
         {
             Console.WriteLine("                  [\\\r\n                  |\\)                                ____\r\n                  |                               __(_   )__\r\n                  Y\\          ___               _(          )\r\n                 T  \\       __)  )--.          (     )-----`\r\n                J    \\   ,-(         )_         `---'\r\n               Y/T`-._\\ (     (       _)                 __\r\n               /[|   ]|  `-(__  ___)-`  |\\          ,-(  __)\r\n               | |    |      (__)       J'         (     )\r\n   _           | |  ] |    _           /;\\          `-  '\r\n  (,,)        [| |    |    L'         /;  \\\r\n             /||.| /\\ |   /\\         /.,-._\\        ___ _\r\n            /_|||| || |  /  \\        | |{  |       (._.'_)\r\n  L/\\       | \\| | '` |_ _ {|        | | U |   /\\\r\n /v^v\\/\\   `|  Y | [  '-' '--''-''-\"-'`'   | ,`^v\\ /\\,`\\\r\n/ ,'./  \\.` |[   |       [     __   L    ] |      /^v\\  \\\r\n,'     `    |    |           ,`##Y.   ]    |___Y Y____,_,,_,,_\r\n--   -----.-(] [ |   ]     o/####U|o      ]|| /`-, Y   _   Y  Y\r\n   Y Y  --;`~T   |      }   \\####U|[\\ _,.-(^) ,-'  _  (^)__  _\r\n  Y  YY   ;'~~l  |   L     [|\\###U'E'\\  \\ \\Y-` _  (^) _Y  _\r\n Y  Y Y   ;\\~~/\\{| [      _,'-\\`= = '.\\_ ,`   (^)(^) (^) (^)\r\n     --   ;\\~~~/\\|  _,.-'`_  `.\\_..-'\"  _ . ,_ Y_ Y_ _Y  _Y__\r\n    _    _; \\~~( Y``   Y (^) / `,      (^)      _   (^) (^)\r\n   (^)  (^)`._~ /  L \\  _.Y'`  _  ` --  Y - - -(^) - Y - Y -\r\n    Y    Y    `'--..,-'`      (^)   _  -    _   Y ____\r\n      --           _    _ --   Y   (^)   _ (^)  ===   ----\r\n          __   -  (^)  (^)      --- Y   (^) Y\r\n      _            Y    Y                Y             lt.\r\n");
         }
-        public static void WatchTower() 
+        public static void WatchTower()
         {
             Console.WriteLine("                                                |>>>\r\n                                                |\r\n                                            _  _|_  _\r\n                                           |;|_|;|_|;|\r\n                                           \\\\.    .  /\r\n                                            \\\\:  .  /\r\n                                             ||:   |\r\n                                             ||:.  |\r\n                                             ||:  .|\r\n                                             ||:   |       \\,/\r\n                                             ||: , |            /`\\\r\n                                             ||:   |\r\n                                             ||: . |\r\n              __                            _||_   |\r\n     ____--`~    '--~~__            __ ----~    ~`---,              ___\r\n-~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~");
         }
@@ -589,7 +589,6 @@ namespace NewGame
         static void Main()
         {
             string userInput;
-            string result;
 
             // temporary hp before it is set in the game itself
             int tempHealth = 100;
@@ -894,10 +893,6 @@ namespace NewGame
                     hasSword = true;
                     Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
-                else
-                {
-                    Console.WriteLine("\nYou leave the sword behind.");
-                }
                 else if (userInput.ToLower() == "restart")
                 {
                     RestartGame();
@@ -909,6 +904,11 @@ namespace NewGame
                     DeveloperRestart();
                     return;
                 }
+                else
+                {
+                    Console.WriteLine("\nYou leave the sword behind.");
+                }
+
                 Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
                 Console.WriteLine($"{PlayerName} slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
@@ -924,7 +924,7 @@ namespace NewGame
                 Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
                 Thread.Sleep(2000);
                 bool blackKnightDefeated = false;
-                
+
                 while (blackKnightDefeated == false)
                 {
                     int BKhealth = 100;
@@ -933,7 +933,7 @@ namespace NewGame
 
                     if (hasSword) //sword combat
                     {
-                        
+
                         while (playerHealth > 0 && BKhealth > 0)
                         {
                             Console.WriteLine("You fight with the Rusty Sword");
@@ -982,18 +982,18 @@ namespace NewGame
                                 Console.WriteLine("You brace for the Black Knight's attack.");
                             }
 
-                            else if (choice == "inv" || choice == "inv")
+                            else if (choice == "inv" || choice == "inventory")
                             {
                                 Console.WriteLine("You bravely check your inventory mid combat");
                                 InventoryMenu(ref playerHealth, maxHealth);
                             }
-                            else if (userInput.ToLower() == "restart")
+                            else if (choice == "restart")
                             {
                                 RestartGame();
                                 return;
                             }
 
-                            else if (userInput.ToLower() == "devrestart")
+                            else if (choice == "devrestart")
                             {
                                 DeveloperRestart();
                                 return;
@@ -1053,7 +1053,7 @@ namespace NewGame
                         {
                             Death();
                             RespawnOne();
-                            
+
                         }
                         else if (BKhealth <= 0)
                         {
@@ -1083,7 +1083,7 @@ namespace NewGame
 
                             string choice = Console.ReadLine().ToLower();
 
-                            
+
                             if (choice == "1" || choice == "punch")
                             {
                                 int damage = rand.Next(5, 11);
@@ -1111,13 +1111,13 @@ namespace NewGame
                                     Console.WriteLine("Your punch misses");
                                 }
                             }
-                            else if (userInput.ToLower() == "restart")
+                            else if (choice == "restart")
                             {
                                 RestartGame();
                                 return;
                             }
 
-                            else if (userInput.ToLower() == "devrestart")
+                            else if (choice == "devrestart")
                             {
                                 DeveloperRestart();
                                 return;
@@ -1140,15 +1140,16 @@ namespace NewGame
 
                             int enemyAttack = rand.Next(0, 3);
 
-                            if (enemyAttack == 0) {
+                            if (enemyAttack == 0)
+                            {
                                 int damage = 20;
 
                                 if (choice == "3" || choice == "defend")
-                                    {
-                                        damage /= 2;
+                                {
+                                    damage /= 2;
 
-                                        Console.WriteLine("You block part of the attack!");
-                                    }
+                                    Console.WriteLine("You block part of the attack!");
+                                }
 
                                 Console.WriteLine("The Black Knight slashes you!");
                                 Console.WriteLine($"You take {damage} damage!");
@@ -1223,7 +1224,7 @@ namespace NewGame
                                     else
                                     {
                                         Console.WriteLine(responses[rand.Next(responses.Length)]);
-                                    }              
+                                    }
                                 }
                             }
                             else if (BKhealth <= 0)
@@ -1233,8 +1234,8 @@ namespace NewGame
                             }
                         }
                     }
-                }              
-                
+                }
+
 
 
                 //if (playerHealth <= 0) Commented out by Klae E. Possible Repeat error.
@@ -1302,7 +1303,7 @@ namespace NewGame
 
                             while ((playerHealth > 0) && (assassinHealth > 0))
                             {
-                                
+
                                 Console.WriteLine("---------------------------------------");
                                 Console.WriteLine($"Your HP: {playerHealth}");
                                 Console.WriteLine($"Assassin HP: {assassinHealth}");
@@ -1437,7 +1438,7 @@ namespace NewGame
                                 Thread.Sleep(1500);
                             }
 
-                            
+
                             if (playerHealth <= 0)
                             {
                                 Death();
@@ -1460,7 +1461,7 @@ namespace NewGame
                                 Console.WriteLine("A long, sharp blade.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Would you like to collect it?");
-                                Thread.Sleep(2000);                                
+                                Thread.Sleep(2000);
                                 bool weaponChoiceMade = false;
                                 while (weaponChoiceMade == false)
                                 {
@@ -1505,22 +1506,20 @@ namespace NewGame
                         Console.WriteLine("To ignore the cathedral type: No");
                         Console.WriteLine("To view inventory: Inv");
                     }
-                    else
+                    else if (userInput.ToLower() == "restart")
                     {
-                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                        RestartGame();
+                        return;
                     }
-                }
-                else if (userInput.ToLower() == "restart")
-                {
-                    RestartGame();
-                    return;
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
+
                 }
 
-                else if (userInput.ToLower() == "devrestart")
-                {
-                    DeveloperRestart();
-                    return;
-                }
                 Console.WriteLine("The cathedral fades into the distance behind you");
                 Thread.Sleep(2000);
                 Console.WriteLine("Cold wind swept through the empty streets, stirring ash and dust across the broken stone paths.");
@@ -1585,8 +1584,8 @@ namespace NewGame
                     }
                 }
                 Console.WriteLine("...");
-                
-                
+
+
                 //Kobe// 3rd boss fight============================================================================================
                 //Console.WriteLine("\nThe Undead Assassin collapses to the frozen stone, its blade slipping from lifeless fingers.\".");
                 //Thread.Sleep(2000);
@@ -1625,10 +1624,10 @@ namespace NewGame
 
                 Console.WriteLine("Towering mountains rise beyond the horizon.");
                 Thread.Sleep(2500);
-                
+
                 Console.WriteLine("\nNEW LOCATION UNLOCKED");
                 Console.WriteLine("\nSHATTERED PEAKS");
-               
+
                 Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
                 Thread.Sleep(3000);
 
@@ -1686,7 +1685,7 @@ namespace NewGame
                 Console.WriteLine("             ABYSSWALKER");
                 Console.WriteLine("=======================================");
                 Thread.Sleep(4000);
-                
+
                 bool abysswalkerDefeated = false;
 
                 while (abysswalkerDefeated == false)
@@ -1794,13 +1793,13 @@ namespace NewGame
                         {
                             Console.WriteLine("\nYou steady yourself for a parry.");
                         }
-                        else if (userInput.ToLower() == "restart")
+                        else if (choice == "restart")
                         {
                             RestartGame();
                             return;
                         }
 
-                        else if (userInput.ToLower() == "devrestart")
+                        else if (choice == "devrestart")
                         {
                             DeveloperRestart();
                             return;
@@ -1909,8 +1908,8 @@ namespace NewGame
                         Thread.Sleep(2500);
 
                         Console.WriteLine("\nYou gain +25 health.");
-                        maxHealth += 25;          
-                        playerHealth = maxHealth; 
+                        maxHealth += 25;
+                        playerHealth = maxHealth;
                         Console.WriteLine($"Max Health:{playerHealth}");
                         Thread.Sleep(2500);
                         //Console.WriteLine("Max health increased to 200HP");
@@ -1982,7 +1981,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 WatchTower();
                 Console.WriteLine("Half-buried beneath the stone remains of an ancient watchtower, a lonely bonfire crackles against the cold wind.");
-                Thread.Sleep(2000);                
+                Thread.Sleep(2000);
                 bool snowyBonfire = true;
                 while (snowyBonfire == true)
                 {
@@ -2359,7 +2358,7 @@ namespace NewGame
                 {
                     int guardianHealth = 220;
                     playerHealth = maxHealth;
-                    
+
                     Console.WriteLine("          ENEMY ENCOUNTER");
                     Console.WriteLine("          SILVER GUARDIAN");
 
@@ -2543,7 +2542,7 @@ namespace NewGame
                 Console.WriteLine("A powerful force enters your body.");
                 Thread.Sleep(2500);
 
-  
+
                 Console.WriteLine("\nThe Guardian's armor reforms around your body.");
                 Thread.Sleep(2500);
 
@@ -2703,7 +2702,7 @@ namespace NewGame
 
                             Console.WriteLine($"You drink a potion and restore {healAmount} HP!");
                             Console.WriteLine($"Potions Remaining: {healingPotions}");
- 
+
                         }
                         else
                         {
@@ -2957,42 +2956,41 @@ namespace NewGame
             Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
         }
     }
-}
 
-// Health potion you can use in combat 
-public class Consumable : Item
-{
-    public int HealAmount { get; set; }
-
-    public Consumable(string name, string description, int healAmount)
-        : base(name, description, 0.5, isDroppable: true)
+    // Health potion you can use in combat 
+    public class Consumable : Item
     {
-        HealAmount = healAmount;
-    }
+        public int HealAmount { get; set; }
 
-    public override void Use(ref int playerHealth, int maxHealth)
-    {
-        if (playerHealth >= maxHealth)
+        public Consumable(string name, string description, int healAmount)
+            : base(name, description, 0.5, isDroppable: true)
         {
-            Console.WriteLine("\nYour health is already full!");
-            return;
+            HealAmount = healAmount;
         }
 
-        playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
-        Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
-        Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+        public override void Use(ref int playerHealth, int maxHealth)
+        {
+            if (playerHealth >= maxHealth)
+            {
+                Console.WriteLine("\nYour health is already full!");
+                return;
+            }
+
+            playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
+            Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
+            Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+        }
     }
-}
 
-// Weapon class
-public class Weapon : Item
-{
-    public int Damage { get; set; }
-
-    public Weapon(string name, string description, double weight, int damage)
-        : base(name, description, weight, isDroppable: true)
+    // Weapon class
+    public class Weapon : Item
     {
-        Damage = damage;
+        public int Damage { get; set; }
+
+        public Weapon(string name, string description, double weight, int damage)
+            : base(name, description, weight, isDroppable: true)
+        {
+            Damage = damage;
+        }
     }
 }
-            
