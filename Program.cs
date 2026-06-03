@@ -1913,7 +1913,18 @@ namespace NewGame
                 }
                 else if (userInput.ToLower() == "proceed")
                 {
-
+                    Console.WriteLine("The traveler pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("But you turn away.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Proceeding down the spiral staircase, and beyond the castle doors, revealing the ruined kingdom stretching into the distance.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Whatever answers you seek are not here.");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
+                    Thread.Sleep(2000);
                 }
                 else
                 {
