@@ -1875,7 +1875,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("A knight clad in shining silver armor rises from beside the throne, drawing a massive greatsword.");
                 Thread.Sleep(2000);
-                Console.WriteLine("\"None may approach the throne."\");
+                Console.WriteLine("\"None may approach the throne.\"");
                 Thread.Sleep(2000);
                 Console.WriteLine("The knight lowers its blade and advances. The doors slam shut behind you.");
                 Thread.Sleep(2000);
