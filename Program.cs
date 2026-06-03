@@ -2369,7 +2369,114 @@ foreach (var item in Inventory)
                 currentWeapon =
                     usableWeapons[weaponChoice - 1];
 
-          
+                Console.WriteLine($"\nYou equip {currentWeapon.Name}");
+                Thread.Sleep(1500);
+
+                int weaponDurability = 5;
+
+                int kingHealth = 300;
+
+                bool kingDead = false;
+
+                while (!kingDead && playerHealth > 0)
+                {
+                    Console.WriteLine("\n====================");
+                    Console.WriteLine($"Your HP: {playerHealth}");
+                    Console.WriteLine($"King HP: {kingHealth}");
+                    Console.WriteLine($"Weapon: {currentWeapon.Name}");
+                    Console.WriteLine($"Durability: {weaponDurability}");
+                    Console.WriteLine("====================");
+
+                    Console.WriteLine("1. Attack");
+                    Console.WriteLine("2. Heavy Strike");
+                    Console.WriteLine("3. Defend");
+
+                    string choice = Console.ReadLine().ToLower();
+
+                    if (choice == "1")
+                    {
+                        int damage = rand.Next(
+                            currentWeapon.Damage - 5,
+                            currentWeapon.Damage + 6);
+
+                        Console.WriteLine($"You deal {damage} damage!");
+
+                        kingHealth -= damage;
+
+                        weaponDurability--;
+                    }
+                    else if (choice == "2")
+                    {
+                        int hitChance = rand.Next(0, 100);
+
+                        if (hitChance < 60)
+                        {
+                            int damage = rand.Next(35, 51);
+
+                            Console.WriteLine($"Heavy strike deals {damage} damage!");
+
+                            kingHealth -= damage;
+
+                            weaponDurability--;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Heavy strike missed!");
+                        }
+                    }
+                    else if (choice == "3")
+                    {
+                        Console.WriteLine("You brace yourself.");
+                    }
+
+                    if (kingHealth <= 0)
+                    {
+                        kingDead = true;
+                        break;
+                    }
+
+                    if (weaponDurability <= 0)
+                    {
+                        Console.WriteLine($"\n{currentWeapon.Name} shatters!");
+
+                        usableWeapons.Remove(currentWeapon);
+
+                        if (usableWeapons.Count == 0)
+                        {
+                            Console.WriteLine("You have no weapons left!");
+
+                            playerHealth = 0;
+                            break;
+                        }
+
+                        Console.WriteLine("\nChoose another weapon:");
+
+                        for (int i = 0; i < usableWeapons.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. {usableWeapons[i].Name}");
+                        }
+
+                        int newWeaponChoice =
+                            Convert.ToInt32(Console.ReadLine());
+
+                        currentWeapon =
+                            usableWeapons[newWeaponChoice - 1];
+
+                        weaponDurability = 5;
+                    }
+
+                    int kingDamage = rand.Next(20, 36);
+
+                    Console.WriteLine(
+                        $"The Fallen King strikes for {kingDamage} damage!");
+
+                    playerHealth -= kingDamage;
+
+                    Thread.Sleep(1500);
+                }
+
+
+
 
 
 
