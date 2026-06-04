@@ -388,6 +388,13 @@ namespace NewGame
         //End of Klae's Work Section
 
         //Alfie's Work
+        public static void Credits()
+        {
+            Console.WriteLine("   _____              _ _ _       \r\n  / ____|            | (_) |      \r\n | |     _ __ ___  __| |_| |_ ___ \r\n | |    | '__/ _ \\/ _` | | __/ __|\r\n | |____| | |  __/ (_| | | |_\\__ \\\r\n  \\_____|_|  \\___|\\__,_|_|\\__|___/");
+            Console.WriteLine("Chanumi Dinya Aluthge\nKlae Eckhol\nAlfie McCormack\nKurt Kobe Mendoza\nAnthony van der Schuit");
+            Console.ReadLine();
+        }
+
         public static void RespawnOne()
         {
             Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
@@ -720,6 +727,7 @@ namespace NewGame
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                     {
                         Console.WriteLine("\nYou stare at the entrance of the kingdom.");
+                        Thread.Sleep(2000);
                         Console.WriteLine("The gate does not blame you.");
                         Thread.Sleep(2000);
                         Console.WriteLine("It is very intimidating.");
@@ -1431,7 +1439,7 @@ namespace NewGame
                 Thread.Sleep(2500);
                 
                 Console.WriteLine("\nNEW LOCATION UNLOCKED");
-                Console.WriteLine("\n SHATTERED PEAKS");
+                Console.WriteLine("\nSHATTERED PEAKS");
                
                 Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
                 Thread.Sleep(3000);
@@ -1829,7 +1837,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                     {
-                        Console.WriteLine("Collapsed homes line the road, their doors hanging open as if their occupants had vanished in an instant.");
+                        Console.WriteLine("\nCollapsed homes line the road, their doors hanging open as if their occupants had vanished in an instant.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Despite the silence, an uneasy feeling settles in your chest.");
                         Thread.Sleep(2000);
@@ -1934,7 +1942,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no" || userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("You ignore the buildings, proceeding towards the castle");
+                        Console.WriteLine("\nYou ignore the buildings, proceeding towards the castle");
                         Thread.Sleep(2000);
                         Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
                         Thread.Sleep(2000);
@@ -1945,7 +1953,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The castle's towering silhouette looms over the ruined district.");
+                Console.WriteLine("\nThe castle's towering silhouette looms over the ruined district.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Your armour weighs heavy but your strength was strong.");
                 Thread.Sleep(2000);
@@ -2016,7 +2024,7 @@ namespace NewGame
                 bool hasKey = false;
                 while (keychoice == false)
                 {
-                    Console.WriteLine("Would you like to open the chest or proceed up the stairs?");
+                    Console.WriteLine("\nWould you like to open the chest or proceed up the stairs?");
                     Thread.Sleep(2000);
                     userInput = Console.ReadLine();
                     if (userInput.ToLower() == "help")
@@ -2026,7 +2034,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "open")
                     {
-                        Console.WriteLine("You open the chest, and notice an old key");
+                        Console.WriteLine("\nYou open the chest, and notice an old key");
                         Thread.Sleep(2000);
                         Console.WriteLine("\nYou obtained: Old Key");
                         Thread.Sleep(2000);
@@ -2035,7 +2043,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("You ignore the chest and proceed up the stairs..");
+                        Console.WriteLine("\nYou ignore the chest and proceed up the stairs..");
                         Thread.Sleep(2000);
                         Console.WriteLine("There couldn't be anything of importance in there...");
                         Thread.Sleep(2000);
@@ -2046,7 +2054,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("You slowly make your way up the pristine marble staircase");
+                Console.WriteLine("\nYou slowly make your way up the pristine marble staircase");
                 Thread.Sleep(2000);
                 Console.WriteLine("At the top of the stairs, a large wooden door stands before you.");
                 Thread.Sleep(2000);
@@ -2092,8 +2100,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Beyond lies a vast throne room lined with towering stone pillars.");
                 Thread.Sleep(3000);
-                Console.WriteLine(" ");
-                Console.WriteLine("A knight clad in shining silver armor rises from beside the throne, drawing a massive greatsword.");
+                Console.WriteLine("\nA knight clad in shining silver armor rises from beside the throne, drawing a massive greatsword.");
                 Thread.Sleep(2500);
                 Console.WriteLine("\"None may approach the throne.\"");
                 Thread.Sleep(2000);
@@ -2362,22 +2369,22 @@ namespace NewGame
 
                 Console.WriteLine("\nChoose a weapon from your inventory.");
 
-List<Weapon> usableWeapons = new List<Weapon>();
+                List<Weapon> usableWeapons = new List<Weapon>();
 
-int number = 1;
-int healingPotions = 5;
+                int number = 1;
+                int healingPotions = 2;
 
-foreach (var item in Inventory)
-{
-    if (item is Weapon weapon)
-    {
-        usableWeapons.Add(weapon);
+                foreach (var item in Inventory)
+                {
+                    if (item is Weapon weapon)
+                    {
+                        usableWeapons.Add(weapon);
 
-        Console.WriteLine($"{number}. {weapon.Name} ({weapon.Damage} Damage)");
+                        Console.WriteLine($"{number}. {weapon.Name} ({weapon.Damage} Damage)");
 
-        number++;
-    }
-}
+                        number++;
+                    }
+                }
                 int weaponChoice = Convert.ToInt32(Console.ReadLine());
 
                 currentWeapon =
@@ -2701,57 +2708,62 @@ foreach (var item in Inventory)
 
 
 
-                    //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
-                    //Thread.Sleep(2000); 
-                    Console.WriteLine("Whatever spirit once inhabited it long since departed.");
-                    Thread.Sleep(3000);
-                    Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
-                    Thread.Sleep(3000);
-                }
-                    Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
-                
+                //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
+                //Thread.Sleep(2000); 
+                Console.WriteLine("Whatever spirit once inhabited it long since departed.");
+                Thread.Sleep(3000);
+                Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
 
-                userInput = Console.ReadLine();
-                if (userInput.ToLower() == "help")
+                Thread.Sleep(2000);
+                bool endGame = false;
+                while (endGame == false)
                 {
-                    Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
-                    Console.WriteLine("To leave the castle type: Proceed");
-                    //no inv need
-                }
-                else if (userInput.ToLower() == "rest")
-                {
-                    Console.WriteLine("The traveler lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("As you stare into the flickering flames, you cannot help but wonder if anything has truly changed.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("The kingdom still lies in ruin. The dead still wander its halls. And somewhere ahead, something waits.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("The bonfire crackles softly, offering no answers.");
-                    Thread.Sleep(2000);
-                }
-                else if (userInput.ToLower() == "proceed")
-                {
-                    Console.WriteLine("The traveler pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("But you turn away.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("Proceeding down the spiral staircase, and beyond the castle doors, revealing the ruined kingdom stretching into the distance.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("Whatever answers you seek are not here.");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
-                    Thread.Sleep(2000);
-                }
-                else
-                {
-                    Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
+                    userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "help")
+                    {
+                        Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                        Console.WriteLine("To leave the castle type: Proceed");
+                        //no inv need
+                    }
+                    else if (userInput.ToLower() == "rest")
+                    {
+                        Console.WriteLine("\nThe traveler lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("As you stare into the flickering flames, you cannot help but wonder if anything has truly changed.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The kingdom still lies in ruin. The dead still wander its halls. And somewhere ahead, something waits.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("The bonfire crackles softly, offering no answers.");
+                        Thread.Sleep(2000);
+                        endGame = true;
+                    }
+                    else if (userInput.ToLower() == "proceed")
+                    {
+                        Console.WriteLine("\nThe traveler pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("But you turn away.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Proceeding down the spiral staircase, and beyond the castle doors, revealing the ruined kingdom stretching into the distance.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Whatever answers you seek are not here.");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
+                        Thread.Sleep(2000);
+                        endGame = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                    }
                 }
                 Console.WriteLine("GAME OVER");
                 Console.ReadLine();
+                Credits();
             }
         }
     }
