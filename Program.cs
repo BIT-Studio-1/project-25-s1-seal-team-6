@@ -2164,6 +2164,7 @@ namespace NewGame
 
 
                                                     int enemyIntent = rand.Next(0, 3);
+                                                    int minionHealth = 0;
 
                                                     if (enemyIntent == 0)
                                                     {
@@ -2198,6 +2199,21 @@ namespace NewGame
                                                         Console.WriteLine("\nYou slash the reaper!");
                                                         Console.WriteLine($"You deal {damage} damage!");
 
+                                                        if (minionHealth > 0)
+                                                        {
+                                                            Console.WriteLine($"The reaper's minion takes {damage} damage!");
+                                                            minionHealth -= damage;
+                                                        }
+                                                        else if (minionHealth <= 0)
+                                                        {
+                                                            minionHealth = 0;
+                                                            Console.WriteLine("The skeleton is crushed to dust, exposing the reaper once again");
+                                                        }
+                                                        else
+                                                        {
+                                                            reaperHealth -= damage;
+                                                        }
+
                                                         reaperHealth -= damage;
                                                     }
                                                     else if (choice == "2" || choice == "Charge Blow")
@@ -2211,7 +2227,20 @@ namespace NewGame
                                                             Console.WriteLine("\nYour heavy attack strikes the reaper!");
                                                             Console.WriteLine($"You deal {damage} damage!");
 
-                                                            reaperHealth -= damage;
+                                                            if (minionHealth > 0)
+                                                            {
+                                                                Console.WriteLine($"The reaper's minion takes {damage} damage!");
+                                                                minionHealth -= damage;
+                                                            }
+                                                            else if (minionHealth <= 0)
+                                                            {
+                                                                minionHealth = 0;
+                                                                Console.WriteLine("The skeleton is crushed to dust, exposing the reaper once again");
+                                                            }
+                                                            else
+                                                            {
+                                                                reaperHealth -= damage;
+                                                            }
                                                         }
                                                         else
                                                         {
@@ -2300,6 +2329,11 @@ namespace NewGame
 
                                                         Console.WriteLine("...it leaps out at you with the scythe, grazing the skin of your neck, you are lucky to live");
                                                     }
+                                                    else if (reaperAttack == 3)
+                                                    {
+                                                        Console.WriteLine("The reaper summons a skeleton minion to tank some damage for him!");
+                                                        reaperHealth = (reaperHealth + 35);
+                                                    }
                                                     else
                                                     {
                                                         int damage = 35;
@@ -2315,7 +2349,7 @@ namespace NewGame
                                                 if (playerHealth <= 0)
                                                 {
                                                     Death();
-                                                    Console.WriteLine("\nYou awaken at the bonfire, feeling like the cold embrace of death.");
+                                                    Console.WriteLine("\nYou awaken at the bonfire, feeling like the cold embrace of death...");
                                                     Thread.Sleep(3000);
                                                     playerHealth = maxHealth;
                                                 }
@@ -2333,7 +2367,7 @@ namespace NewGame
                                                     Console.WriteLine("A cold mist is emitted from the lifeless remains.");
                                                     Thread.Sleep(3500);
 
-                                                    Console.WriteLine("\nYou gain +25 health.");
+                                                    Console.WriteLine("\nYou gain +20 health.");
                                                     maxHealth += 20;
                                                     playerHealth = maxHealth;
                                                     Console.WriteLine($"Max Health:{playerHealth}");
@@ -2343,7 +2377,9 @@ namespace NewGame
                                                 }
                                                 else
                                                 {
-                                                    Console.WriteLine("You have been slain!");
+                                                    Console.WriteLine("You have been slain by the reaper, you can feel otherworldly forces at work");
+                                                    Thread.Sleep(1000);
+                                                    Console.WriteLine("You resist being dragged into the underworld.");
                                                 }
                                                 // end of reaper fight
                                             }
