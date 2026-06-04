@@ -2125,7 +2125,7 @@ namespace NewGame
                                             Inventory.Add(new Weapon("Greataxe", "The weapon is heavy in your hands, yet perfectly balanced—as if it had been waiting for someone to claim it.", 12, 40));
                                             Console.WriteLine("\nYou obtained: Greataxe");
                                             Thread.Sleep(2000);
-                                            Console.WriteLine("\nIt was now time to proceed.");
+                                            Console.WriteLine("\nIt was now time to proceed...");
                                             Thread.Sleep(2000);
                                             explore = false;
                                             exploreContinue = false;
@@ -2136,7 +2136,7 @@ namespace NewGame
                                             Thread.Sleep(2000);
                                             Console.WriteLine("A pair of glowing eyes materialize in the darkness, fixating on you with predatory intent.");
                                             Thread.Sleep(2000);
-                                            Console.WriteLine("The weapons owner emerges from the shadows, a towering figure cloaked in tattered robes, its face obscured by a hood.");
+                                            Console.WriteLine("The owner emerges from the shadows, a towering figure cloaked in tattered robes, its face obscured by a hood.");
                                             AWArt();
                                             Thread.Sleep(2000);
                                             Console.WriteLine("\n=======================================");
@@ -2145,42 +2145,37 @@ namespace NewGame
                                             Console.WriteLine("=======================================");
                                             Thread.Sleep(4000);
 
-                                            bool abysswalkerDefeated = false;
+                                            bool reaperDefeated = false;
 
-                                            while (abysswalkerDefeated == false)
+                                            while (reaperDefeated == false)
                                             {
-                                                int abyssHealth = 180;
+                                                int reaperHealth = 200;
                                                 bool phaseTwo = false;
-                                                //playerHealth = 150; COMMENTED OUT AS PLAYER HEALTH ONLY GOES TO 150 IF THEY FIGHT CATHEDRAL BOSS, OTHERWISE HESLTH REMAINS AT 125HP -Alfie :)
 
-                                                Console.WriteLine("\nThe Abysswalker drags its blade across the frozen ground...");
+                                                Console.WriteLine("\nThe reaper leaps toward you, brandishing a phantom scythe");
                                                 Thread.Sleep(2000);
 
-                                                while (playerHealth > 0 && abyssHealth > 0)
+                                                while (playerHealth > 0 && reaperHealth > 0)
                                                 {
                                                     Console.WriteLine("\n------------------------------------------------");
                                                     Console.WriteLine($"Your HP: {playerHealth}");
-                                                    Console.WriteLine($"Abysswalker HP: {abyssHealth}");
+                                                    Console.WriteLine($"Reaper HP: {reaperHealth}");
                                                     Console.WriteLine("------------------------------------------------");
 
 
-                                                    int enemyIntent = rand.Next(0, 4);
+                                                    int enemyIntent = rand.Next(0, 3);
 
                                                     if (enemyIntent == 0)
                                                     {
-                                                        Console.WriteLine("\nThe Abysswalker raises its blade overhead...");
+                                                        Console.WriteLine("\nThe reaper raises his scythe ready to strike...");
                                                     }
                                                     else if (enemyIntent == 1)
                                                     {
-                                                        Console.WriteLine("\nDark flames begin gathering around the Abysswalker...");
-                                                    }
-                                                    else if (enemyIntent == 2)
-                                                    {
-                                                        Console.WriteLine("\nThe Abysswalker vanishes into the blizzard...");
+                                                        Console.WriteLine("\nThe shadows of the underworld erupt qround the reapers feet...");
                                                     }
                                                     else
                                                     {
-                                                        Console.WriteLine("\nThe Abysswalker lowers its stance for a devastating strike...");
+                                                        Console.WriteLine("\nThe reaper weaves in and out of the shadows, as you struggle to track him...");
                                                     }
 
                                                     Thread.Sleep(1500);
@@ -2200,10 +2195,10 @@ namespace NewGame
                                                     {
                                                         int damage = rand.Next(20, 36);
 
-                                                        Console.WriteLine("\nYou slash the Abysswalker!");
+                                                        Console.WriteLine("\nYou slash the reaper!");
                                                         Console.WriteLine($"You deal {damage} damage!");
 
-                                                        abyssHealth -= damage;
+                                                        reaperHealth -= damage;
                                                     }
                                                     else if (choice == "2" || choice == "Charge Blow")
                                                     {
@@ -2213,35 +2208,25 @@ namespace NewGame
                                                         {
                                                             int damage = rand.Next(40, 65);
 
-                                                            Console.WriteLine("\nYour heavy attack lands!");
+                                                            Console.WriteLine("\nYour heavy attack strikes the reaper!");
                                                             Console.WriteLine($"You deal {damage} damage!");
 
-                                                            abyssHealth -= damage;
+                                                            reaperHealth -= damage;
                                                         }
                                                         else
                                                         {
                                                             Console.WriteLine("\nYour heavy attack misses! ");
-                                                            Console.WriteLine("\nThe Abysswalker avoids your attack!");
+                                                            Console.WriteLine("\nThe reaper avoids your attack!");
                                                         }
                                                     }
                                                     else if (choice == "3" || choice == "Raise Shield")
                                                     {
-                                                        Console.WriteLine("\nYou brace against the freezing wind.");
+                                                        Console.WriteLine("\nYou brace against the swift scythe strikes.");
                                                     }
                                                     else if (choice == "5" || choice == "heal")
                                                     {
-                                                        int healAmount = 35;
-
-                                                        playerHealth += healAmount;
-
-                                                        if (playerHealth > 150)
-                                                            playerHealth = 150;
-
-                                                        Console.WriteLine($"\nYou restore {healAmount} HP!");
-
                                                         Thread.Sleep(1000);
-
-                                                        Console.WriteLine("The Abysswalker punishes your opening!");
+                                                        Console.WriteLine("The reaper prevents you from healing!");
 
                                                         int punishDamage = 20;
 
@@ -2268,7 +2253,7 @@ namespace NewGame
                                                         Console.WriteLine("\nYou hesitate and lose your chance to act.");
                                                     }
 
-                                                    if (abyssHealth <= 0)
+                                                    if (reaperHealth <= 0)
                                                     {
                                                         break;
                                                     }
@@ -2276,9 +2261,9 @@ namespace NewGame
                                                     Thread.Sleep(2000);
 
 
-                                                    int abyssAttack = rand.Next(0, 4);
+                                                    int reaperAttack = rand.Next(0, 4);
 
-                                                    if (abyssAttack == 0)
+                                                    if (reaperAttack == 0)
                                                     {
                                                         int damage = 20;
 
@@ -2288,38 +2273,38 @@ namespace NewGame
                                                             Console.WriteLine("\nYou block part of the attack!");
                                                         }
 
-                                                        Console.WriteLine("\nThe Abysswalker swings its massive blade!");
+                                                        Console.WriteLine("\nThe reaper swings his scythe wildly!");
                                                         Console.WriteLine($"You take {damage} damage!");
 
                                                         playerHealth -= damage;
                                                     }
-                                                    else if (abyssAttack == 1)
+                                                    else if (reaperAttack == 1)
                                                     {
                                                         int damage = 35;
 
                                                         if (choice == "3" || choice == "Raise Shield")
                                                         {
                                                             damage /= 2;
-                                                            Console.WriteLine("\nYou partially block the abyssal flames!");
+                                                            Console.WriteLine("\nYou partially block the reapers attack!");
                                                         }
 
-                                                        Console.WriteLine("\nDark flames erupt across the frozen ground!");
+                                                        Console.WriteLine("\nThe frozen chill of the underworld reaches you!");
                                                         Console.WriteLine($"You take {damage} damage!");
 
                                                         playerHealth -= damage;
                                                     }
-                                                    else if (abyssAttack == 2)
+                                                    else if (reaperAttack == 2)
                                                     {
-                                                        Console.WriteLine("\nThe Abysswalker disappears into the blizzard...");
+                                                        Console.WriteLine("\nThe reaper swiftly leaps into the shadows, you can't tell where he is...");
                                                         Thread.Sleep(2000);
 
-                                                        Console.WriteLine("...its attack misses!");
+                                                        Console.WriteLine("...it leaps out at you with the scythe, grazing the skin of your neck, you are lucky to live");
                                                     }
                                                     else
                                                     {
                                                         int damage = 35;
 
-                                                        Console.WriteLine("\nThe Abysswalker unleashes a devastating abyss strike!");
+                                                        Console.WriteLine("\nThe reaper hits you with a lethal sneak attack from the shadows!");
                                                         Console.WriteLine($"You take {damage} damage!");
 
                                                         playerHealth -= damage;
@@ -2327,47 +2312,29 @@ namespace NewGame
                                                     Thread.Sleep(2000);
                                                 }
 
-                                                if (playerHealth <= 0) // Player health is stuck at 0 which the if is looping on its self.
+                                                if (playerHealth <= 0)
                                                 {
                                                     Death();
-                                                    Console.WriteLine("\nYou awaken beside a lonely bonfire within the Shattered Peaks.");
+                                                    Console.WriteLine("\nYou awaken at the bonfire, feeling like the cold embrace of death.");
                                                     Thread.Sleep(3000);
-                                                    playerHealth = maxHealth; // I have set this to a basic amount to just get out again - Klae.
+                                                    playerHealth = maxHealth;
                                                 }
-                                                else if (abyssHealth <= 0)
+                                                else if (reaperHealth <= 0)
                                                 {
-                                                    Console.WriteLine("\nThe Abysswalker stabs its blade into the frozen ground.");
+                                                    Console.WriteLine("\nThe reaper drops its scythe mid swing...");
                                                     Thread.Sleep(3000);
 
-                                                    Console.WriteLine("The entire mountain trembles violently.");
+                                                    Console.WriteLine("It flies into the nearby wall, piercing it with its sharp tip and getting lodged.");
                                                     Thread.Sleep(3000);
 
-                                                    Console.WriteLine("\nThe Abysswalker slowly falls to one knee.");
+                                                    Console.WriteLine("\nYou see the reaper collapse into a pile of ash and bone in front of you...");
                                                     Thread.Sleep(3000);
 
-                                                    Console.WriteLine("Black flames explode into the storm.");
+                                                    Console.WriteLine("A cold mist is emitted from the lifeless remains.");
                                                     Thread.Sleep(3500);
-
-                                                    Console.WriteLine("\n\"THE ABYSS ETERNAL!\"");
-                                                    Thread.Sleep(3500);
-
-                                                    Console.WriteLine("\nThe abyssal flames begin to disappear.");
-                                                    Thread.Sleep(3000);
-
-                                                    Console.WriteLine("\n\"So the mountain... has chosen you...\"");
-                                                    Thread.Sleep(4000);
-
-                                                    Console.WriteLine("\nThe Abysswalker fades into ash within the snowstorm.");
-                                                    Thread.Sleep(4000);
-
-                                                    AbysswalkerFalls();
-                                                    Thread.Sleep(4000);
-
-                                                    Console.WriteLine("\nYou absorbed the Abysswalker's soul.");
-                                                    Thread.Sleep(2500);
 
                                                     Console.WriteLine("\nYou gain +25 health.");
-                                                    maxHealth += 25;
+                                                    maxHealth += 20;
                                                     playerHealth = maxHealth;
                                                     Console.WriteLine($"Max Health:{playerHealth}");
                                                     Thread.Sleep(2500);
@@ -2378,7 +2345,7 @@ namespace NewGame
                                                 {
                                                     Console.WriteLine("You have been slain!");
                                                 }
-                                                // Boss fight end//
+                                                // end of reaper fight
                                             }
                                         }
                                         else
