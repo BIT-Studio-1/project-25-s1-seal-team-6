@@ -17,11 +17,32 @@ namespace NewGame
         static double MaxWeight = 50.0;
 
         //Start of Klae's Work
+        static string PlayerName = "Traveler"; // Default Name if no name selected
+        static string[] developers =
+        {
+            "Dev-Team", // 0
+            "Alfie | Developer, Storyline Creator",     // 1
+            "Klae | Developer, Artwork Designer",         // 2
+            "Chanumi | Developer, Boss Fight Designer",  // 3
+            "AJ | Developer, Inventory Designer",       // 4
+            "Kobe | Developer, Map Creator"      // 5
+        };
         //Start of Artwork Section
         public static void Welcome()
         {
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
-            Console.Write("\nPress Enter to start"); Console.ReadLine();
+            Console.WriteLine();
+            Console.Write("What is your name, traveler? ");
+            PlayerName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(PlayerName))
+            {
+                PlayerName = "Traveler";
+            }
+
+            Console.WriteLine($"\nWelcome, {PlayerName}.");
+            Console.WriteLine("Your journey is about to begin.");
+            Thread.Sleep(5000);
             Console.Clear();
         }
         public static void Death()
@@ -34,7 +55,7 @@ namespace NewGame
         {
             Console.WriteLine("                  [\\\r\n                  |\\)                                ____\r\n                  |                               __(_   )__\r\n                  Y\\          ___               _(          )\r\n                 T  \\       __)  )--.          (     )-----`\r\n                J    \\   ,-(         )_         `---'\r\n               Y/T`-._\\ (     (       _)                 __\r\n               /[|   ]|  `-(__  ___)-`  |\\          ,-(  __)\r\n               | |    |      (__)       J'         (     )\r\n   _           | |  ] |    _           /;\\          `-  '\r\n  (,,)        [| |    |    L'         /;  \\\r\n             /||.| /\\ |   /\\         /.,-._\\        ___ _\r\n            /_|||| || |  /  \\        | |{  |       (._.'_)\r\n  L/\\       | \\| | '` |_ _ {|        | | U |   /\\\r\n /v^v\\/\\   `|  Y | [  '-' '--''-''-\"-'`'   | ,`^v\\ /\\,`\\\r\n/ ,'./  \\.` |[   |       [     __   L    ] |      /^v\\  \\\r\n,'     `    |    |           ,`##Y.   ]    |___Y Y____,_,,_,,_\r\n--   -----.-(] [ |   ]     o/####U|o      ]|| /`-, Y   _   Y  Y\r\n   Y Y  --;`~T   |      }   \\####U|[\\ _,.-(^) ,-'  _  (^)__  _\r\n  Y  YY   ;'~~l  |   L     [|\\###U'E'\\  \\ \\Y-` _  (^) _Y  _\r\n Y  Y Y   ;\\~~/\\{| [      _,'-\\`= = '.\\_ ,`   (^)(^) (^) (^)\r\n     --   ;\\~~~/\\|  _,.-'`_  `.\\_..-'\"  _ . ,_ Y_ Y_ _Y  _Y__\r\n    _    _; \\~~( Y``   Y (^) / `,      (^)      _   (^) (^)\r\n   (^)  (^)`._~ /  L \\  _.Y'`  _  ` --  Y - - -(^) - Y - Y -\r\n    Y    Y    `'--..,-'`      (^)   _  -    _   Y ____\r\n      --           _    _ --   Y   (^)   _ (^)  ===   ----\r\n          __   -  (^)  (^)      --- Y   (^) Y\r\n      _            Y    Y                Y             lt.\r\n");
         }
-        public static void WatchTower() 
+        public static void WatchTower()
         {
             Console.WriteLine("                                                |>>>\r\n                                                |\r\n                                            _  _|_  _\r\n                                           |;|_|;|_|;|\r\n                                           \\\\.    .  /\r\n                                            \\\\:  .  /\r\n                                             ||:   |\r\n                                             ||:.  |\r\n                                             ||:  .|\r\n                                             ||:   |       \\,/\r\n                                             ||: , |            /`\\\r\n                                             ||:   |\r\n                                             ||: . |\r\n              __                            _||_   |\r\n     ____--`~    '--~~__            __ ----~    ~`---,              ___\r\n-~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~");
         }
@@ -385,6 +406,74 @@ namespace NewGame
 
         }
 
+        public static void RestartGame()
+        {
+            Console.Clear();
+            Console.WriteLine($"Now restarting the game {PlayerName}");
+            Thread.Sleep(2000);
+
+            // Reset inventory
+            Inventory.Clear();
+
+            Console.Clear();
+
+            Main();
+        }
+
+        public static void DeveloperRestart()
+        {
+            string[] developers =
+            {
+            "Dev-Team", 
+            "Alfie | Developer, Storyline Creator",     
+            "Klae | Developer, Artwork Designer",         
+            "Chanumi | Developer, Boss Fight Designer",  
+            "AJ | Developer, Inventory Designer",       
+            "Kobe | Developer, Map Creator"
+            };
+
+            //Developer List
+            //[0] Dev-Team
+            //[1] Alfie
+            //[2] Klae
+            //[3] Chanumi
+            //[4] AJ
+            //[5] Kobe
+
+            Console.Write("\nEnter your Developer number: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int devNumber))
+            {
+                Console.WriteLine("Invalid number.");
+                return;
+            }
+
+            if (devNumber < 0 || devNumber >= developers.Length)
+            {
+                Console.WriteLine("Developer number not found.");
+                return;
+            }
+
+            Console.WriteLine($"\nDeveloper identified as: {developers[devNumber]}");
+
+            Thread.Sleep(2000);
+
+            Console.Clear();
+
+            Console.WriteLine($"Now restarting the game ({developers[devNumber]})");
+            Console.WriteLine("Resetting Inventory...");
+            Console.WriteLine("Resetting Player Data...");
+            Console.WriteLine("Reloading World...");
+
+            Thread.Sleep(2500);
+
+            Inventory.Clear();
+
+            Console.Clear();
+
+            Main();
+        }
+
         //End of Klae's Work Section
 
         //Alfie's Work
@@ -397,7 +486,7 @@ namespace NewGame
 
         public static void RespawnOne()
         {
-            Console.WriteLine("The traveler settles beside the bonfire as its warmth folds quietly into the cold air.");
+            Console.WriteLine($"The {PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
             Thread.Sleep(2000);
             Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
             Thread.Sleep(2000);
@@ -500,7 +589,6 @@ namespace NewGame
         static void Main()
         {
             string userInput;
-            string result;
 
             // temporary hp before it is set in the game itself
             int tempHealth = 100;
@@ -517,6 +605,17 @@ namespace NewGame
                 Console.WriteLine("You quit the game");
                 Thread.Sleep(1000);
                 Environment.Exit(0);
+            }
+            else if (userInput.ToLower() == "restart")
+            {
+                RestartGame();
+                return;
+            }
+
+            else if (userInput.ToLower() == "devrestart")
+            {
+                DeveloperRestart();
+                return;
             }
             else if (userInput.ToLower() == "proceed")
             {
@@ -541,7 +640,9 @@ namespace NewGame
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
                 Console.WriteLine("Type the following to exit the game: Quit");
                 Console.WriteLine("Type Inv to view your inventory");
-                Console.WriteLine("Type the following word to access your map: Map ");
+                Console.WriteLine("Type Restart to restart the game");
+                Console.WriteLine("Type Quit to close the game");
+                Console.WriteLine("Type Map to access your map");
                 Thread.Sleep(1000);
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "proceed")
@@ -594,7 +695,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("its embers drifting like lost souls upon the wind.");
                 Thread.Sleep(2000);
-                Console.WriteLine("There, beside the fire, sat a weary traveler clad in rusted steel and silence,");
+                Console.WriteLine($"There, beside the fire, sat a weary {PlayerName} clad in rusted steel and silence,");
                 Thread.Sleep(2000);
                 Console.WriteLine("watching the distant castle loom over the horizon — vast, broken, and waiting.");
                 Thread.Sleep(2000);
@@ -614,7 +715,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler remains seated as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine($"\n\n {PlayerName} remains seated as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
@@ -623,7 +724,17 @@ namespace NewGame
                         Console.WriteLine("The bonfire does not judge. It only burns.");
                         Thread.Sleep(2000);
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
 
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else if (userInput.ToLower() == "inv")
                     {
                         InventoryMenu(ref playerHealth, maxHealth);
@@ -631,7 +742,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Console.WriteLine($"\n\nThe {PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                         Thread.Sleep(2000);
@@ -650,7 +761,7 @@ namespace NewGame
                             }
                             else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                             {
-                                Console.WriteLine("\nThe traveler remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
+                                Console.WriteLine($"\n{PlayerName} remains by the bonfire, unmoving as the wind threads through the grass and the trees whisper in the distance.");
                                 Thread.Sleep(1500);
                                 deciding = false;
                             }
@@ -665,7 +776,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("\n\nThe traveler presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
+                Console.WriteLine($"\n\n{PlayerName} presses onward, leaving the bonfire’s fading warmth behind as the grass grows taller and the wind grows colder.");
                 Thread.Sleep(2000);
                 Console.WriteLine("The land soon begins to change—wild fields giving way to broken stone paths half-swallowed by earth.");
                 Thread.Sleep(2000);
@@ -711,7 +822,7 @@ namespace NewGame
                             }
                             else if (userInput.ToLower() == "proceed")
                             {
-                                Console.WriteLine("The traveler leaves the warmth of the fire behind and steps deeper into the ruined kingdom.");
+                                Console.WriteLine($"{PlayerName} leaves the warmth of the fire behind and steps deeper into the ruined kingdom.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Somewhere ahead, unseen things stir in the dark.");
                                 Thread.Sleep(2000);
@@ -732,6 +843,17 @@ namespace NewGame
                         Thread.Sleep(2000);
                         Console.WriteLine("It is very intimidating.");
                         Thread.Sleep(2000);
+                    }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
                     }
 
                     else if (userInput.ToLower() == "inv")
@@ -754,7 +876,7 @@ namespace NewGame
 
 
                 bool hasSword = false;
-                Console.WriteLine("\nThe traveler presses onward, leaving the bonfire’s fading warmth behind.");
+                Console.WriteLine($"\n{PlayerName} presses onward, leaving the bonfire’s fading warmth behind.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Something glints faintly beneath the pale light of the evening sky.");
                 Thread.Sleep(2000);
@@ -771,13 +893,25 @@ namespace NewGame
                     hasSword = true;
                     Console.WriteLine("\nYou obtained: Rusty Sword");
                 }
+                else if (userInput.ToLower() == "restart")
+                {
+                    RestartGame();
+                    return;
+                }
+
+                else if (userInput.ToLower() == "devrestart")
+                {
+                    DeveloperRestart();
+                    return;
+                }
                 else
                 {
                     Console.WriteLine("\nYou leave the sword behind.");
                 }
+
                 Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
                 Thread.Sleep(2000);
-                Console.WriteLine("The traveler slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
+                Console.WriteLine($"{PlayerName} slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
                 Thread.Sleep(2000);
                 Console.WriteLine("At its center stands a lone figure clad in blackened armor, motionless beneath the pale light filtering through the clouds above.");
                 Thread.Sleep(2000);
@@ -790,7 +924,7 @@ namespace NewGame
                 Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
                 Thread.Sleep(2000);
                 bool blackKnightDefeated = false;
-                
+
                 while (blackKnightDefeated == false)
                 {
                     int BKhealth = 100;
@@ -799,7 +933,7 @@ namespace NewGame
 
                     if (hasSword) //sword combat
                     {
-                        
+
                         while (playerHealth > 0 && BKhealth > 0)
                         {
                             Console.WriteLine("You fight with the Rusty Sword");
@@ -848,12 +982,22 @@ namespace NewGame
                                 Console.WriteLine("You brace for the Black Knight's attack.");
                             }
 
-                            else if (choice == "inv" || choice == "inv")
+                            else if (choice == "inv" || choice == "inventory")
                             {
                                 Console.WriteLine("You bravely check your inventory mid combat");
                                 InventoryMenu(ref playerHealth, maxHealth);
                             }
+                            else if (choice == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
 
+                            else if (choice == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
+                            }
                             else
                             {
                                 Console.WriteLine("You hesitate and lose your chance to act.");
@@ -909,7 +1053,7 @@ namespace NewGame
                         {
                             Death();
                             RespawnOne();
-                            
+
                         }
                         else if (BKhealth <= 0)
                         {
@@ -939,7 +1083,7 @@ namespace NewGame
 
                             string choice = Console.ReadLine().ToLower();
 
-                            
+
                             if (choice == "1" || choice == "punch")
                             {
                                 int damage = rand.Next(5, 11);
@@ -967,6 +1111,17 @@ namespace NewGame
                                     Console.WriteLine("Your punch misses");
                                 }
                             }
+                            else if (choice == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
+
+                            else if (choice == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
+                            }
                             else if (choice == "3" || choice == "defend")
                             {
                                 Console.WriteLine("You raise your fists defensively.");
@@ -985,15 +1140,16 @@ namespace NewGame
 
                             int enemyAttack = rand.Next(0, 3);
 
-                            if (enemyAttack == 0) {
+                            if (enemyAttack == 0)
+                            {
                                 int damage = 20;
 
                                 if (choice == "3" || choice == "defend")
-                                    {
-                                        damage /= 2;
+                                {
+                                    damage /= 2;
 
-                                        Console.WriteLine("You block part of the attack!");
-                                    }
+                                    Console.WriteLine("You block part of the attack!");
+                                }
 
                                 Console.WriteLine("The Black Knight slashes you!");
                                 Console.WriteLine($"You take {damage} damage!");
@@ -1049,6 +1205,17 @@ namespace NewGame
                                         Console.WriteLine("Type No to leave it behind");
                                         Console.WriteLine("To view inventory: Inv");
                                     }
+                                    else if (userInput.ToLower() == "restart")
+                                    {
+                                        RestartGame();
+                                        return;
+                                    }
+
+                                    else if (userInput.ToLower() == "devrestart")
+                                    {
+                                        DeveloperRestart();
+                                        return;
+                                    }
                                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                                     {
                                         Console.WriteLine("\nYou leave the sword behind once more.");
@@ -1057,7 +1224,7 @@ namespace NewGame
                                     else
                                     {
                                         Console.WriteLine(responses[rand.Next(responses.Length)]);
-                                    }              
+                                    }
                                 }
                             }
                             else if (BKhealth <= 0)
@@ -1067,8 +1234,8 @@ namespace NewGame
                             }
                         }
                     }
-                }              
-                
+                }
+
 
 
                 //if (playerHealth <= 0) Commented out by Klae E. Possible Repeat error.
@@ -1136,7 +1303,7 @@ namespace NewGame
 
                             while ((playerHealth > 0) && (assassinHealth > 0))
                             {
-                                
+
                                 Console.WriteLine("---------------------------------------");
                                 Console.WriteLine($"Your HP: {playerHealth}");
                                 Console.WriteLine($"Assassin HP: {assassinHealth}");
@@ -1271,7 +1438,7 @@ namespace NewGame
                                 Thread.Sleep(1500);
                             }
 
-                            
+
                             if (playerHealth <= 0)
                             {
                                 Death();
@@ -1294,7 +1461,7 @@ namespace NewGame
                                 Console.WriteLine("A long, sharp blade.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Would you like to collect it?");
-                                Thread.Sleep(2000);                                
+                                Thread.Sleep(2000);
                                 bool weaponChoiceMade = false;
                                 while (weaponChoiceMade == false)
                                 {
@@ -1339,11 +1506,20 @@ namespace NewGame
                         Console.WriteLine("To ignore the cathedral type: No");
                         Console.WriteLine("To view inventory: Inv");
                     }
-                    else
+                    else if (userInput.ToLower() == "restart")
                     {
-                        Console.WriteLine(responses[rand.Next(responses.Length)]);
+                        RestartGame();
+                        return;
                     }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
+
                 }
+
                 Console.WriteLine("The cathedral fades into the distance behind you");
                 Thread.Sleep(2000);
                 Console.WriteLine("Cold wind swept through the empty streets, stirring ash and dust across the broken stone paths.");
@@ -1366,7 +1542,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine($"\n\n{PlayerName} sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
@@ -1383,7 +1559,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Console.WriteLine($"\n\n{PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                         Thread.Sleep(2000);
@@ -1391,14 +1567,25 @@ namespace NewGame
                         Thread.Sleep(2000);
                         atSPeaksBonfire = false;
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
                 Console.WriteLine("...");
-                
-                
+
+
                 //Kobe// 3rd boss fight============================================================================================
                 //Console.WriteLine("\nThe Undead Assassin collapses to the frozen stone, its blade slipping from lifeless fingers.\".");
                 //Thread.Sleep(2000);
@@ -1437,10 +1624,10 @@ namespace NewGame
 
                 Console.WriteLine("Towering mountains rise beyond the horizon.");
                 Thread.Sleep(2500);
-                
+
                 Console.WriteLine("\nNEW LOCATION UNLOCKED");
                 Console.WriteLine("\nSHATTERED PEAKS");
-               
+
                 Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
                 Thread.Sleep(3000);
 
@@ -1453,7 +1640,7 @@ namespace NewGame
                 Console.WriteLine("Even the wind here sounds dead.");
                 Thread.Sleep(3000);
 
-                Console.WriteLine("\nThe traveler slowly climbs the frozen trail.");
+                Console.WriteLine($"\n{PlayerName} slowly climbs the frozen trail.");
                 Thread.Sleep(3000);
 
                 Console.WriteLine("Every step crunches against ice and ash.");
@@ -1498,7 +1685,7 @@ namespace NewGame
                 Console.WriteLine("             ABYSSWALKER");
                 Console.WriteLine("=======================================");
                 Thread.Sleep(4000);
-                
+
                 bool abysswalkerDefeated = false;
 
                 while (abysswalkerDefeated == false)
@@ -1606,6 +1793,17 @@ namespace NewGame
                         {
                             Console.WriteLine("\nYou steady yourself for a parry.");
                         }
+                        else if (choice == "restart")
+                        {
+                            RestartGame();
+                            return;
+                        }
+
+                        else if (choice == "devrestart")
+                        {
+                            DeveloperRestart();
+                            return;
+                        }
                         else
                         {
                             Console.WriteLine("\nYou hesitate and lose your chance to act.");
@@ -1710,8 +1908,8 @@ namespace NewGame
                         Thread.Sleep(2500);
 
                         Console.WriteLine("\nYou gain +25 health.");
-                        maxHealth += 25;          
-                        playerHealth = maxHealth; 
+                        maxHealth += 25;
+                        playerHealth = maxHealth;
                         Console.WriteLine($"Max Health:{playerHealth}");
                         Thread.Sleep(2500);
                         //Console.WriteLine("Max health increased to 200HP");
@@ -1753,13 +1951,24 @@ namespace NewGame
                         Thread.Sleep(1500);
                         AbyssDec = true;
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
                 //Alfie. Continues towards castle
-                Console.WriteLine("The snow sets on the travelers armour.");
+                Console.WriteLine($"The snow sets on {PlayerName}'s armour.");
                 Thread.Sleep(2000);
                 Console.WriteLine("It was now time to proceed back down the mountain");
                 Thread.Sleep(2000);
@@ -1772,7 +1981,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 WatchTower();
                 Console.WriteLine("Half-buried beneath the stone remains of an ancient watchtower, a lonely bonfire crackles against the cold wind.");
-                Thread.Sleep(2000);                
+                Thread.Sleep(2000);
                 bool snowyBonfire = true;
                 while (snowyBonfire == true)
                 {
@@ -1787,7 +1996,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler lowers themselves beside the bonfire, exhaustion weighing heavily upon their body.");
+                        Console.WriteLine($"\n\n{PlayerName} lowers themselves beside the bonfire, exhaustion weighing heavily upon their body.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The warmth of the flames slowly melts the frost from your armor as ash drifts silently into the night sky.");
                         Thread.Sleep(2000);
@@ -1802,7 +2011,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler stares into the bonfire for only a moment before turning away from its warmth.");
+                        Console.WriteLine($"\n\n{PlayerName} stares into the bonfire for only a moment before turning away from its warmth.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The cold mountain wind bites against your armor once more as you continue toward the distant castle..");
                         Thread.Sleep(2000);
@@ -1810,12 +2019,23 @@ namespace NewGame
                         Thread.Sleep(2000);
                         snowyBonfire = false;
                     }
+                    else if (userInput.ToLower() == "restart")
+                    {
+                        RestartGame();
+                        return;
+                    }
+
+                    else if (userInput.ToLower() == "devrestart")
+                    {
+                        DeveloperRestart();
+                        return;
+                    }
                     else
                     {
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The traveler stumbles along an old stone path");
+                Console.WriteLine($"{PlayerName} stumbles along an old stone path");
                 Thread.Sleep(2000);
                 Console.WriteLine("The snow grows lighter as you make your way back towards the kingdom");
                 Thread.Sleep(2000);
@@ -1853,10 +2073,21 @@ namespace NewGame
                                 Console.WriteLine("To proceed towards the castle type: Proceed");
                                 Console.WriteLine("To view inventory: Inv");
                             }
+                            else if (userInput.ToLower() == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
+
+                            else if (userInput.ToLower() == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
+                            }
                             else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                             {
                                 exploreContinue = false;
-                                Console.WriteLine("The traveler proceeds towards one of the houses, pushing against the warped wooden door.");
+                                Console.WriteLine($"{PlayerName} proceeds towards one of the houses, pushing against the warped wooden door.");
                                 Thread.Sleep(2000);
                                 Console.WriteLine("Dust fills the air as the entrance slowly creaks open, revealing a room untouched for countless years.");
                                 Thread.Sleep(2000);
@@ -1878,7 +2109,7 @@ namespace NewGame
                                     }
                                     else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                                     {
-                                        Console.WriteLine("The traveler moves cautiously through the abandoned building");
+                                        Console.WriteLine($"{PlayerName} moves cautiously through the abandoned building");
                                         Thread.Sleep(2000);
                                         Console.WriteLine("In the far corner of the building, something catches your eye beneath a pile of collapsed timber.");
                                         Thread.Sleep(2000);
@@ -1888,16 +2119,234 @@ namespace NewGame
                                         Thread.Sleep(2000);
                                         Console.WriteLine("Would you like to collect the Greataxe? Y/N");
                                         userInput = Console.ReadLine();
+                                        //AJ: added an optional boss encounter for if you take the greataxe
                                         if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                                         {
                                             Inventory.Add(new Weapon("Greataxe", "The weapon is heavy in your hands, yet perfectly balanced—as if it had been waiting for someone to claim it.", 12, 40));
                                             Console.WriteLine("\nYou obtained: Greataxe");
                                             Thread.Sleep(2000);
-                                            Console.WriteLine("\nIt was now time to proceed.");
+                                            Console.WriteLine("\nIt was now time to proceed...");
                                             Thread.Sleep(2000);
                                             explore = false;
                                             exploreContinue = false;
                                             exploreBuilding = false;
+                                            Console.WriteLine("As you turn to leave the building, you get the feeling you are being watched...");
+                                            Thread.Sleep(2000);
+                                            Console.WriteLine("Something stirs in the shadows, and a low growl echoes through the empty house.");
+                                            Thread.Sleep(2000);
+                                            Console.WriteLine("A pair of glowing eyes materialize in the darkness, fixating on you with predatory intent.");
+                                            Thread.Sleep(2000);
+                                            Console.WriteLine("The owner emerges from the shadows, a towering figure cloaked in tattered robes, its face obscured by a hood.");
+                                            AWArt();
+                                            Thread.Sleep(2000);
+                                            Console.WriteLine("\n=======================================");
+                                            Console.WriteLine("           BOSS ENCOUNTER");
+                                            Console.WriteLine("              REAPER");
+                                            Console.WriteLine("=======================================");
+                                            Thread.Sleep(4000);
+
+                                            bool reaperDefeated = false;
+
+                                            while (reaperDefeated == false)
+                                            {
+                                                int reaperHealth = 200;
+                                                bool phaseTwo = false;
+
+                                                Console.WriteLine("\nThe reaper leaps toward you, brandishing a phantom scythe");
+                                                Thread.Sleep(2000);
+
+                                                while (playerHealth > 0 && reaperHealth > 0)
+                                                {
+                                                    Console.WriteLine("\n------------------------------------------------");
+                                                    Console.WriteLine($"Your HP: {playerHealth}");
+                                                    Console.WriteLine($"Reaper HP: {reaperHealth}");
+                                                    Console.WriteLine("------------------------------------------------");
+
+
+                                                    int enemyIntent = rand.Next(0, 3);
+
+                                                    if (enemyIntent == 0)
+                                                    {
+                                                        Console.WriteLine("\nThe reaper raises his scythe ready to strike...");
+                                                    }
+                                                    else if (enemyIntent == 1)
+                                                    {
+                                                        Console.WriteLine("\nThe shadows of the underworld erupt qround the reapers feet...");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("\nThe reaper weaves in and out of the shadows, as you struggle to track him...");
+                                                    }
+
+                                                    Thread.Sleep(1500);
+
+
+                                                    Console.WriteLine("\nChoose your action:");
+                                                    Console.WriteLine("1. Quick Strike");
+                                                    Console.WriteLine("2. Charge Blow");
+                                                    Console.WriteLine("3. Raise Shield");
+                                                    Console.WriteLine("4. Parry");
+                                                    Console.WriteLine("5. Heal");
+
+                                                    string choice = Console.ReadLine().ToLower();
+
+
+                                                    if (choice == "1" || choice == "Quick Strike")
+                                                    {
+                                                        int damage = rand.Next(20, 36);
+
+                                                        Console.WriteLine("\nYou slash the reaper!");
+                                                        Console.WriteLine($"You deal {damage} damage!");
+
+                                                        reaperHealth -= damage;
+                                                    }
+                                                    else if (choice == "2" || choice == "Charge Blow")
+                                                    {
+                                                        int hitChance = rand.Next(0, 50);
+
+                                                        if (hitChance < 61)
+                                                        {
+                                                            int damage = rand.Next(40, 65);
+
+                                                            Console.WriteLine("\nYour heavy attack strikes the reaper!");
+                                                            Console.WriteLine($"You deal {damage} damage!");
+
+                                                            reaperHealth -= damage;
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine("\nYour heavy attack misses! ");
+                                                            Console.WriteLine("\nThe reaper avoids your attack!");
+                                                        }
+                                                    }
+                                                    else if (choice == "3" || choice == "Raise Shield")
+                                                    {
+                                                        Console.WriteLine("\nYou brace against the swift scythe strikes.");
+                                                    }
+                                                    else if (choice == "5" || choice == "heal")
+                                                    {
+                                                        Thread.Sleep(1000);
+                                                        Console.WriteLine("The reaper prevents you from healing!");
+
+                                                        int punishDamage = 20;
+
+                                                        Console.WriteLine($"You take {punishDamage} damage!");
+                                                        playerHealth -= punishDamage;
+                                                    }
+                                                    else if (choice == "4" || choice == "parry")
+                                                    {
+                                                        Console.WriteLine("\nYou steady yourself for a parry.");
+                                                    }
+                                                    else if (choice == "restart")
+                                                    {
+                                                        RestartGame();
+                                                        return;
+                                                    }
+
+                                                    else if (choice == "devrestart")
+                                                    {
+                                                        DeveloperRestart();
+                                                        return;
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("\nYou hesitate and lose your chance to act.");
+                                                    }
+
+                                                    if (reaperHealth <= 0)
+                                                    {
+                                                        break;
+                                                    }
+
+                                                    Thread.Sleep(2000);
+
+
+                                                    int reaperAttack = rand.Next(0, 4);
+
+                                                    if (reaperAttack == 0)
+                                                    {
+                                                        int damage = 20;
+
+                                                        if (choice == "3" || choice == "Raise Shield")
+                                                        {
+                                                            damage /= 2;
+                                                            Console.WriteLine("\nYou block part of the attack!");
+                                                        }
+
+                                                        Console.WriteLine("\nThe reaper swings his scythe wildly!");
+                                                        Console.WriteLine($"You take {damage} damage!");
+
+                                                        playerHealth -= damage;
+                                                    }
+                                                    else if (reaperAttack == 1)
+                                                    {
+                                                        int damage = 35;
+
+                                                        if (choice == "3" || choice == "Raise Shield")
+                                                        {
+                                                            damage /= 2;
+                                                            Console.WriteLine("\nYou partially block the reapers attack!");
+                                                        }
+
+                                                        Console.WriteLine("\nThe frozen chill of the underworld reaches you!");
+                                                        Console.WriteLine($"You take {damage} damage!");
+
+                                                        playerHealth -= damage;
+                                                    }
+                                                    else if (reaperAttack == 2)
+                                                    {
+                                                        Console.WriteLine("\nThe reaper swiftly leaps into the shadows, you can't tell where he is...");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.WriteLine("...it leaps out at you with the scythe, grazing the skin of your neck, you are lucky to live");
+                                                    }
+                                                    else
+                                                    {
+                                                        int damage = 35;
+
+                                                        Console.WriteLine("\nThe reaper hits you with a lethal sneak attack from the shadows!");
+                                                        Console.WriteLine($"You take {damage} damage!");
+
+                                                        playerHealth -= damage;
+                                                    }
+                                                    Thread.Sleep(2000);
+                                                }
+
+                                                if (playerHealth <= 0)
+                                                {
+                                                    Death();
+                                                    Console.WriteLine("\nYou awaken at the bonfire, feeling like the cold embrace of death.");
+                                                    Thread.Sleep(3000);
+                                                    playerHealth = maxHealth;
+                                                }
+                                                else if (reaperHealth <= 0)
+                                                {
+                                                    Console.WriteLine("\nThe reaper drops its scythe mid swing...");
+                                                    Thread.Sleep(3000);
+
+                                                    Console.WriteLine("It flies into the nearby wall, piercing it with its sharp tip and getting lodged.");
+                                                    Thread.Sleep(3000);
+
+                                                    Console.WriteLine("\nYou see the reaper collapse into a pile of ash and bone in front of you...");
+                                                    Thread.Sleep(3000);
+
+                                                    Console.WriteLine("A cold mist is emitted from the lifeless remains.");
+                                                    Thread.Sleep(3500);
+
+                                                    Console.WriteLine("\nYou gain +25 health.");
+                                                    maxHealth += 20;
+                                                    playerHealth = maxHealth;
+                                                    Console.WriteLine($"Max Health:{playerHealth}");
+                                                    Thread.Sleep(2500);
+
+                                                    reaperDefeated = true;
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("You have been slain!");
+                                                }
+                                                // end of reaper fight
+                                            }
                                         }
                                         else
                                         {
@@ -1933,6 +2382,17 @@ namespace NewGame
                                 Thread.Sleep(2000);
                                 explore = false;
                                 exploreContinue = false;
+                            }
+                            else if (userInput.ToLower() == "restart")
+                            {
+                                RestartGame();
+                                return;
+                            }
+
+                            else if (userInput.ToLower() == "devrestart")
+                            {
+                                DeveloperRestart();
+                                return;
                             }
                             else
                             {
@@ -1978,7 +2438,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\n\nThe traveler sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
+                        Console.WriteLine($"\n\n{PlayerName} sits as the fire shifts and sighs, its embers rising in slow, fading spirals.");
                         Thread.Sleep(2000);
                         Console.WriteLine("Heat presses softly against worn armor, and for a brief moment, the world feels distant.");
                         Thread.Sleep(2000);
@@ -1993,7 +2453,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\n\nThe traveler rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                        Console.WriteLine($"\n\n{PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                         Thread.Sleep(2000);
@@ -2006,7 +2466,7 @@ namespace NewGame
                         Console.WriteLine(responses[rand.Next(responses.Length)]);
                     }
                 }
-                Console.WriteLine("The traveler stares up at the large castle doors");
+                Console.WriteLine($"{PlayerName} stares up at the large castle doors");
                 Thread.Sleep(2000);
                 Console.WriteLine("You push the weight of your body against one of the two doors");
                 Thread.Sleep(2000);
@@ -2116,7 +2576,7 @@ namespace NewGame
                 {
                     int guardianHealth = 220;
                     playerHealth = maxHealth;
-                    
+
                     Console.WriteLine("          ENEMY ENCOUNTER");
                     Console.WriteLine("          SILVER GUARDIAN");
 
@@ -2300,7 +2760,7 @@ namespace NewGame
                 Console.WriteLine("A powerful force enters your body.");
                 Thread.Sleep(2500);
 
-  
+
                 Console.WriteLine("\nThe Guardian's armor reforms around your body.");
                 Thread.Sleep(2500);
 
@@ -2474,7 +2934,7 @@ namespace NewGame
 
                             Console.WriteLine($"You drink a potion and restore {healAmount} HP!");
                             Console.WriteLine($"Potions Remaining: {healingPotions}");
- 
+
                         }
                         else
                         {
@@ -2728,7 +3188,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "rest")
                     {
-                        Console.WriteLine("\nThe traveler lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
+                        Console.WriteLine($"\n{PlayerName} lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
                         Thread.Sleep(2000);
                         Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
                         Thread.Sleep(2000);
@@ -2742,7 +3202,7 @@ namespace NewGame
                     }
                     else if (userInput.ToLower() == "proceed")
                     {
-                        Console.WriteLine("\nThe traveler pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
+                        Console.WriteLine($"\n{PlayerName} pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
                         Thread.Sleep(2000);
                         Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
                         Thread.Sleep(2000);
@@ -2788,42 +3248,41 @@ namespace NewGame
             Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
         }
     }
-}
 
-// Health potion you can use in combat 
-public class Consumable : Item
-{
-    public int HealAmount { get; set; }
-
-    public Consumable(string name, string description, int healAmount)
-        : base(name, description, 0.5, isDroppable: true)
+    // Health potion you can use in combat 
+    public class Consumable : Item
     {
-        HealAmount = healAmount;
-    }
+        public int HealAmount { get; set; }
 
-    public override void Use(ref int playerHealth, int maxHealth)
-    {
-        if (playerHealth >= maxHealth)
+        public Consumable(string name, string description, int healAmount)
+            : base(name, description, 0.5, isDroppable: true)
         {
-            Console.WriteLine("\nYour health is already full!");
-            return;
+            HealAmount = healAmount;
         }
 
-        playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
-        Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
-        Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+        public override void Use(ref int playerHealth, int maxHealth)
+        {
+            if (playerHealth >= maxHealth)
+            {
+                Console.WriteLine("\nYour health is already full!");
+                return;
+            }
+
+            playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
+            Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
+            Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+        }
     }
-}
 
-// Weapon class
-public class Weapon : Item
-{
-    public int Damage { get; set; }
-
-    public Weapon(string name, string description, double weight, int damage)
-        : base(name, description, weight, isDroppable: true)
+    // Weapon class
+    public class Weapon : Item
     {
-        Damage = damage;
+        public int Damage { get; set; }
+
+        public Weapon(string name, string description, double weight, int damage)
+            : base(name, description, weight, isDroppable: true)
+        {
+            Damage = damage;
+        }
     }
 }
-            
