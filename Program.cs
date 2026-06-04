@@ -2137,7 +2137,7 @@ namespace NewGame
                                             Console.WriteLine("A pair of glowing eyes materialize in the darkness, fixating on you with predatory intent.");
                                             Thread.Sleep(2000);
                                             Console.WriteLine("The owner emerges from the shadows, a towering figure cloaked in tattered robes, its face obscured by a hood.");
-                                            AWArt();
+                                            AWArt(); //replace this with a reaper art when one is made, using abyss walker as placeholder for now
                                             Thread.Sleep(2000);
                                             Console.WriteLine("\n=======================================");
                                             Console.WriteLine("           BOSS ENCOUNTER");
@@ -2150,7 +2150,7 @@ namespace NewGame
                                             while (reaperDefeated == false)
                                             {
                                                 int reaperHealth = 200;
-                                                bool phaseTwo = false;
+                                                bool phaseTwo = false; //might add a phase 2 for reaper
 
                                                 Console.WriteLine("\nThe reaper leaps toward you, brandishing a phantom scythe");
                                                 Thread.Sleep(2000);
