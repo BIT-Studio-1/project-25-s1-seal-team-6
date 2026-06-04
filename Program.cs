@@ -424,11 +424,11 @@ namespace NewGame
         {
             string[] developers =
             {
-            "Dev-Team", 
-            "Alfie | Developer, Storyline Creator",     
-            "Klae | Developer, Artwork Designer",         
-            "Chanumi | Developer, Boss Fight Designer",  
-            "AJ | Developer, Inventory Designer",       
+            "Dev-Team",
+            "Alfie | Developer, Storyline Creator",
+            "Klae | Developer, Artwork Designer",
+            "Chanumi | Developer, Boss Fight Designer",
+            "AJ | Developer, Inventory Designer",
             "Kobe | Developer, Map Creator"
             };
 
@@ -3080,7 +3080,7 @@ namespace NewGame
 
                             Console.WriteLine($"\nYou switch to {currentWeapon.Name}");
                         }
-                            Console.WriteLine("\nChoose another weapon:");
+                        Console.WriteLine("\nChoose another weapon:");
 
                         for (int i = 0; i < usableWeapons.Count; i++)
                         {
@@ -3168,121 +3168,122 @@ namespace NewGame
 
 
 
-                //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
-                //Thread.Sleep(2000); 
-                Console.WriteLine("Whatever spirit once inhabited it long since departed.");
-                Thread.Sleep(3000);
-                Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
+                    //Console.WriteLine("As the last of its strength fades, the armor falls empty to the floor.");
+                    //Thread.Sleep(2000); 
+                    Console.WriteLine("Whatever spirit once inhabited it long since departed.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("Beside the the throne, a bonfire flickers into life.");
 
-                Thread.Sleep(2000);
-                bool endGame = false;
-                while (endGame == false)
-                {
-                    Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
-                    userInput = Console.ReadLine();
-                    if (userInput.ToLower() == "help")
+                    Thread.Sleep(2000);
+                    bool endGame = false;
+                    while (endGame == false)
                     {
-                        Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
-                        Console.WriteLine("To leave the castle type: Proceed");
-                        //no inv need
+                        Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
+                        userInput = Console.ReadLine();
+                        if (userInput.ToLower() == "help")
+                        {
+                            Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
+                            Console.WriteLine("To leave the castle type: Proceed");
+                            //no inv need
+                        }
+                        else if (userInput.ToLower() == "rest")
+                        {
+                            Console.WriteLine($"\n{PlayerName} lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("As you stare into the flickering flames, you cannot help but wonder if anything has truly changed.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("The kingdom still lies in ruin. The dead still wander its halls. And somewhere ahead, something waits.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("The bonfire crackles softly, offering no answers.");
+                            Thread.Sleep(2000);
+                            endGame = true;
+                        }
+                        else if (userInput.ToLower() == "proceed")
+                        {
+                            Console.WriteLine($"\n{PlayerName} pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("But you turn away.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("Proceeding down the spiral staircase, and beyond the castle doors, revealing the ruined kingdom stretching into the distance.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("Whatever answers you seek are not here.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
+                            Thread.Sleep(2000);
+                            endGame = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine(responses[rand.Next(responses.Length)]);
+                        }
                     }
-                    else if (userInput.ToLower() == "rest")
-                    {
-                        Console.WriteLine($"\n{PlayerName} lowers themselves beside the bonfire, watching the flames dance against the ancient stone walls.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("The warmth of the fire eases the ache in your body, yet your thoughts remain restless.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("As you stare into the flickering flames, you cannot help but wonder if anything has truly changed.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("The kingdom still lies in ruin. The dead still wander its halls. And somewhere ahead, something waits.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("The bonfire crackles softly, offering no answers.");
-                        Thread.Sleep(2000);
-                        endGame = true;
-                    }
-                    else if (userInput.ToLower() == "proceed")
-                    {
-                        Console.WriteLine($"\n{PlayerName} pauses beside the newly kindled bonfire, its warm light casting long shadows across the throne room.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("For a moment, the flames beckon, offering rest from the endless road.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("But you turn away.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("Proceeding down the spiral staircase, and beyond the castle doors, revealing the ruined kingdom stretching into the distance.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("Whatever answers you seek are not here.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
-                        Thread.Sleep(2000);
-                        endGame = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine(responses[rand.Next(responses.Length)]);
-                    }
+                    Console.WriteLine("GAME OVER");
+                    Console.ReadLine();
+                    Credits();
                 }
-                Console.WriteLine("GAME OVER");
-                Console.ReadLine();
-                Credits();
             }
         }
-    }
-    // AJ item types and stuff
-    public class Item
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool IsDroppable { get; set; }
-        public double Weight { get; set; } // new weight property so your inventory can get full
-
-        public Item(string name, string description, double weight, bool isDroppable = true)
+        // AJ item types and stuff
+        public class Item
         {
-            Name = name;
-            Description = description;
-            Weight = weight;
-            IsDroppable = isDroppable;
-        }
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public bool IsDroppable { get; set; }
+            public double Weight { get; set; } // new weight property so your inventory can get full
 
-        public virtual void Use(ref int playerHealth, int maxHealth)
-        {
-            Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
-        }
-    }
-
-    // Health potion you can use in combat 
-    public class Consumable : Item
-    {
-        public int HealAmount { get; set; }
-
-        public Consumable(string name, string description, int healAmount)
-            : base(name, description, 0.5, isDroppable: true)
-        {
-            HealAmount = healAmount;
-        }
-
-        public override void Use(ref int playerHealth, int maxHealth)
-        {
-            if (playerHealth >= maxHealth)
+            public Item(string name, string description, double weight, bool isDroppable = true)
             {
-                Console.WriteLine("\nYour health is already full!");
-                return;
+                Name = name;
+                Description = description;
+                Weight = weight;
+                IsDroppable = isDroppable;
             }
 
-            playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
-            Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
-            Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+            public virtual void Use(ref int playerHealth, int maxHealth)
+            {
+                Console.WriteLine($"\nYou examine the {Name}. It doesn't seem useful right now.");
+            }
         }
-    }
 
-    // Weapon class
-    public class Weapon : Item
-    {
-        public int Damage { get; set; }
-
-        public Weapon(string name, string description, double weight, int damage)
-            : base(name, description, weight, isDroppable: true)
+        // Health potion you can use in combat 
+        public class Consumable : Item
         {
-            Damage = damage;
+            public int HealAmount { get; set; }
+
+            public Consumable(string name, string description, int healAmount)
+                : base(name, description, 0.5, isDroppable: true)
+            {
+                HealAmount = healAmount;
+            }
+
+            public override void Use(ref int playerHealth, int maxHealth)
+            {
+                if (playerHealth >= maxHealth)
+                {
+                    Console.WriteLine("\nYour health is already full!");
+                    return;
+                }
+
+                playerHealth = Math.Min(maxHealth, playerHealth + HealAmount);
+                Console.WriteLine($"\nYou drink the {Name} and restore {HealAmount} HP!");
+                Console.WriteLine($"Current Health: {playerHealth}/{maxHealth}");
+            }
+        }
+
+        // Weapon class
+        public class Weapon : Item
+        {
+            public int Damage { get; set; }
+
+            public Weapon(string name, string description, double weight, int damage)
+                : base(name, description, weight, isDroppable: true)
+            {
+                Damage = damage;
+            }
         }
     }
 }
