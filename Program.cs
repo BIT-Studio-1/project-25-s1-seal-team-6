@@ -995,9 +995,9 @@ namespace NewGame
                             // PLAYER TURN
                             if (choice == "1" || choice == "attack")
                             {
-                                int damage = rand.Next(15, 26);
+                                int damage = WeaponDamage(1, 10);
 
-                                Console.WriteLine("You slash the Black Knight!");
+                            Console.WriteLine("You slash the Black Knight!");
                                 Console.WriteLine($"You deal {damage} damage!");
 
                                 BKhealth -= damage;
@@ -1008,9 +1008,9 @@ namespace NewGame
 
                                 if (hitChance == 1)
                                 {
-                                    int damage = rand.Next(30, 51);
+                                    int damage = WeaponDamage(10, 20);
 
-                                    Console.WriteLine("Your heavy attack lands!");
+                                Console.WriteLine("Your heavy attack lands!");
                                     Console.WriteLine($"You deal {damage} damage!");
 
                                     BKhealth -= damage;
@@ -1129,9 +1129,9 @@ namespace NewGame
 
                             if (choice == "1" || choice == "punch")
                             {
-                                int damage = rand.Next(5, 11);
+                                int damage = WeaponDamage(1, 10);
 
-                                Console.WriteLine("You punch Black Knight!");
+                            Console.WriteLine("You punch Black Knight!");
                                 Console.WriteLine($"You deal {damage} damage!");
 
                                 BKhealth -= damage;
@@ -1142,9 +1142,9 @@ namespace NewGame
 
                                 if (hitChance == 1)
                                 {
-                                    int damage = rand.Next(10, 25);
+                                    int damage = WeaponDamage(10, 20);
 
-                                    Console.WriteLine("Your heavy punch lands!");
+                                Console.WriteLine("Your heavy punch lands!");
                                     Console.WriteLine($"You deal {damage} damage!");
 
                                     BKhealth -= damage;
@@ -1365,9 +1365,9 @@ namespace NewGame
 
                                 if (choice == "1" || choice == "slash")
                                 {
-                                    int damage = rand.Next(18, 31);
+                                    int damage = WeaponDamage(1, 10);
 
-                                    Console.WriteLine("\nYou slash the Assassin!");
+                                Console.WriteLine("\nYou slash the Assassin!");
                                     Console.WriteLine($"You deal {damage} damage!");
 
                                     assassinHealth -= damage;
@@ -1378,9 +1378,9 @@ namespace NewGame
 
                                     if (hitChance < 60)
                                     {
-                                        int damage = rand.Next(35, 51);
+                                        int damage = WeaponDamage(10, 20);
 
-                                        Console.WriteLine("\nYour heavy strike lands!");
+                                    Console.WriteLine("\nYour heavy strike lands!");
                                         Console.WriteLine($"You deal {damage} damage!");
 
                                         assassinHealth -= damage;
@@ -1782,9 +1782,9 @@ namespace NewGame
 
                         if (choice == "1" || choice == "Quick Strike")
                         {
-                            int damage = rand.Next(20, 36);
+                            int damage = WeaponDamage(1, 10);
 
-                            Console.WriteLine("\nYou slash the Abysswalker!");
+                        Console.WriteLine("\nYou slash the Abysswalker!");
                             Console.WriteLine($"You deal {damage} damage!");
 
                             abyssHealth -= damage;
@@ -1795,9 +1795,9 @@ namespace NewGame
 
                             if (hitChance < 61)
                             {
-                                int damage = rand.Next(40, 65);
+                            int damage = WeaponDamage(10, 20);
 
-                                Console.WriteLine("\nYour heavy attack lands!");
+                            Console.WriteLine("\nYour heavy attack lands!");
                                 Console.WriteLine($"You deal {damage} damage!");
 
                                 abyssHealth -= damage;
@@ -2237,7 +2237,7 @@ namespace NewGame
 
                                                     if (choice == "1" || choice == "Quick Strike")
                                                     {
-                                                        int damage = rand.Next(20, 36);
+                                                        int damage = WeaponDamage(1, 10); ;
 
                                                         Console.WriteLine("\nYou slash the reaper!");
                                                         Console.WriteLine($"You deal {damage} damage!");
@@ -2266,9 +2266,9 @@ namespace NewGame
 
                                                         if (hitChance < 61)
                                                         {
-                                                            int damage = rand.Next(40, 65);
+                                                            int damage = WeaponDamage(10, 20);
 
-                                                            Console.WriteLine("\nYour heavy attack strikes the reaper!");
+                                                        Console.WriteLine("\nYour heavy attack strikes the reaper!");
                                                             Console.WriteLine($"You deal {damage} damage!");
 
                                                             if (minionHealth > 0)
@@ -2709,18 +2709,18 @@ namespace NewGame
 
                         if (choice == "1")
                         {
-                            int damage = rand.Next(25, 36);
+                            int damage = WeaponDamage(1, 10);
 
-                            Console.WriteLine($"You deal {damage} damage!");
+                        Console.WriteLine($"You deal {damage} damage!");
                             guardianHealth -= damage;
                         }
                         else if (choice == "2")
                         {
                             if (rand.Next(100) < 60)
                             {
-                                int damage = rand.Next(45, 71);
+                                int damage = WeaponDamage(10, 20);
 
-                                Console.WriteLine($"Heavy attack deals {damage} damage!");
+                            Console.WriteLine($"Heavy attack deals {damage} damage!");
                                 guardianHealth -= damage;
                             }
                             else
@@ -2964,11 +2964,9 @@ namespace NewGame
 
                     if (choice == "1")
                     {
-                        int damage = rand.Next(
-                            currentWeapon.Damage - 5,
-                            currentWeapon.Damage + 6);
+                        int damage = WeaponDamage(1, 10);
 
-                        Console.WriteLine($"You deal {damage} damage!");
+                    Console.WriteLine($"You deal {damage} damage!");
 
                         kingHealth -= damage;
 
@@ -2980,9 +2978,9 @@ namespace NewGame
 
                         if (hitChance < 60)
                         {
-                            int damage = rand.Next(35, 51);
+                            int damage = WeaponDamage(10, 20);
 
-                            Console.WriteLine($"Heavy strike deals {damage} damage!");
+                        Console.WriteLine($"Heavy strike deals {damage} damage!");
 
                             kingHealth -= damage;
 
