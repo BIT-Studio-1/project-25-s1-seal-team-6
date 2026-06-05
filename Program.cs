@@ -602,6 +602,32 @@ namespace NewGame
             }
         }
 
+        // weapon damage calculator work in progress-AJ
+        public static int WeaponDamage(int defaultMinBonus, int defaultMaxBonus)
+        {
+            Random rand = new Random();
+
+            // check equipped weapon
+            Weapon equippedWeapon = Inventory.OfType<Weapon>().FirstOrDefault();
+
+            int baseDamage = 10; // base fist damage if no weapon equipped
+
+            if (equippedWeapon != null)
+            {
+                baseDamage = equippedWeapon.Damage;
+                Console.WriteLine($"\nYou swing your {equippedWeapon.Name}!");
+            }
+            else
+            {
+                Console.WriteLine("\nYou strike with your bare fists!");
+            }
+
+            // random damage variance
+            int randomBonus = rand.Next(defaultMinBonus, defaultMaxBonus + 1);
+
+            return baseDamage + randomBonus;
+        }
+
         static void Main()
         {
             string userInput;
@@ -678,8 +704,9 @@ namespace NewGame
                     Environment.Exit(0);
                 }
             }
+        }
 
-            static void StartGame()
+        static void StartGame()
             {
                 int player, BKknight;
                 int playerHealth = 100;
@@ -3342,4 +3369,3 @@ namespace NewGame
             }
         }
     }
-}
