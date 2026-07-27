@@ -455,6 +455,7 @@ namespace NewGame
             //[3] Chanumi
             //[4] AJ
             //[5] Kobe
+            // Elliot
 
             Console.Write("\nEnter your Developer number: ");
 
