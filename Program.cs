@@ -965,8 +965,10 @@ namespace NewGame
                 Console.WriteLine("Beneath the shattered visor, two faint embers flicker within the darkness where eyes should have been.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 bool blackKnightDefeated = false;
+
+            //Black-knight Battle
 
                 while (blackKnightDefeated == false)
                 {
@@ -979,7 +981,9 @@ namespace NewGame
 
                         while (playerHealth > 0 && BKhealth > 0)
                         {
-                            Console.WriteLine("You fight with the Rusty Sword");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("You fight with the Rusty Sword");
                             Console.WriteLine("\n------------------------------------------------");
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine($"Black Knight Health: {BKhealth}");
