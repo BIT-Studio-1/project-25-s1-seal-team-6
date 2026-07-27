@@ -443,7 +443,7 @@ namespace NewGame
             "Dev-Team",
             "Alfie | Developer, Storyline Creator",
             "Klae | Developer, Artwork Designer",
-            "Chanumi | Developer, Boss Fight Designer",
+            "Chan | Developer, Boss Fight Designer",
             "AJ | Developer, Inventory Designer",
             "Kobe | Developer, Map Creator"
             };
@@ -452,7 +452,7 @@ namespace NewGame
             //[0] Dev-Team
             //[1] Alfie
             //[2] Klae
-            //[3] Chanumi
+            //[3] Chan
             //[4] AJ
             //[5] Kobe
 
@@ -502,7 +502,7 @@ namespace NewGame
 
         public static void RespawnOne()
         {
-            Console.WriteLine($"The {PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
+            Console.WriteLine($"{PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
             Thread.Sleep(2000);
             Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
             Thread.Sleep(2000);
@@ -959,14 +959,16 @@ namespace NewGame
                 Console.WriteLine("At its center stands a lone figure clad in blackened armor, motionless beneath the pale light filtering through the clouds above.");
                 Thread.Sleep(2000);
                 Console.WriteLine("For a moment, it seems no more alive than the statues scattered throughout the kingdom.\nThen the knight moves.");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 BKArt();
                 Thread.Sleep(2000);
                 Console.WriteLine("Beneath the shattered visor, two faint embers flicker within the darkness where eyes should have been.");
                 Thread.Sleep(2000);
                 Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 bool blackKnightDefeated = false;
+
+            //Black-knight Battle
 
                 while (blackKnightDefeated == false)
                 {
@@ -979,7 +981,9 @@ namespace NewGame
 
                         while (playerHealth > 0 && BKhealth > 0)
                         {
-                            Console.WriteLine("You fight with the Rusty Sword");
+                        Thread.Sleep(2000);
+
+                        Console.WriteLine("You fight with the Rusty Sword");
                             Console.WriteLine("\n------------------------------------------------");
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine($"Black Knight Health: {BKhealth}");
