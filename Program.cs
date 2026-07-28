@@ -2434,8 +2434,8 @@ namespace NewGame
                                         }
                                     else if (userInput.ToLower() == "help")
                                     {
-                                        Console.WriteLine("Type Y or Yes to collect the Greataxe.");
-                                        Console.WriteLine("Type N or No to leave it behind.");
+                                        Console.WriteLine("Type Yes or Y to collect the Greataxe.");
+                                        Console.WriteLine("Type No or N to leave it behind.");
                                     }
                                     else
                                         {
