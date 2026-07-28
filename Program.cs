@@ -761,6 +761,7 @@ namespace NewGame
                     Console.WriteLine("\n\nTo continue to rest at the bonfire type: Rest");
                     Console.WriteLine("To leave the bonfire type: Proceed");
                     Console.WriteLine("To view your inventory type: Inv");
+                    Console.WriteLine("To quit the game type: Quit");
                 }
                 else if (userInput.ToLower() == "rest")
                 {
@@ -778,7 +779,10 @@ namespace NewGame
                     RestartGame();
                     return;
                 }
-
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
+                }
                 else if (userInput.ToLower() == "devrestart")
                 {
                     DeveloperRestart();
@@ -819,6 +823,10 @@ namespace NewGame
                             Console.WriteLine(responses[rand.Next(responses.Length)]);
                         }
                     }
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else
                 {
@@ -864,6 +872,10 @@ namespace NewGame
                             Inventory.Add(new Consumable("Estus Potion", "A warm, radiant fluid that mends broken bones and restores vitality.", 40));
                             RespawnOne();
                         }
+                        else if (userInput.ToLower() == "quit")
+                        {
+                            QuitGame();
+                        }
                         else if (userInput.ToLower() == "help")
                         {
                             Console.WriteLine("At the bonfire: Rest / Proceed");
@@ -897,6 +909,11 @@ namespace NewGame
                 {
                     RestartGame();
                     return;
+                }
+
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
 
                 else if (userInput.ToLower() == "devrestart")
@@ -946,6 +963,11 @@ namespace NewGame
             {
                 RestartGame();
                 return;
+            }
+
+            else if (userInput.ToLower() == "quit")
+            {
+                QuitGame();
             }
 
             else if (userInput.ToLower() == "devrestart")
@@ -1559,6 +1581,11 @@ namespace NewGame
                 {
                     RestartGame();
                     return;
+                }
+
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
 
                 else if (userInput.ToLower() == "devrestart")
