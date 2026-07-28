@@ -2583,6 +2583,7 @@ namespace NewGame
                     Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                     Console.WriteLine("To leave the bonfire type: Proceed");
                     Console.WriteLine("To view inventory: Inv");
+                    Console.WriteLine("To qui the game type: Quit");
                 }
                 else if (userInput.ToLower() == "rest")
                 {
@@ -2593,7 +2594,10 @@ namespace NewGame
                     Console.WriteLine("The bonfire does not judge. It only burns.");
                     Thread.Sleep(2000);
                 }
-
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
+                }
                 else if (userInput.ToLower() == "inv")
                 {
                     InventoryMenu(ref playerHealth, maxHealth);
@@ -2639,6 +2643,7 @@ namespace NewGame
                 {
                     Console.WriteLine("\n\nTo open the chest type: Open");
                     Console.WriteLine("To proceed up the stairs type: Proceed");
+                    Console.WriteLine("To quit the game type: Quit");
                 }
                 else if (userInput.ToLower() == "open")
                 {
@@ -2656,6 +2661,10 @@ namespace NewGame
                     Console.WriteLine("There couldn't be anything of importance in there...");
                     Thread.Sleep(2000);
                     keychoice = true;
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else
                 {
@@ -3330,6 +3339,7 @@ namespace NewGame
                     {
                         Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                         Console.WriteLine("To leave the castle type: Proceed");
+                        Console.WriteLine("To quit the game type: Quit");
                         //no inv need
                     }
                     else if (userInput.ToLower() == "rest")
@@ -3361,6 +3371,10 @@ namespace NewGame
                         Console.WriteLine("And somewhere beyond the horizon, another path awaits.");
                         Thread.Sleep(2000);
                         endGame = true;
+                    }
+                    else if (userInput.ToLower() == "quit")
+                    {
+                        QuitGame();
                     }
                     else
                     {
