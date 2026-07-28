@@ -796,7 +796,7 @@ namespace NewGame
                         bool deciding = true;
                         while (deciding)
                         {
-                            Console.WriteLine("Would you like to explore the area? Y/N");
+                            Console.WriteLine("Would you like to explore the area? (Y/N)");
                             userInput = Console.ReadLine();
                             if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
                             {
@@ -837,7 +837,7 @@ namespace NewGame
                 bool atGate = true;
                 while (atGate)
                 {
-                    Console.WriteLine("Would you like to proceed? Y/N");
+                    Console.WriteLine("Would you like to proceed? (Y/N)");
                     userInput = Console.ReadLine();
 
                     if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
@@ -908,7 +908,7 @@ namespace NewGame
 
                     else if (userInput.ToLower() == "help")
                     {
-                        Console.WriteLine("At the gate: Y/N");
+                        Console.WriteLine("At the gate: (Y/N)");
                         Console.WriteLine("To view inventory: Inv");
                     }
                     else
@@ -928,7 +928,7 @@ namespace NewGame
                 Thread.Sleep(2000);
                 Console.WriteLine("Its armor is split open with age and ruin, but one hand still clutches the hilt of a weathered blade.");
                 Thread.Sleep(2000);
-                Console.WriteLine("Would you like to collected the sword? Y/N");
+                Console.WriteLine("You found a sword! Collect the sword? (Y/N)");
                 userInput = Console.ReadLine();
                 if (hasSword == false && (userInput.ToLower() == "y" || userInput.ToLower() == "yes"))
                 {
@@ -1231,7 +1231,7 @@ namespace NewGame
                                 {
                                     Console.WriteLine("\nBeside the bonfire, the Rusty Sword still rests where you left it.");
                                     Thread.Sleep(2000);
-                                    Console.WriteLine("Will you take it this time? Y/N");
+                                    Console.WriteLine("Will you take it this time? (Y/N)");
 
                                     userInput = Console.ReadLine().ToLower();
 
@@ -1245,8 +1245,8 @@ namespace NewGame
                                     }
                                     else if (userInput == "help")
                                     {
-                                        Console.WriteLine("\nType Yes to collect the Rusty Sword");
-                                        Console.WriteLine("Type No to leave it behind");
+                                        Console.WriteLine("\nType Yes or Y to collect the Rusty Sword");
+                                        Console.WriteLine("Type No or N to leave it behind");
                                         Console.WriteLine("To view inventory: Inv");
                                     }
                                     else if (userInput.ToLower() == "restart")
@@ -1504,7 +1504,7 @@ namespace NewGame
                                 Thread.Sleep(2000);
                                 Console.WriteLine("A long, sharp blade.");
                                 Thread.Sleep(2000);
-                                Console.WriteLine("Would you like to collect it?");
+                                Console.WriteLine("Would you like to collect it? (Y/N)");
                                 Thread.Sleep(2000);
                                 bool weaponChoiceMade = false;
                                 while (weaponChoiceMade == false)
@@ -1525,8 +1525,8 @@ namespace NewGame
                                     }
                                     else if (userInput == "help")
                                     {
-                                        Console.WriteLine("\nType Yes to collect the Claymore");
-                                        Console.WriteLine("Type No to leave it behind");
+                                        Console.WriteLine("\nType Yes or Y to collect the Claymore");
+                                        Console.WriteLine("Type No or N to leave it behind");
                                         Console.WriteLine("To view inventory: Inv");
                                     }
                                     else
@@ -1970,7 +1970,7 @@ namespace NewGame
                 //Alfie. Added new eapon after abyss walker fight
                 Console.WriteLine("A new weapon rests in the snow");
                 Thread.Sleep(2000);
-                Console.WriteLine("Would you like to collect it?");
+                Console.WriteLine("Would you like to collect it? (Y/N)");
                 Thread.Sleep(2000);
                 bool AbyssDec = false;
                 while (AbyssDec == false)
@@ -1985,8 +1985,8 @@ namespace NewGame
                     }
                     else if (userInput == "help")
                     {
-                        Console.WriteLine("\nType Yes to collect the Abyss GreatSword");
-                        Console.WriteLine("Type No to leave it behind");
+                        Console.WriteLine("\nType Yes or Y to collect the Abyss GreatSword");
+                        Console.WriteLine("Type No or N to leave it behind");
                         Console.WriteLine("To view inventory: Inv");
                     }
                     else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
@@ -2161,7 +2161,7 @@ namespace NewGame
                                         Thread.Sleep(2000);
                                         Console.WriteLine("Though dulled by age, its iron head remains intact, etched with faded runes from a forgotten age.");
                                         Thread.Sleep(2000);
-                                        Console.WriteLine("Would you like to collect the Greataxe? Y/N");
+                                        Console.WriteLine("Would you like to collect the Greataxe? (Y/N)");
                                         userInput = Console.ReadLine();
                                         //AJ: added an optional boss encounter for if you take the greataxe
                                         if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
@@ -2432,7 +2432,12 @@ namespace NewGame
                                                 // end of reaper fight
                                             }
                                         }
-                                        else
+                                    else if (userInput.ToLower() == "help")
+                                    {
+                                        Console.WriteLine("Type Y or Yes to collect the Greataxe.");
+                                        Console.WriteLine("Type N or No to leave it behind.");
+                                    }
+                                    else
                                         {
                                             Console.WriteLine("\nYou leave the Greataxe behind.");
                                             Console.WriteLine("\nIt was now time to proceed.");
@@ -2622,7 +2627,7 @@ namespace NewGame
                 {
                     Console.WriteLine("The door is locked.");
                     Thread.Sleep(2000);
-                    Console.WriteLine("Would you like to return to the chest? Y/N");
+                    Console.WriteLine("Would you like to return to the chest? (Y/N)");
                     userInput = Console.ReadLine().ToLower();
                     if (userInput == "y" || userInput == "yes")
                     {
