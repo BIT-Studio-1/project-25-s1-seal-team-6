@@ -1615,6 +1615,11 @@ namespace NewGame
                     Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                     Console.WriteLine("To leave the bonfire type: Proceed");
                     Console.WriteLine("To view inventory: Inv");
+                    Console.WriteLine("To quit the game type: Quit");
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else if (userInput.ToLower() == "rest")
                 {
@@ -2020,12 +2025,17 @@ namespace NewGame
                     Console.WriteLine("\nType Yes to collect the Abyss GreatSword");
                     Console.WriteLine("Type No to leave it behind");
                     Console.WriteLine("To view inventory: Inv");
+                    Console.WriteLine("To quit the game type: Quit");
                 }
                 else if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
                 {
                     Console.WriteLine("\nYou leave the sword behind, snow quickly blankets it");
                     Thread.Sleep(1500);
                     AbyssDec = true;
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else if (userInput.ToLower() == "restart")
                 {
@@ -2069,6 +2079,7 @@ namespace NewGame
                     Console.WriteLine("\n\nTo rest at the bonfire type: Rest");
                     Console.WriteLine("To leave the bonfire type: Proceed");
                     Console.WriteLine("To view inventory: Inv");
+                    Console.WriteLine("To quit the game type: Quit");
                 }
                 else if (userInput.ToLower() == "rest")
                 {
@@ -2079,6 +2090,10 @@ namespace NewGame
                     Console.WriteLine("For a brief moment, the mountain grows quiet.. Only the crackling of the fire remains.");
                     Thread.Sleep(2000);
 
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else if (userInput.ToLower() == "inv")
                 {
@@ -2130,6 +2145,7 @@ namespace NewGame
                     Console.WriteLine("\n\nTo explore the area type: Explore");
                     Console.WriteLine("To proceed towards the castle type: Proceed");
                     Console.WriteLine("To view inventory: Inv");
+                    Console.WriteLine("To quit the game type: Quit");
                 }
                 else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                 {
@@ -2148,13 +2164,17 @@ namespace NewGame
                             Console.WriteLine("\n\nTo continue exploring the area type: Explore");
                             Console.WriteLine("To proceed towards the castle type: Proceed");
                             Console.WriteLine("To view inventory: Inv");
+                            Console.WriteLine("To quit the game type: Quit");
                         }
                         else if (userInput.ToLower() == "restart")
                         {
                             RestartGame();
                             return;
                         }
-
+                        else if (userInput.ToLower() == "quit")
+                        {
+                            QuitGame();
+                        }
                         else if (userInput.ToLower() == "devrestart")
                         {
                             DeveloperRestart();
@@ -2182,6 +2202,11 @@ namespace NewGame
                                     Console.WriteLine("\n\nTo explore the building type: Explore");
                                     Console.WriteLine("To proceed towards the castle type: Proceed");
                                     Console.WriteLine("To view inventory: Inv");
+                                    Console.WriteLine("To quit the game type: Quit");
+                                }
+                                else if (userInput.ToLower() == "quit")
+                                {
+                                    QuitGame();
                                 }
                                 else if (userInput.ToLower() == "y" || userInput.ToLower() == "yes" || userInput.ToLower() == "explore")
                                 {
@@ -2504,7 +2529,10 @@ namespace NewGame
                             RestartGame();
                             return;
                         }
-
+                        else if (userInput.ToLower() == "quit")
+                        {
+                            QuitGame();
+                        }
                         else if (userInput.ToLower() == "devrestart")
                         {
                             DeveloperRestart();
@@ -2523,6 +2551,10 @@ namespace NewGame
                     Console.WriteLine("It waits impatiently, you could almost hear it calling for you...");
                     Thread.Sleep(2000);
                     explore = false;
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else
                 {
