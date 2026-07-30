@@ -703,6 +703,10 @@ namespace NewGame
                     Thread.Sleep(5000);
                     StartGame();
                 }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
+                }
                 else
                 {
                     Console.WriteLine("Go away");
