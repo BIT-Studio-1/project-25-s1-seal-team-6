@@ -702,6 +702,7 @@ namespace NewGame
                 
 
             }
+            
             else if (userInput.ToLower() == "help")
             {
                 Console.WriteLine("Type the following to enter the game the game: Proceed");
@@ -733,6 +734,13 @@ namespace NewGame
                     Thread.Sleep(1000);
                     Environment.Exit(0);
                 }
+            }
+            else
+            {
+                Console.WriteLine("Please insert a proper input");
+                Thread.Sleep(3000);
+                Console.Clear();
+                Main();
             }
         }
 
