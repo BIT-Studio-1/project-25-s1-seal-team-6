@@ -983,7 +983,7 @@ namespace NewGame
                         {
                         Thread.Sleep(2000);
 
-                        Console.WriteLine("You fight with the Rusty Sword");
+                            Console.WriteLine("You fight with the Rusty Sword");
                             Console.WriteLine("\n------------------------------------------------");
                             Console.WriteLine($"Your Health: {playerHealth}");
                             Console.WriteLine($"Black Knight Health: {BKhealth}");
@@ -1001,7 +1001,7 @@ namespace NewGame
                             {
                                 int damage = WeaponDamage(1, 10);
 
-                            Console.WriteLine("You slash the Black Knight!");
+                                Console.WriteLine("You slash the Black Knight!");
                                 Console.WriteLine($"You deal {damage} damage!");
 
                                 BKhealth -= damage;
@@ -1014,7 +1014,7 @@ namespace NewGame
                                 {
                                     int damage = WeaponDamage(10, 20);
 
-                                Console.WriteLine("Your heavy attack lands!");
+                                    Console.WriteLine("Your heavy attack lands!");
                                     Console.WriteLine($"You deal {damage} damage!");
 
                                     BKhealth -= damage;
