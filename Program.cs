@@ -30,7 +30,6 @@ namespace NewGame
         };
         //Start of Artwork Section
         public static bool WelcomeToogleScreen = false;
-        public static void Welcome()
         public static void Welcome()//Quit game version
         {
             WelcomeToogleScreen = true;
