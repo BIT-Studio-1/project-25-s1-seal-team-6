@@ -443,7 +443,7 @@ namespace NewGame
             "Dev-Team",
             "Alfie | Developer, Storyline Creator",
             "Klae | Developer, Artwork Designer",
-            "Chan | Developer, Boss Fight Designer",
+            "Chanumi | Developer, Boss Fight Designer",
             "AJ | Developer, Inventory Designer",
             "Kobe | Developer, Map Creator"
             };
@@ -452,7 +452,7 @@ namespace NewGame
             //[0] Dev-Team
             //[1] Alfie
             //[2] Klae
-            //[3] Chan
+            //[3] Chanumi
             //[4] AJ
             //[5] Kobe
 
@@ -502,7 +502,7 @@ namespace NewGame
 
         public static void RespawnOne()
         {
-            Console.WriteLine($"{PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
+            Console.WriteLine($"The {PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
             Thread.Sleep(2000);
             Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
             Thread.Sleep(2000);
@@ -928,25 +928,6 @@ namespace NewGame
                     Thread.Sleep(1000);
                 }
 
-                Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
-                Thread.Sleep(2000);
-                Console.WriteLine($"{PlayerName} slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
-                Thread.Sleep(2000);
-                Console.WriteLine("At its center stands a lone figure clad in blackened armor, motionless beneath the pale light filtering through the clouds above.");
-                Thread.Sleep(2000);
-                Console.WriteLine("For a moment, it seems no more alive than the statues scattered throughout the kingdom.\nThen the knight moves.");
-                Thread.Sleep(3000);
-                BKArt();
-                Thread.Sleep(2000);
-                Console.WriteLine("Beneath the shattered visor, two faint embers flicker within the darkness where eyes should have been.");
-                Thread.Sleep(2000);
-                Console.WriteLine("Its blade rises slowly toward the traveler, trembling in decayed hands.\nThe kingdom is no longer empty..");
-                Thread.Sleep(3000);
-                bool blackKnightDefeated = false;
-
-            //Black-knight Battle
-
-                while (blackKnightDefeated == false)
                 else if (userInput.ToLower() == "help")
                 {
                     Console.WriteLine("At the gate: Y/N");
@@ -959,15 +940,6 @@ namespace NewGame
             }
 
 
-                        while (playerHealth > 0 && BKhealth > 0)
-                        {
-                        Thread.Sleep(2000);
-
-                            Console.WriteLine("You fight with the Rusty Sword");
-                            Console.WriteLine("\n------------------------------------------------");
-                            Console.WriteLine($"Your Health: {playerHealth}");
-                            Console.WriteLine($"Black Knight Health: {BKhealth}");
-                            Console.WriteLine("------------------------------------------------");
 
             bool hasSword = false;
             Console.WriteLine($"\n{PlayerName} presses onward, leaving the bonfire’s fading warmth behind.");
@@ -1008,8 +980,6 @@ namespace NewGame
                 Console.WriteLine("\nYou leave the sword behind.");
             }
 
-                                Console.WriteLine("You slash the Black Knight!");
-                                Console.WriteLine($"You deal {damage} damage!");
             Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
             Thread.Sleep(2000);
             Console.WriteLine($"{PlayerName} slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
@@ -1035,8 +1005,6 @@ namespace NewGame
                 if (hasSword) //sword combat
                 {
 
-                                    Console.WriteLine("Your heavy attack lands!");
-                                    Console.WriteLine($"You deal {damage} damage!");
                     while (playerHealth > 0 && BKhealth > 0)
                     {
                         Console.WriteLine("You fight with the Rusty Sword");
