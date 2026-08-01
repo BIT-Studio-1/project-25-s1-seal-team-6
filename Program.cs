@@ -28,7 +28,7 @@ namespace NewGame
             "Kobe | Developer, Map Creator"      // 5
         };
         //Start of Artwork Section
-        public static void Welcome()//Adding colours
+        public static void Welcome()
         {
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.Black;
