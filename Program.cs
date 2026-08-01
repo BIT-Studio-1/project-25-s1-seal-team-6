@@ -30,7 +30,10 @@ namespace NewGame
         //Start of Artwork Section
         public static void Welcome()//Adding colours
         {
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
+            Console.ResetColor();
             Console.WriteLine();
             Console.Write("What is your name, traveler? ");
             PlayerName = Console.ReadLine();
@@ -55,11 +58,15 @@ namespace NewGame
         }
         public static void Castle()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                  [\\\r\n                  |\\)                                ____\r\n                  |                               __(_   )__\r\n                  Y\\          ___               _(          )\r\n                 T  \\       __)  )--.          (     )-----`\r\n                J    \\   ,-(         )_         `---'\r\n               Y/T`-._\\ (     (       _)                 __\r\n               /[|   ]|  `-(__  ___)-`  |\\          ,-(  __)\r\n               | |    |      (__)       J'         (     )\r\n   _           | |  ] |    _           /;\\          `-  '\r\n  (,,)        [| |    |    L'         /;  \\\r\n             /||.| /\\ |   /\\         /.,-._\\        ___ _\r\n            /_|||| || |  /  \\        | |{  |       (._.'_)\r\n  L/\\       | \\| | '` |_ _ {|        | | U |   /\\\r\n /v^v\\/\\   `|  Y | [  '-' '--''-''-\"-'`'   | ,`^v\\ /\\,`\\\r\n/ ,'./  \\.` |[   |       [     __   L    ] |      /^v\\  \\\r\n,'     `    |    |           ,`##Y.   ]    |___Y Y____,_,,_,,_\r\n--   -----.-(] [ |   ]     o/####U|o      ]|| /`-, Y   _   Y  Y\r\n   Y Y  --;`~T   |      }   \\####U|[\\ _,.-(^) ,-'  _  (^)__  _\r\n  Y  YY   ;'~~l  |   L     [|\\###U'E'\\  \\ \\Y-` _  (^) _Y  _\r\n Y  Y Y   ;\\~~/\\{| [      _,'-\\`= = '.\\_ ,`   (^)(^) (^) (^)\r\n     --   ;\\~~~/\\|  _,.-'`_  `.\\_..-'\"  _ . ,_ Y_ Y_ _Y  _Y__\r\n    _    _; \\~~( Y``   Y (^) / `,      (^)      _   (^) (^)\r\n   (^)  (^)`._~ /  L \\  _.Y'`  _  ` --  Y - - -(^) - Y - Y -\r\n    Y    Y    `'--..,-'`      (^)   _  -    _   Y ____\r\n      --           _    _ --   Y   (^)   _ (^)  ===   ----\r\n          __   -  (^)  (^)      --- Y   (^) Y\r\n      _            Y    Y                Y             lt.\r\n");
+            Console.ResetColor();
         }
         public static void WatchTower()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                |>>>\r\n                                                |\r\n                                            _  _|_  _\r\n                                           |;|_|;|_|;|\r\n                                           \\\\.    .  /\r\n                                            \\\\:  .  /\r\n                                             ||:   |\r\n                                             ||:.  |\r\n                                             ||:  .|\r\n                                             ||:   |       \\,/\r\n                                             ||: , |            /`\\\r\n                                             ||:   |\r\n                                             ||: . |\r\n              __                            _||_   |\r\n     ____--`~    '--~~__            __ ----~    ~`---,              ___\r\n-~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~");
+            Console.ResetColor();
         }
         public static void BlackKnightFalls()
         {
