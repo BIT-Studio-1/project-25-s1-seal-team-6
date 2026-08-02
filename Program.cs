@@ -1,6 +1,7 @@
 ﻿using NewGame;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Numerics;
@@ -37,6 +38,7 @@ namespace NewGame
             Console.WriteLine();
             Console.Write("What is your name, traveler? ");
             PlayerName = Console.ReadLine();
+            
 
             if (string.IsNullOrWhiteSpace(PlayerName))
             {
@@ -145,6 +147,9 @@ namespace NewGame
         }
 
         //End of Artwork Section
+
+        //Setting up Git Hub Pull Request
+
 
         public static void RespawnMain()
         {
@@ -448,7 +453,7 @@ namespace NewGame
             Inventory.Clear();
 
             Console.Clear();
-
+            WelcomeToogleScreen = false;
             Main();
         }
 
@@ -461,7 +466,8 @@ namespace NewGame
             "Klae | Developer, Artwork Designer",
             "Chanumi | Developer, Boss Fight Designer",
             "AJ | Developer, Inventory Designer",
-            "Kobe | Developer, Map Creator"
+            "Kobe | Developer, Map Creator",
+            "Eliot | Developer,"
             };
 
             //Developer List
@@ -471,6 +477,7 @@ namespace NewGame
             //[3] Chanumi
             //[4] AJ
             //[5] Kobe
+            //[6] Eliot
 
             Console.Write("\nEnter your Developer number: ");
 
@@ -494,15 +501,17 @@ namespace NewGame
 
             Console.WriteLine($"Now restarting the game ({developers[devNumber]})");
             Console.WriteLine("Resetting Inventory...");
+            Thread.Sleep(1500);
             Console.WriteLine("Resetting Player Data...");
+            Thread.Sleep(1500);
             Console.WriteLine("Reloading World...");
 
-            Thread.Sleep(2500);
+            Thread.Sleep(2000);
 
             Inventory.Clear();
 
             Console.Clear();
-
+            WelcomeToogleScreen = false;
             Main();
         }
 
@@ -660,7 +669,12 @@ namespace NewGame
             int tempHealth = 100;
             int tempMax = 100;
 
-            Welcome();
+            if (WelcomeToogleScreen == false) 
+            {
+                Welcome();
+
+            }
+            
             Console.WriteLine("You are in a dark and forbidding place.");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("Type the following for help: Help");
@@ -696,8 +710,11 @@ namespace NewGame
                 Console.WriteLine("What did you expect, you haven't even started yet");
                 Thread.Sleep(1000);
                 Console.WriteLine("Starting now");
-                Thread.Sleep(1000);
-                StartGame();
+                Thread.Sleep(1500);
+                Console.Clear();
+                Main();
+                
+
             }
             else if (userInput.ToLower() == "help")
             {
@@ -717,7 +734,12 @@ namespace NewGame
                 {
                     InventoryMenu(ref tempHealth, tempMax);
                     Thread.Sleep(5000);
-                    StartGame();
+                    Main();
+                    //StartGame();
+                }
+                else if (userInput.ToLower() == "quit")
+                {
+                    QuitGame();
                 }
                 else
                 {
