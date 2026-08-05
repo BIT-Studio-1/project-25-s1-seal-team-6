@@ -30,23 +30,35 @@ namespace NewGame
         };
         //Start of Artwork Section
         public static bool WelcomeToogleScreen = false;
+        
         public static void Welcome()//Quit game version
         {
             WelcomeToogleScreen = true;
             Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
             Console.WriteLine();
             Console.Write("What is your name, traveler? ");
-            PlayerName = Console.ReadLine();
-            
-
-            if (string.IsNullOrWhiteSpace(PlayerName))
+            bool Validator = false;
+            while (Validator == false)
             {
-                PlayerName = "Traveler";
-            }
+                PlayerName = Console.ReadLine();
 
+                if (string.IsNullOrWhiteSpace(PlayerName))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Hey! what are you trying to do?");
+                    Thread.Sleep(500);
+                    Console.Clear();
+
+                    Console.Write("Please enter your name: ");
+                }
+                else
+                {
+                    Validator = true;
+                }
+            }
             Console.WriteLine($"\nWelcome, {PlayerName}.");
             Console.WriteLine("Your journey is about to begin.");
-            Thread.Sleep(5000);
+            Thread.Sleep(500);
             Console.Clear();
         }
         public static void Death()
