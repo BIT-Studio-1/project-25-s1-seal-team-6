@@ -8,6 +8,8 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
+using System;
+using System.Threading;
 
 namespace NewGame
 {
@@ -33,8 +35,30 @@ namespace NewGame
         public static void Welcome()//Quit game version
         {
             WelcomeToogleScreen = true;
-            Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
-            Console.WriteLine();
+            string[] title =
+            {
+                @"                 __        __   _                            _                          ",
+                @"                 \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___                    ",
+                @"                  \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \                   ",
+                @"                   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                  ",
+                @"  _____ _           \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  _                ",
+                @" |_   _| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___ ",
+                @"   | | | '_ \ / _ \ | |_ / _` | | |/ _ \ '_ \  | ' /| | '_ \ / _` |/ _` |/ _ \| '_ ` _ \",
+                @"   | | | | | |  __/ |  _| (_| | | |  __/ | | | | . \| | | | | (_| | (_| | (_) | | | | | |",
+                @"   |_| |_| |_|\___| |_|  \__,_|_|_|\___|_| |_| |_|\_\_|_| |_|\__, |\__,_|\___/|_| |_| |_|",
+                @"                                                             |___/                       "
+            };
+
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            foreach (string line in title)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(75);
+            }
+
+            Console.ResetColor();
+
             Console.Write("What is your name, traveler? ");
             PlayerName = Console.ReadLine();
             
@@ -46,7 +70,7 @@ namespace NewGame
 
             Console.WriteLine($"\nWelcome, {PlayerName}.");
             Console.WriteLine("Your journey is about to begin.");
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
             Console.Clear();
         }
         public static void Death()
