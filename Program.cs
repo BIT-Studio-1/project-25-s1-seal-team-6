@@ -28,7 +28,9 @@ namespace NewGame
             "Kobe | Developer, Map Creator"      // 5
         };
         //Start of Artwork Section
-        public static void Welcome()
+        public static bool WelcomeToogleScreen = false;
+        
+        public static void Welcome()//Quit game version
         {
             //Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -36,16 +38,28 @@ namespace NewGame
             Console.ResetColor();
             Console.WriteLine();
             Console.Write("What is your name, traveler? ");
-            PlayerName = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(PlayerName))
+            bool Validator = false;
+            while (Validator == false)
             {
-                PlayerName = "Traveler";
-            }
+                PlayerName = Console.ReadLine();
 
+                if (string.IsNullOrWhiteSpace(PlayerName))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Hey! what are you trying to do?");
+                    Thread.Sleep(500);
+                    Console.Clear();
+
+                    Console.Write("Please enter your name: ");
+                }
+                else
+                {
+                    Validator = true;
+                }
+            }
             Console.WriteLine($"\nWelcome, {PlayerName}.");
             Console.WriteLine("Your journey is about to begin.");
-            Thread.Sleep(5000);
+            Thread.Sleep(500);
             Console.Clear();
         }
         public static void Death()
