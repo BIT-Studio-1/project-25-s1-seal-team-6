@@ -895,6 +895,7 @@ namespace NewGame
 
                     while (atGateBonfire)
                     {
+                        Meadow();
                         Console.WriteLine("\nRest or Proceed?");
                         userInput = Console.ReadLine();
                         if (userInput.ToLower() == "rest")
