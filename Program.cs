@@ -203,6 +203,7 @@ namespace NewGame
             wanted = temp.ToLower();
 
             if (wanted == "full")
+            {
                 Console.WriteLine(@"                                                            ╔═══════════════════════════╗
                                                             ║     PROGRESS GAME MAP     ║
                                                             ╚═══════════════════════════╝
@@ -242,8 +243,10 @@ namespace NewGame
                                                             ╔═══════════════════════════╗
                                                             ║   *  In Developement  *   ║
                                                             ╚═══════════════════════════╝
-            ");
-
+                ");
+                Console.Write("Press Enter To Return");
+                Console.ReadLine();
+            }
             else if (wanted == "progress")
             {
                 Console.Write("Please enter password: "); temp = Console.ReadLine();
@@ -416,7 +419,7 @@ namespace NewGame
                         //    break;
 
                 }
-
+            
             }
             else if (wanted == "help") //help section for maps.
             {
@@ -443,7 +446,7 @@ namespace NewGame
 
                 Map();
             }
-
+            Map();
         }
 
         public static void RestartGame()
