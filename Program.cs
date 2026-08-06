@@ -7,6 +7,8 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
+using System;
+using System.Threading;
 
 namespace NewGame
 {
@@ -32,11 +34,30 @@ namespace NewGame
         
         public static void Welcome()//Quit game version
         {
-            //Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("               __        __   _                            _                           \r\n               \\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___                     \r\n                \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\                    \r\n                 \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                   \r\n  _   _           \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  _                 \r\n | |_| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___  \r\n | __| '_ \\ / _ \\ | |_ / _` | | |/ _ \\ '_ \\  | ' /| | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \r\n | |_| | | |  __/ |  _| (_| | | |  __/ | | | | . \\| | | | | (_| | (_| | (_) | | | | | |\r\n  \\__|_| |_|\\___| |_|  \\__,_|_|_|\\___|_| |_| |_|\\_\\_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\r\n                                                           |___/                       ");
+            string[] title =
+            {
+                @"                 __        __   _                            _                          ",
+                @"                 \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___                    ",
+                @"                  \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \                   ",
+                @"                   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |                  ",
+                @"  _____ _           \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  _                ",
+                @" |_   _| |__   ___  |  ___|_ _| | | ___ _ __   | |/ (_)_ __   __ _  __| | ___  _ __ ___ ",
+                @"   | | | '_ \ / _ \ | |_ / _` | | |/ _ \ '_ \  | ' /| | '_ \ / _` |/ _` |/ _ \| '_ ` _ \",
+                @"   | | | | | |  __/ |  _| (_| | | |  __/ | | | | . \| | | | | (_| | (_| | (_) | | | | | |",
+                @"   |_| |_| |_|\___| |_|  \__,_|_|_|\___|_| |_| |_|\_\_|_| |_|\__, |\__,_|\___/|_| |_| |_|",
+                @"                                                             |___/                       "
+            };
+
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            foreach (string line in title)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(75);
+            }
+
             Console.ResetColor();
-            Console.WriteLine();
+
             Console.Write("What is your name, traveler? ");
             bool Validator = false;
             while (Validator == false)
