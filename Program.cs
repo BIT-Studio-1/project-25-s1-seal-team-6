@@ -30,9 +30,9 @@ namespace NewGame
             "Kobe | Developer, Map Creator"      // 5
         };
         //Start of Artwork Section
+        
         public static void Welcome()
         {
-            WelcomeToogleScreen = true;
             string[] title =
             {
                 @"                 __        __   _                            _                          ",
