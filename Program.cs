@@ -192,6 +192,8 @@ namespace NewGame
             }
 
         }
+
+        //Fixing Map System
         public static void Map()
         {
             string temp, wanted; int ProAuth = 0;
