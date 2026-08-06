@@ -783,6 +783,7 @@ namespace NewGame
             bool atIntroBonfire = true;
             while (atIntroBonfire)
             {
+                Meadow();
                 Console.WriteLine("\n\nWhat would you like to do?");
                 Console.WriteLine("Type the following for help: Help\nThis will be available all throughout the game.");
                 userInput = Console.ReadLine();
