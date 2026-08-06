@@ -1640,6 +1640,7 @@ namespace NewGame
             bool atSPeaksBonfire = true;
             while (atSPeaksBonfire == true)
             {
+                Meadow();
                 Console.WriteLine("\n\nWhat would you like to do?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "help")
@@ -2103,6 +2104,7 @@ namespace NewGame
             bool snowyBonfire = true;
             while (snowyBonfire == true)
             {
+                Meadow();
                 Console.WriteLine("Would you like to rest?");
                 Thread.Sleep(2000);
                 userInput = Console.ReadLine();
@@ -2608,6 +2610,7 @@ namespace NewGame
             bool finalBonfire = true;
             while (finalBonfire == true)
             {
+                Meadow();
                 Console.WriteLine("\n\nWhat would you like to do?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "help")
@@ -3365,6 +3368,7 @@ namespace NewGame
                 bool endGame = false;
                 while (endGame == false)
                 {
+                    Meadow();
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
                     Console.ResetColor();
