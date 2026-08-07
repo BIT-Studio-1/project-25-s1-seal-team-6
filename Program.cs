@@ -124,7 +124,7 @@ namespace NewGame
             Console.Clear();
 
         }
-        public static void Meadow()//Unused. Chnaged colours anyway
+        public static void Meadow()//Making a pull request
         {            
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("        ______\r\n       /     /\\\r\n      /     /  \\\r\n     /_____/----\\_    (  \r\n    \"     \"          ).  \r\n   _ ___          o (:') o   \r\n  (@))_))        o ~/~~\\~ o   \r\n                  o  o  o\r\n");
@@ -818,6 +818,7 @@ namespace NewGame
             bool atIntroBonfire = true;
             while (atIntroBonfire)
             {
+                Meadow();
                 Console.WriteLine("\n\nWhat would you like to do?");
                 Console.WriteLine("Type the following for help: Help\nThis will be available all throughout the game.");
                 userInput = Console.ReadLine();
@@ -929,6 +930,7 @@ namespace NewGame
 
                     while (atGateBonfire)
                     {
+                        Meadow();
                         Console.WriteLine("\nRest or Proceed?");
                         userInput = Console.ReadLine();
                         if (userInput.ToLower() == "rest")
@@ -1673,6 +1675,7 @@ namespace NewGame
             bool atSPeaksBonfire = true;
             while (atSPeaksBonfire == true)
             {
+                Meadow();
                 Console.WriteLine("\n\nWhat would you like to do?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "help")
@@ -2136,6 +2139,7 @@ namespace NewGame
             bool snowyBonfire = true;
             while (snowyBonfire == true)
             {
+                Meadow();
                 Console.WriteLine("Would you like to rest?");
                 Thread.Sleep(2000);
                 userInput = Console.ReadLine();
@@ -2641,6 +2645,7 @@ namespace NewGame
             bool finalBonfire = true;
             while (finalBonfire == true)
             {
+                Meadow();
                 Console.WriteLine("\n\nWhat would you like to do?");
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "help")
@@ -3398,6 +3403,7 @@ namespace NewGame
                 bool endGame = false;
                 while (endGame == false)
                 {
+                    Meadow();
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("\n\nWould you like to rest, or leave the caste?");
                     Console.ResetColor();
