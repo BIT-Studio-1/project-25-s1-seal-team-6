@@ -559,7 +559,7 @@ namespace NewGame
 
         public static void RespawnOne()
         {
-            Console.WriteLine($"The {PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
+            Console.WriteLine($"{PlayerName} settles beside the bonfire as its warmth folds quietly into the cold air.");
             Thread.Sleep(2000);
             Console.WriteLine("For a brief moment, the world feels distant and still, as if even the shadows have learned to rest.");
             Thread.Sleep(2000);
@@ -809,7 +809,7 @@ namespace NewGame
             Thread.Sleep(2000);
             Console.WriteLine("its embers drifting like lost souls upon the wind.");
             Thread.Sleep(2000);
-            Console.WriteLine($"There, beside the fire, sat a weary {PlayerName} clad in rusted steel and silence,");
+            Console.WriteLine($"There, beside the fire, sat {PlayerName} clad in rusted steel and silence,");
             Thread.Sleep(2000);
             Console.WriteLine("watching the distant castle loom over the horizon — vast, broken, and waiting.");
             Thread.Sleep(2000);
@@ -861,7 +861,7 @@ namespace NewGame
                 }
                 else if (userInput.ToLower() == "proceed")
                 {
-                    Console.WriteLine($"\n\nThe {PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                    Console.WriteLine($"\n\n{PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                     Thread.Sleep(2000);
                     Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                     Thread.Sleep(2000);
