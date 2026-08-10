@@ -227,15 +227,18 @@ namespace NewGame
             }
 
         }
+        public static int ProAuth;
+        //Fixing Map System
         public static void Map()
         {
-            string temp, wanted; int ProAuth = 0;
+            string temp, wanted; 
             Console.WriteLine("Which map would you like to access? \nYou have access to the full game's map, or you can see what you have unlocked so far");
             Console.Write("Say 'Full' or 'Progress' to access the map you would like: "); temp = Console.ReadLine();
 
             wanted = temp.ToLower();
 
             if (wanted == "full")
+            {
                 Console.WriteLine(@"                                                            ╔═══════════════════════════╗
                                                             ║     PROGRESS GAME MAP     ║
                                                             ╚═══════════════════════════╝
@@ -275,8 +278,10 @@ namespace NewGame
                                                             ╔═══════════════════════════╗
                                                             ║   *  In Developement  *   ║
                                                             ╚═══════════════════════════╝
-            ");
-
+                ");
+                Console.Write("Press Enter To Return");
+                Console.ReadLine();
+            }
             else if (wanted == "progress")
             {
                 Console.Write("Please enter password: "); temp = Console.ReadLine();
@@ -428,28 +433,9 @@ namespace NewGame
 
                         //    break;
 
-                        //case 6:
-                        //    Console.WriteLine(@"");
-
-                        //    break;
-
-                        //case 7:
-                        //    Console.WriteLine(@"");
-
-                        //    break;
-
-                        //case 8:
-                        //    Console.WriteLine(@"");
-
-                        //    break;
-
-                        //case 9:
-                        //    Console.WriteLine(@"");
-
-                        //    break;
 
                 }
-
+            
             }
             else if (wanted == "help") //help section for maps.
             {
@@ -476,7 +462,7 @@ namespace NewGame
 
                 Map();
             }
-
+            Map();
         }
 
         public static void RestartGame()
@@ -801,6 +787,7 @@ namespace NewGame
             Thread.Sleep(1000);
             Console.Write(".");
             Thread.Sleep(1000);
+            ProAuth = 0;
             Console.WriteLine("\n\nBeyond the stone walls of a kingdom long since forgotten,");
             Thread.Sleep(2000);
             Console.WriteLine("the world stretched wild and untamed beneath the sky.");
@@ -1050,6 +1037,7 @@ namespace NewGame
             Console.WriteLine("\n\nYou continue onward. Each step echoed unnaturally through the empty city. No voices remained here.");
             Thread.Sleep(2000);
             Console.WriteLine($"{PlayerName} slows as the narrow street opens into a ruined courtyard choked with weeds and fallen stone.");
+            ProAuth = 1;
             Thread.Sleep(2000);
             Console.WriteLine("At its center stands a lone figure clad in blackened armor, motionless beneath the pale light filtering through the clouds above.");
             Thread.Sleep(2000);
@@ -1395,6 +1383,7 @@ namespace NewGame
             Thread.Sleep(2000);
             Console.WriteLine("\nYou proceed into the kingdom, past where the black knight once lay.");
             Thread.Sleep(2000);
+            ProAuth = 2;
             Console.WriteLine("Beyond the drifting fog, a vast cathedral rose above the kingdom like the corpse of a forgotten god.");
             Thread.Sleep(2000);
             Console.WriteLine("Its spires clawed toward the heavens, while shattered stained glass glimmered faintly beneath the sky.");
@@ -1776,7 +1765,7 @@ namespace NewGame
 
             Console.WriteLine("\nNEW LOCATION UNLOCKED");
             Console.WriteLine("\nSHATTERED PEAKS");
-
+            ProAuth = 3;
             Console.WriteLine("\nJagged cliffs pierce the heavens like broken blades.");
             Thread.Sleep(3000);
 
@@ -2128,6 +2117,7 @@ namespace NewGame
             Thread.Sleep(2000);
             Console.WriteLine("The storm breaks, giving you a view of a large, cobblestone castle");
             Castle();
+            ProAuth = 4;
             Thread.Sleep(2000);
             Console.WriteLine("Waiting patiently in the distance.");
             Thread.Sleep(2000);
