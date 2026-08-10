@@ -861,7 +861,7 @@ namespace NewGame
                 }
                 else if (userInput.ToLower() == "proceed")
                 {
-                    Console.WriteLine($"\n\nThe {PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
+                    Console.WriteLine($"\n\n{PlayerName} rises slowly, as if the weight of the world clings to every joint of rusted armor.");
                     Thread.Sleep(2000);
                     Console.WriteLine("The bonfire flickers behind them, casting long, trembling shadows across the grass, but its warmth is left behind.");
                     Thread.Sleep(2000);
